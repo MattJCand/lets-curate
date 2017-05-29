@@ -12,6 +12,7 @@ class TeamsController < ApplicationController
   end
 
   def create
+    @team.member.project_owner = true
   end
 
   def update
