@@ -15,6 +15,7 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     @team.user = current_user
+    @team.member.project_owner = true
     if @team.save
       redirect_to team_path(@team)
     else
