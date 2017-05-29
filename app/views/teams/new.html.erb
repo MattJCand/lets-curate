@@ -1,4 +1,4 @@
-<%= simple_form_for @team do |f| %>
+<%= simple_form_for (@team) do |f| %>
   <%= f.input :title,  placeholder: 'Paris en Noir et Blanc' %>
   <%= f.input :description %>
   <%= f.input :total_members, collection: 2..10 %>
@@ -10,3 +10,7 @@
   <%= f.input :photo, as: :attachinary %>
   <%= f.button :submit %>
  <% end %>
+
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDPP-NYzVfGiWV2Gj2_mPFLxONBE1iekvY"></script>
+<% end %>
