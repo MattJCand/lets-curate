@@ -14,9 +14,8 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
-    @team.user = current_user
-    @team.member.project_owner = true
     if @team.save
+      Member.create!(team: @team, user: current_user, project_owner: true)
       redirect_to team_path(@team)
     else
       render :new
@@ -35,7 +34,6 @@ class TeamsController < ApplicationController
     @team.destroy
     redirect_to user_path(current_user)
   end
-
 
   private
 
