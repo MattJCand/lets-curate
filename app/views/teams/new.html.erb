@@ -1,0 +1,12 @@
+<%= simple_form_for @team do |f| %>
+  <%= f.input :title,  placeholder: 'Paris en Noir et Blanc' %>
+  <%= f.input :description %>
+  <%= f.input :total_members, collection: 2..10 %>
+  <%= f.input :theme %>
+  <%= f.input :art_types %>
+  <%= f.input :budget %>
+  <%= f.input :date %>
+  <%= f.input :location%>
+  <%= f.input :photo, as: :attachinary %>
+  <%= f.button :submit %>
+ <% end %>
