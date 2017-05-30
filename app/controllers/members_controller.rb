@@ -7,26 +7,32 @@ class MembersController < ApplicationController
   def show
     @member = Member.find(params[:id])
     @team = @member.team
+    @task = Task.new(member: @member, team: @team)
+    authorize @member
   end
 
   def new
     @team = Team.find(params[:team_id])
     @member = Member.new
+    authorize @member
   end
 
   def create
     @member = Member.new(member_params)
     @member.team = Team.find(params[:team_id])
     @member.save
+    authorize @member
   end
 
   def edit
   end
 
   def update
+    authorize @member
   end
 
   def destroy
+    authorize @member
     @member.destroy
   end
 
