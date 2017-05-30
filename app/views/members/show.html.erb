@@ -2,20 +2,26 @@
 <h2>STEP 6 - Opening Night Checklist</h2>
 <h4>List and keep track of all the things to do before your big night!</h4>
 
-<%= link_to "Add a task", new_team_task_path(@team) %>
+
+<% if policy(@task).create? %>
+ <%= link_to "Add a task", new_team_task_path(@team) %>
+<% end %>
+
 <% @member.tasks.each_with_index do |task, index| %>
   <p>
   <strong><%= index + 1 %>.
   <%= task.name %></strong>
   <p><%= task.description %></p>
-  <% if task.status? %>
-    Done!
-  <% else %>
-    <%= link_to "Done", done_task_path(task) %>
-  <% end %>
-  <%= link_to "Modify task", edit_task_path(task) %>
-  <%= link_to "Delete task", task_path(task),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
-  </p>
+  <% if policy(@task).create? %>
+    <% if task.status? %>
+      Done!
+    <% else %>
+      <%= link_to "Done", done_task_path(task) %>
+    <% end %>
+    <%= link_to "Modify task", edit_task_path(task) %>
+    <%= link_to "Delete task", task_path(task),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+    <% end %>
+    </p>
 <% end %>
