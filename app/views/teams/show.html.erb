@@ -2,3 +2,33 @@
 <% @team.members.each do |member|  %>
   <%= member.user.email %>
 <% end %>
+<%= link_to "Join the team" %>
+
+
+<!-- JOIN THE TEAM MODAL 6 A LAISSER A AURORE POUR VENDREDI -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Join the team
+</button>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Join the team!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <p>Message: </p>
+      <%#= simple_form_for(@team.members) do |f| %>
+        <%#= f.input :message %>
+      <%# end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%#= link_to "Send request", type: "button", class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div> -->
