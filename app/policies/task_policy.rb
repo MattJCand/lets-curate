@@ -6,7 +6,7 @@ class TaskPolicy < ApplicationPolicy
   end
 
    def create?
-    user.members.project_owner?
+    record.team.members.where(project_owner: true).first.user == user
    end
 
   def new?

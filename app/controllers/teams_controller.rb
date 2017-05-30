@@ -41,7 +41,7 @@ class TeamsController < ApplicationController
 
   def set_team
     @team = Team.find(params[:id])
-     authorize @team
+    authorize @team
   end
 
   def team_params
