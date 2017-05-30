@@ -18,7 +18,7 @@ class TeamPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+   record.members.where(project_owner: true).first.user == user
   end
 
   def edit?
@@ -26,6 +26,6 @@ class TeamPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    record.members.where(project_owner: true).first.user == user
   end
 end
