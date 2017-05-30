@@ -11,7 +11,11 @@ Rails.application.routes.draw do
   resources :teams do
     resources :tasks, only: [ :new, :create ]
   end
-  resources :tasks, except: [ :new, :create ]
-  get 'tasks/:id/done', to: 'tasks#mark_as_done', as: :done
+  resources :tasks, except: [ :new, :create ] do
+    member do
+      get 'done', to: 'tasks#mark_as_done'
+    end
+  end
+
   mount Attachinary::Engine => "/attachinary"
 end

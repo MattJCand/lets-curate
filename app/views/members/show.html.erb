@@ -11,7 +11,7 @@
   <% if task.status? %>
     Done!
   <% else %>
-    <%= link_to "Done", done_path(task) %>
+    <%= link_to "Done", done_task_path(task) %>
   <% end %>
   <%= link_to "Modify task", edit_task_path(task) %>
   <%= link_to "Delete task", task_path(task),
