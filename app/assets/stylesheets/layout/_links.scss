@@ -1,0 +1,109 @@
+#facebook-btn {
+  background-color: #3B5998;
+}
+
+#signup {
+  margin-bottom: 50px;
+  width: 555px;
+}
+
+.login-btn {
+  width: 555px;
+  margin-bottom: 10px;
+}
+
+
+#loginbtn {
+  width: 555px;
+  margin-bottom: 10px;
+}
+
+.noaccount {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #B2B2B2;
+}
+
+.container_or {
+  overflow: hidden !important;
+  text-align: center !important;
+}
+
+.content_of_or {
+  position: relative !important;
+  padding: 16px !important;
+}
+
+.content_of_or::before {
+  content: '' !important;
+  position: absolute !important;
+  border-bottom: 1px solid #e4e4e4 !important;
+  top: 50% !important;
+  right: 100% !important;
+  width: 5000px !important;
+}
+
+.content_of_or::after {
+  content: '' !important;
+  position: absolute !important;
+  border-bottom: 1px solid #e4e4e4 !important;
+  top: 50% !important;
+  left: 100% !important;
+  width: 5000px !important;
+}
+
+.text_or {
+  font-weight: normal !important;
+  color: #767676 !important;
+  margin: 0px !important;
+  word-wrap: break-word !important;
+  font-size: 15px !important;
+  line-height: 18px !important;
+  letter-spacing: 0.2px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  display: inline !important;
+}
+
+.rule{
+  border-bottom: 1px solid #DBDBDB !important;
+}
+
+.password-input {
+  position: relative;
+}
+
+.forgot-container {
+  // -webkit-box-align: center;
+  // -webkit-align-items: center;
+  // -ms-flex-align: center;
+  align-items: center;
+  // -webkit-box-orient: horizontal;
+  // -webkit-box-direction: normal;
+  // -webkit-flex-direction: row;
+  // -ms-flex-direction: row;
+  flex-direction: row;
+  height: 100%;
+  position: absolute;
+  right: 8px;
+  top: 34px;
+}
+
+a{
+  color: #003569;
+  text-decoration: none;
+}
+
+.forgot{
+  font-size: 14px;
+  margin-right: 4px;
+}
+
+#fbbtn{
+  display: flex;
+  justify-content:center;
+}
+
+#facebook-btn{
+  color: white;
+}
