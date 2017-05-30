@@ -17,11 +17,16 @@
           <ul class="nav nav-pills pull-left">
               <li>
                 <%= link_to "#", class: 'become_curator' do %>
-                  <%= t(".profile", default: "Artists") %>
+                  <%= t(".profile", default: "How it works") %>
                 <% end %>
               </li>
               <li>
                 <%= link_to "#", class: 'become_curator' do %>
+                  <%= t(".profile", default: "Artists") %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to teams_path, class: 'become_curator' do %>
                   <%= t(".profile", default: "Find a team") %>
                 <% end %>
               </li>
@@ -40,17 +45,14 @@
                 <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
                 <%= image_tag avatar_url, class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu", data: { toggle:"dropdown" } %>
                 <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-                  <li><a href="#">Profile</a></li>
+                  <li>
+                  <%= link_to "Profile", user_path(current_user) %>
+                  </li>
                   <li><a href="#">Dashboard</a></li>
                   <li>
                   <%= link_to destroy_user_session_path, method: :delete do %>
                   <%= t(".sign_out", default: "Log Out") %>
                   <% end %>
-                  </li>
-                  <li>
-                    <%= link_to "#" do %>
-                    <%= t(".profile", default: "How it works") %>
-                    <% end %>
                   </li>
                 </ul>
               </div>
@@ -69,7 +71,7 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to "#", class: 'become_curator' do %>
+                <%= link_to teams_path, class: 'become_curator' do %>
                   <%= t(".profile", default: "Find a team") %>
                 <% end %>
               </li>
@@ -89,9 +91,9 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">link 1</a></li>
-        <li><a href="#">link 2</a></li>
-        <li><a href="#">link 3</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Log out</a></li>
       </ul>
     </div>
   </div>
