@@ -1,15 +1,44 @@
-<h2>Log in</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+      <h2>Log in</h2>
+        <div id="fbbtn">
+          <%= render "devise/shared/facebook-login" %>
+        </div>
+        <div style="margin-top: 16px;margin-bottom: 16px;">
+          <div class="container_or">
+            <span class="content_of_or">
+                <span>or</span>
+            </span>
+          </div>
+        </div>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <div class="form-inputs">
+          <%= f.input :email, required: false, autofocus: true %>
+          <div class="password-input"><%= f.input :password, required: false %>
+            <div class="forgot-container">
+              <a class="forgot"> <%= render "devise/shared/linkFB" %> </a>
+            </div>
+          </div>
+          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        </div>
+        <div style="margin-top: 16px; margin-bottom: 16px;">
+          <div class="rule"></div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 text-center">
+            <div class="form-actions">
+              <%= f.button :submit, "Log in" %>
+              <%= render "devise/shared/links" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
+</div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+
+
