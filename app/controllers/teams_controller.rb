@@ -32,7 +32,7 @@ class TeamsController < ApplicationController
   end
 
 
-  def destroy #Add Condition With Owner !!!
+  def destroy
     @team.destroy
     redirect_to user_path(current_user)
   end
