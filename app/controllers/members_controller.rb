@@ -1,10 +1,12 @@
 class MembersController < ApplicationController
+  before_action :set_member, only: [:show, :edit, :update, :destroy]
   def index
-    @members = Member.all
+    @members = policy_scope(Member).order(created_at: :desc)
   end
 
   def show
     @member = Member.find(params[:id])
+    @team = @member.team
   end
 
   def new
@@ -19,15 +21,12 @@ class MembersController < ApplicationController
   end
 
   def edit
-    @member = Member.find(params[:id])
   end
 
   def update
-    @member = Member.find(params[:id])
   end
 
   def destroy
-    @member = Member.find(params[:id])
     @member.destroy
   end
 
@@ -35,6 +34,11 @@ class MembersController < ApplicationController
 
   def member_params
     params.require(:member).permit(:project_owner, :status)
+  end
+
+  def set_member
+    @member = Member.find(params[:id])
+     authorize @member
   end
 
 end
