@@ -2,11 +2,12 @@ class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
   def index
-    @teams = Team.all
+    @teams = policy_scope(Team).order(created_at: :desc)
   end
 
   def new
     @team = Team.new
+    authorize @team
   end
 
   def show
@@ -14,6 +15,7 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.new(team_params)
+    authorize @team
     if @team.save
       Member.create!(team: @team, user: current_user, project_owner: true)
       redirect_to team_path(@team)
@@ -39,6 +41,7 @@ class TeamsController < ApplicationController
 
   def set_team
     @team = Team.find(params[:id])
+     authorize @team
   end
 
   def team_params
