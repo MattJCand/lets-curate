@@ -1,6 +1,7 @@
-<%#----------------- TASK MANAGER ----------------- %>
+<!-- Task Manager -->
 <h2>STEP 6 - Opening Night Checklist</h2>
 <h4>List and keep track of all the things to do before your big night!</h4>
+
 <%= link_to "Add a task", new_team_task_path(@team) %>
 <% @member.tasks.each_with_index do |task, index| %>
   <p>
