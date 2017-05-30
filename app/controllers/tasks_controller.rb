@@ -14,6 +14,29 @@ class TasksController < ApplicationController
     redirect_to member_path(@project_owner)
   end
 
+  def edit
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    @task.update(task_params)
+    redirect_to member_path(@task.member)
+  end
+
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    redirect_to member_path(@task.member)
+  end
+
+  def mark_as_done
+    @task = Task.find(params[:id])
+    @task.status = true
+    @task.save
+    redirect_to member_path(@task.member)
+  end
+
   private
 
   def task_params
