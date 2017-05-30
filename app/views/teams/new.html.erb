@@ -6,11 +6,8 @@
   <%= f.input :art_types %>
   <%= f.input :budget %>
   <%= f.input :date %>
-  <%= f.input :location%>
   <%= f.input :photo, as: :attachinary %>
   <%= f.button :submit %>
  <% end %>
 
-<%= content_for(:after_js) do %>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDPP-NYzVfGiWV2Gj2_mPFLxONBE1iekvY"></script>
-<% end %>
+

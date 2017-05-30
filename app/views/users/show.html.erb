@@ -1,0 +1,13 @@
+<% avatar_url = current_user.facebook_picture_url || "http://placehold.it/201x200"%>
+<%= image_tag avatar_url, class: "avatar-super-large", id: "navbar-wagon-menu" %>
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<h4>Email: <%= @user.email %></h4>
+<h4><%= @user.city %></h4>
+<%= link_to "Edit profile", edit_user_path(@user) %>
+
+<h2>My details</h2>
+<p><%= @user.description %></p>
+<p><%= @user.art_types %></p>
+
+<h2>My current exhibits</h2>
+<p><%#= @user.member.team.title %></p>

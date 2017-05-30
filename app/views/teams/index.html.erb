@@ -1,1 +1,10 @@
 <h1 style="text-align: center;">Les Teams</h1>
+<% @teams.each do |team| %>
+  <%= cl_image_tag team.photo.path %>
+  <p><%= team.title %></p>
+  <%= team.theme %>
+  <%= team.total_members %>
+  <%= team.art_types %>
+<% end %>
+<%= link_to "Create your own team", new_team_path %>
+
