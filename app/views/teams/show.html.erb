@@ -1,3 +1,4 @@
+<%= cl_image_tag team.photo.path %>
 <% @team.members.each do |member|  %>
-<%= member.user.email %>
+  <%= member.user.email %>
 <% end %>
