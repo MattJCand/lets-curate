@@ -1,3 +1,12 @@
+<h1>The <%= @member.team.title %> Dashboard</h1>
+<!-- Date -->
+<h2>STEP 1 - Pick a date!</h2>
+<%= link_to "Choose the date", edit_team_path(@team) %>
+<% if @member.team.date != nil %>
+  <p>Date: <%= @member.team.date.strftime("%A %d %B") %></p>
+<% end %>
+
+
 <!-- Task Manager -->
 <h2>STEP 6 - Opening Night Checklist</h2>
 <h4>List and keep track of all the things to do before your big night!</h4>

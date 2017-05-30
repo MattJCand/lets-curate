@@ -24,13 +24,14 @@ class TeamsController < ApplicationController
     end
   end
 
-  def update
-  end
 
   def edit
-    @team.update(params[:team])
   end
 
+  def update
+    @team.update(team_params)
+    redirect_to member_path
+  end
 
   def destroy
     @team.destroy
