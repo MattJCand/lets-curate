@@ -39,7 +39,7 @@ class MembersController < ApplicationController
   private
 
   def member_params
-    params.require(:member).permit(:project_owner, :status)
+    params.require(:member).permit(:project_owner, :status, :message)
   end
 
   def set_member
