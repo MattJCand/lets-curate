@@ -4,5 +4,11 @@
   <%= f.input :city %>
   <%= f.input :description %>
   <%= f.input :art_types %>
+  <%= f.input :avatar, as: :attachinary %>
+  <%= f.input :photos, as: :attachinary %>
   <%= f.submit "Edit profile", class: "btn btn-primary" %>
+<% end %>
+
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDPP-NYzVfGiWV2Gj2_mPFLxONBE1iekvY"></script>
 <% end %>

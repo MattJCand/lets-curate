@@ -11,3 +11,9 @@
 
 <h2>My current exhibits</h2>
 <p><%#= @user.member.team.title %></p>
+
+<% @user.photos.each do |photo| %>
+  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<% end %>
+
+<%= cl_image_tag @user.avatar.path, class:"avatar-super-large" %>
