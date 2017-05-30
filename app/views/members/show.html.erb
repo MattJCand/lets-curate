@@ -1,10 +1,13 @@
 <%= link_to "Add a task", new_team_task_path(@team) %>
+
+
 <% @member.tasks.each do |task| %>
   <p>
-  <%= task.name %>
-  <%= task.description %>
-  <%= link_to "Done" %>
-  <%= link_to "Modify task" %>
-  <%= link_to "Delete task" %>
+    <%= task.name %>
+    <%= task.description %>
+    <%= link_to "Done" %>
+    <%= link_to "Modify task" %>
+    <%= link_to "Delete task" %>
   </p>
 <% end %>
+
