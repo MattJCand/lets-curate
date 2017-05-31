@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  def index
+    @users = policy_scope(User).order(created_at: :desc)
+  end
+
   def show
     @user = User.find(params[:id])
     @first_photo_path = @user.photos.first.path
