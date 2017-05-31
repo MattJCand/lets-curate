@@ -1,4 +1,19 @@
-/* -------------------------------------
- * CSS code specific to home page
- * (margin/padding adjustments)
- * ------------------------------------- */
+.video-container {
+  margin-top: 30px;
+  position: relative;
+}
+
+.video-container-content{
+  position:absolute;
+  top: 210px;
+  left: 830px;
+  color: white;
+}
+
+.video-container-content h1 {
+    font-size: 65px;
+   }
+
+.video-container-content p {
+  font-size: 35px;
+}
