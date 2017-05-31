@@ -4,7 +4,7 @@
   <div class="container">
 
     <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/201x200"%>
-    <%= image_tag avatar_url, class: "cover"%>
+    <%= image_tag avatar_url, class: "cover avatar-square"%>
 
     <div id="banner">
   <!--___________ CAROUSEL___________ -->
@@ -43,7 +43,7 @@
     </div> <!-- end banner -->
       <div class="details">
         <div class="title1">
-        <p><%= @user.first_name %> <%= @user.last_name %></p>
+        <p id="user-profile-name"><%= @user.first_name %> <%= @user.last_name %></p>
           <span><%= @user.city%></span>
         </div>
         <div class="title2"><%= @user.email %></div>
