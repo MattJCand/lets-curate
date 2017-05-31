@@ -26,23 +26,37 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to "#", class: 'become_curator' do %>
-                  <%= t(".profile", default: "How it works") %>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to destroy_user_session_path, method: :delete, class: 'become_curator' do %>
+              <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+              <div class="badge-container">
+                <i class="fa fa-envelope-o"></i>
+                <div class="badge badge-blue">3</div>
+              </div>
+            <% end %>
+            </li>
+            <li>
+            <!-- Profile picture and dropdown -->
+            <div class="navbar-wagon-item">
+              <div class="dropdown">
+                <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+                <%= image_tag avatar_url, class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu", data: { toggle:"dropdown" } %>
+                <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+                  <li><a href="#">Profile</a></li>
+                  <li><a href="#">Dashboard</a></li>
+                  <li>
+                  <%= link_to destroy_user_session_path, method: :delete do %>
                   <%= t(".sign_out", default: "Log Out") %>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to "#", class: 'become_curator' do %>
-                  <%= t(".profile", default: "How it works") %>
-                <% end %>
-              </li>
+                  <% end %>
+                  </li>
+                  <li>
+                    <%= link_to "#" do %>
+                    <%= t(".profile", default: "How it works") %>
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            </li>
             </ul>
-            <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-            <%= image_tag avatar_url, class: "avatar-large", id: "navbar-wagon-menu" %>
         </div>
       </div>
 
@@ -64,6 +78,7 @@
               </li>
             </ul>
           </div>
+
         </div>
 
     <% end %>
