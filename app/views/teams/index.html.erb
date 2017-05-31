@@ -1,10 +1,28 @@
-<h1 style="text-align: center;">Les Teams</h1>
-<% @teams.each do |team| %>
-  <%= cl_image_tag team.photo.path %>
-  <p><%= team.title %></p>
-  <%= team.theme %>
-  <%= team.total_members %>
-  <%= team.art_types %>
-<% end %>
-<%= link_to "Create your own team", new_team_path %>
-
+<div class="main">
+<h1 class="text-center">Find the team that suits your needs and join it!</h1>
+<h3 class="text-center"> Or create your <%= link_to "own", new_team_path, class: "own" %>!</h3>
+  <div>
+    <div class="row specialrow">
+      <div class="col-xs-12 col-sm-12 col-md-12 column">
+        <div class="wrapper scrollcard">
+          <% @teams.each do |team| %>
+          <div class="col-xs-12 col-md-3 cardborder">
+            <%if team.photo? %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path team.photo.path, height: 300, width: 400, crop: :fill %>')"></div>
+            <% else %>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path('noimage.jpg') %>')"></div>
+            <% end %>
+  <!--           <h2 class="card-description"><#%= space.price_by_day %>€</h2> -->
+            <div class="card-description">
+              <h2><%= team.title %></h2>
+              <h5>Theme: <%= team.theme %></h5>
+              <h5>Types of art: <%= team.art_types %></h5>
+              <%= link_to "", team_path(team), class: "card-link" %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

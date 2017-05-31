@@ -1,0 +1,67 @@
+.container {
+  margin-top: 10px;
+}
+
+.cardborder {
+  box-shadow: 0 1px 10px 0 rgba(0,0,0,0.3);
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 0px;
+  background: white;
+  width: 42vh;
+}
+
+.card {
+  height: 250px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  color: white;
+  position: relative;
+  margin-bottom: -20px;
+  background-position: center;
+
+}
+.card-user {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+h2 {
+  left: 10px;
+  font-size: 30px;
+}
+
+p {
+  font-size: 13px;
+  margin: -12px 1px 30px;
+  }
+
+.card-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index:2;
+  background: none;
+  opacity: 0;
+}
+.card-link:hover{
+  opacity: 0.1;
+}
+
+.venue-add {
+  border: 1px solid #B2B2B2;
+  border-style: dashed;
+  border-width: 3px;
+  height: 250px;
+}
+
+.add-description {
+  margin-top: 0px;
+}
+
+.card-description {
+  margin-left: 10px;
+}
