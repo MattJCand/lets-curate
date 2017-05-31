@@ -1,0 +1,239 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700);
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+
+
+#edit > a{
+  color:#8abcd7;
+  text-decoration: none;
+  top: 400px;
+  left: 100px;
+  position: absolute;
+}
+#edit > a:hover{
+  color:#3079ab;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  background: #43423E;
+}
+
+a {
+  text-decoration: none;
+  color: #5C7FB8;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.movie-card {
+  font: 14px/22px "Lato", Arial, sans-serif;
+  color: #A9A8A3;
+  // padding: 40px 0;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  background: #F0F0ED;
+  border-radius: 5px;
+  position: relative;
+  padding: 0;
+}
+
+#banner {
+  height: 342px;
+  margin:0;
+  position: relative;
+  overflow: hidden;
+  z-index:1;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+}
+
+.hero:before {
+  content:'';
+  width:100%; height:100%;
+  position:absolute;
+  overflow: hidden;
+  top:0; left:0;
+  background:#999999;
+  z-index:-1;
+
+  transform: skewY(-2.2deg);
+  transform-origin:0 0;
+
+  //chrome antialias fix
+  -webkit-backface-visibility: hidden;
+
+}
+
+.cover {
+  position: absolute;
+  top: 200px;
+  left: 40px;
+  z-index: 2;
+}
+
+.details {
+  height: 100px;
+  padding: 26px;
+  z-index: 3;
+  position: absolute;
+  top: 236px;
+  left: 256px;
+  background-color: rgba(0, 0, 0, 0.3);
+
+
+  .title1 {
+    color: white;
+    font-size: 44px;
+    margin-bottom: 13px;
+    position: relative;
+    text-shadow: 0 0 3px rgba(0,0,0,.8);
+
+    span {
+      position: absolute;
+      top: 3px;
+      right: -76px;
+      background: #8abcd7;
+      border-radius: 5px;
+      color: #544C21;
+      font-size: 14px;
+      padding: 0px 4px;
+      text-shadow:none;
+
+    }
+  }
+
+  .title2 {
+    color: #C7C1BA;
+    font-size: 23px;
+    font-weight: 300;
+    margin-bottom: 15px;
+    text-shadow: 0 0 3px rgba(0,0,0,.8);
+  }
+}
+
+.content-userprofile {
+  bottom: 0px;
+  height: 200px;
+  font-size: 16px;
+  line-height: 26px;
+  color: #B1B0AC;
+  height: 70vh;
+}
+
+.column1 {
+  padding-left: 50px;
+  padding-top: 120px;
+  width: 220px;
+  float: left;
+  text-align: center;
+}
+
+.tag {
+  background: white;
+  border-radius: 10px;
+  padding: 3px 8px;
+  font-size: 14px;
+  margin-right: 4px;
+  line-height: 35px;
+  cursor: pointer;
+}
+
+.tag:hover {
+  background: #ddd;
+}
+
+.column2 {
+  padding-left: 41px;
+  padding-top: 30px;
+  margin-left: 20px;
+  width: 77%;
+  float: left;
+  text-align: justify;
+}
+
+.avatars {
+  margin-top: 23px;
+
+  img {
+    cursor: pointer;
+  }
+
+  img:hover {
+    opacity: 0.6;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+//star rating stuff via: https://codepen.io/jamesbarnett/pen/vlpkh/
+
+fieldset, label { margin: 0; padding: 0; }
+
+/****** Style Star Rating Widget *****/
+
+
+a[data-tooltip] {
+  position: relative;
+}
+a[data-tooltip]::before,
+a[data-tooltip]::after {
+  position: absolute;
+  display: none;
+  opacity: 0.85;
+}
+a[data-tooltip]::before {
+  /*
+   * using data-tooltip instead of title so we
+   * don't have the real tooltip overlapping
+   */
+  content: attr(data-tooltip);
+  background: #000;
+  color: #fff;
+  font-size: 13px;
+  padding: 5px;
+  border-radius: 5px;
+  /* we don't want the text to wrap */
+  white-space: nowrap;
+  text-decoration: none;
+}
+a[data-tooltip]::after {
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  content: '';
+}
+
+a[data-tooltip]:hover::before,
+a[data-tooltip]:hover::after {
+  display: block;
+}
+
+/** positioning **/
+
+/* top tooltip */
+a[data-tooltip][data-placement="top"]::before {
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 40px;
+}
+a[data-tooltip][data-placement="top"]::after {
+  border-top-color: #000;
+  border-bottom: none;
+  bottom: 50px;
+  left: 20px;
+  margin-bottom: 4px;
+}
