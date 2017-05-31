@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @first_photo_path = @user.photos.first.path
     authorize @user
   end
 
