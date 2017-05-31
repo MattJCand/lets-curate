@@ -1,24 +1,35 @@
 class ReviewsController < ApplicationController
-   before_action :set_review, only: [:show, :edit, :update, :destroy]
-
-  def show
-    @member = Member.find(params[:id])
-  end
+   before_action :set_review, only: [:edit, :update, :destroy]
 
   def new
-
+    @member = Member.find(params["member_id"])
+    @review = Review.new(reviewee_id: @member.id)
+    authorize @review
   end
 
   def create
+   @review = Review.new(review_params)
+   @member = Member.find(params["member_id"])
+   @review.reviewer_id = current_user
+   @review.reviewee_id = @member
+   authorize @review
+   @review.save
+   redirect_to member_path(@member)
   end
 
   def edit
   end
 
   def update
+    authorize @review
+    @review.update(review_params)
+    redirect_to member_path(@review)
   end
 
   def delete
+    authorize @review
+    @review.destroy
+    redirect_to member_path(@review)
   end
 
   private

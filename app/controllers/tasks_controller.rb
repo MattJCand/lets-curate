@@ -18,16 +18,19 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
+    authorize(@task)
   end
 
   def update
     @task = Task.find(params[:id])
+    authorize(@task)
     @task.update(task_params)
     redirect_to member_path(@task.member)
   end
 
   def destroy
     @task = Task.find(params[:id])
+    authorize(@task)
     @task.destroy
     redirect_to member_path(@task.member)
   end
@@ -35,6 +38,7 @@ class TasksController < ApplicationController
   def mark_as_done
     @task = Task.find(params[:id])
     @task.status = true
+    authorize(@task)
     @task.save
     redirect_to member_path(@task.member)
   end
