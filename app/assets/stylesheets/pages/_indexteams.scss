@@ -1,0 +1,40 @@
+.teams-cards {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 10px 1%;
+  min-width: 220px;
+  max-width: 310px;
+  width: 100%;
+  color: #333333;
+  text-align: center;
+  background-color: #ffffff;
+  line-height: 1.6em;
+}
+
+.image {
+  position: relative;
+}
+
+.card-content {
+  padding: 20px 20px 30px;
+}
+.teams-cards h2,
+.teams-cards p {
+  margin: 0;
+  text-align: left;
+}
+.teams-cards h2 {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.teams-cards p {
+  margin-bottom: 15px;
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+.image:hover img{
+  opacity: 0.8;
+}

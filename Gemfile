@@ -23,6 +23,7 @@ gem 'cloudinary'
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
+gem 'figaro'
 
 #Add Pundit
 gem "pundit"
