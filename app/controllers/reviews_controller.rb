@@ -8,13 +8,13 @@ class ReviewsController < ApplicationController
   end
 
   def create
-   @review = Review.new(review_params)
-   @member = Member.find(params["member_id"])
-   @review.reviewer_id = current_user
-   @review.reviewee_id = @member
-   authorize @review
-   @review.save
-   redirect_to member_path(@member)
+    @review = Review.new(review_params)
+    @member = Member.find(params["member_id"])
+    @review.reviewer_id = current_user
+    @review.reviewee_id = @member
+    authorize @review
+    @review.save
+    redirect_to member_path(@member)
   end
 
   def edit
@@ -22,7 +22,8 @@ class ReviewsController < ApplicationController
 
   def update
     authorize @review
-    @review.update(review_params)
+    @member = Member.find(params["member_id"])
+    @review.update(member)
     redirect_to member_path(@review)
   end
 
@@ -39,6 +40,6 @@ class ReviewsController < ApplicationController
   end
 
   def set_review
-    @review = Review.find(params[id])
+    @review = Review.find(params[:id])
   end
 end
