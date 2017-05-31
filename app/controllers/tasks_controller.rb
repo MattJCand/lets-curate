@@ -1,8 +1,8 @@
 class TasksController < ApplicationController
     def new
-      @team = Team.find(params[:team_id])
-      @task = Task.new(team: @team)
-      authorize(@task)
+    @team = Team.find(params[:team_id])
+    @task = Task.new(team: @team)
+    authorize(@task)
     end
 
   def create
