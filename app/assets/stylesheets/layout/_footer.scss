@@ -1,14 +1,17 @@
 // Your footer style
 .footer {
-  margin: 0px 25px 0px 25px;
+  margin: 0;
+  height: 100px;
+  border-top: 3px solid #005B99;
+  width: 100%;
+  position:fixed;
+  left:0px;
+  bottom:0px;
+
 }
 
 #footeur {
-  background-color: black;
-}
-
-.footer-content {
-    border-top: 1px solid white;
+  background-color: white;
 }
 
 .flexbox {
@@ -55,12 +58,4 @@
   width: 20%;
   height: 20%;
   padding-right: 11px;
-}
-
-.footer-content-responsive {
-    border-top: 1px solid white;
-}
-
-.footer-responsive {
-  margin: 30px 0px 0px 0px;
 }

@@ -1,6 +1,11 @@
 .video-container {
-  margin-top: 30px;
   position: relative;
+  bottom: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
 }
 
 .video-container-content{
@@ -12,8 +17,55 @@
 
 .video-container-content h1 {
     font-size: 65px;
-   }
+  }
 
 .video-container-content p {
   font-size: 35px;
+}
+
+.info{
+  height: 700px;
+  margin-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.info h2 {
+  margin-top: -30px;
+  margin-bottom: 11px;
+  padding: 350px;
+  color: white;
+}
+
+.icono {
+  width: 40%;
+}
+
+.parallax {
+  background-image: image-url("find.jpg");
+  min-height: 700px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 30px;
+}
+
+.parallax1 {
+  background-image: image-url("collaborate.jpg");
+  min-height: 700px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 30px;
+}
+
+.parallax2 {
+  background-image: image-url("fame.jpg");
+  min-height: 700px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 30px;
 }
