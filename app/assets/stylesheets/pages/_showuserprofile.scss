@@ -90,10 +90,8 @@ a:hover {
   padding: 26px;
   z-index: 3;
   position: absolute;
-  top: 236px;
+  top: 241px;
   left: 256px;
-  background-color: rgba(0, 0, 0, 0.3);
-
 
   .title1 {
     color: white;
@@ -163,6 +161,12 @@ a:hover {
   width: 77%;
   float: left;
   text-align: justify;
+}
+
+#fonts {
+  font-size: 16px;
+  line-height: 26px;
+  color: #B1B0AC;
 }
 
 .avatars {

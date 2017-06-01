@@ -19,6 +19,7 @@
 
         <div class="carousel-inner">
           <div class="item active">
+            <div class="gradient"></div>
             <%= cl_image_tag @first_photo_path,crop: :fill, width: 1600,  height: 600 %>
             <!-- <a href="#"><img src="http://placekitten.com/1600/600" /></a> -->
           </div>
@@ -26,6 +27,7 @@
           <% @user.photos.each do |photo| %>
             <% if @first_photo_path != photo.path %>
               <div class="item">
+                <div class="gradient"></div>
                 <%= cl_image_tag photo.path,crop: :fill, width: 1600,  height: 600 %>
               </div>
             <% end %>
@@ -61,8 +63,8 @@
         <span class="tag">couleurs</span>
       </div> <!-- end column1 -->
 
-      <div class="column2">
-        <p><%= @user.description %></p>
+      <div class="column2" >
+        <p id="fonts"><%= @user.description %></p>
 
 <!--         <div class="avatars">
           <a href="#" data-tooltip="Person 1" data-placement="top">

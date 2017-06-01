@@ -30,6 +30,21 @@
     }
 }
 
+// LINEAR GRADIENT ON CAROUSEL
+.item {
+  position: relative;
+}
+
+.gradient {
+  background: linear-gradient(rgba(0,0,0,0) 71%, rgba(0,0,0, .55));
+  position: absolute;
+  top: 0;
+  bottom:0;
+  right: 0;
+  left: 0;
+}
+// end linear gradient--> put in position ab/relative
+
 html,
 body,
 .carousel,
@@ -39,15 +54,18 @@ body,
 }
 
 .item:nth-child(1) {
-    background: red;
+    background: #B1B0AC;
 }
 
 .item:nth-child(2) {
-    background: pink;
+    background: #B1B0AC;
 }
 
 .item:nth-child(3) {
-    background: beige;
+    background: #B1B0AC;
 
 }
 
+.carousel-control.right, .carousel-control.left {
+  background-image: none !important;
+}
