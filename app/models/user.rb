@@ -4,7 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
-  has_many :teams
+
+  has_many :members
+  has_many :teams, through: :members
+
   has_attachment  :avatar
   has_attachments :photos, :maximum => 5
 

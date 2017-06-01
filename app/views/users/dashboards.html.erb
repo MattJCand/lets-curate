@@ -1,0 +1,5 @@
+<h1>My dashboards</h1>
+
+<% @teams.each do |team| %>
+<%= link_to team.title, dashboard_path(team)  %>
+<% end %>

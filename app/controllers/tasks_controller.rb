@@ -13,32 +13,35 @@ class TasksController < ApplicationController
     @task.member = @project_owner
     authorize(@task)
     @task.save
-    redirect_to member_path(@project_owner)
+    redirect_to dashboard_path(@team)
   end
 
   def edit
   end
 
   def update
+    @team = Team.find(params[:team_id])
     @task = Task.find(params[:id])
     authorize(@task)
     @task.update(task_params)
-    redirect_to member_path(@task.member)
+    redirect_to dashboard_path(@team)
   end
 
   def destroy
+    @team = Team.find(params[:team_id])
     @task = Task.find(params[:id])
     authorize(@task)
     @task.destroy
-    redirect_to member_path(@task.member)
+    redirect_to dashboard_path(@team)
   end
 
   def mark_as_done
+    @team = Team.find(params[:team_id])
     @task = Task.find(params[:id])
     @task.status = true
     authorize(@task)
     @task.save
-    redirect_to member_path(@task.member)
+    redirect_to dashboard_path(@team)
   end
 
   private

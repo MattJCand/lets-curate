@@ -24,6 +24,12 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def dashboards
+    @user = current_user
+    @teams = @user.teams
+    authorize @user
+  end
+
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :city, :art_types, :description, :avatar, photos: [])
   end
