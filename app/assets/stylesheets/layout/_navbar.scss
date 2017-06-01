@@ -117,6 +117,11 @@
     background: none!important;
 }
 
-.logo {
+.dropdown {
+  float: right;
+}
 
+.row:before, .row:after {
+    content: none;
+    display: table;
 }
