@@ -1,11 +1,10 @@
 <div class="movie-card">
-  <div class="container">
-    <div id="banner">
-      <%= cl_image_tag @team.photo.path %>
+  <div class="container" id="container-user">
+    <div class="banner" id="banner-height" style="background-image:linear-gradient(rgba(0,0,0,0) 71%, rgba(0,0,0, .53)), url('<%= cl_image_path(@team.photo.path) %>');">
     </div> <!-- end banner -->
       <div class="details">
         <div class="title1">
-        <p id="user-profile-name">NAME OF EXPO</p>
+        <h1 id="user-profile-name">Name of exhibit</h1>
           <span>CITY OF EXPO</span>
         </div>
         <div class="title2">SOMETHING</div>
@@ -52,6 +51,11 @@
   </div> <!-- end container -->
 </div> <!-- end movie-card -->
 
+
+<div data-reactid="22">
+  <div class="coverImage_75zala" style="background-image:url(https://a0.muscache.com/im/pictures/3281b6cb-0ac8-4cc8-8eaa-fb98ae2ca93d.jpg?aki_policy=xx_large);" aria-hidden="true" data-reactid="23">
+  </div>
+</div>
 
 
 <!-- JOIN THE TEAM MODAL 6 A LAISSER A AURORE POUR VENDREDI -->
