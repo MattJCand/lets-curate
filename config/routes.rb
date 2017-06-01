@@ -27,5 +27,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/teams/:id/dashboard", to: "teams#dashboard"
+
   mount Attachinary::Engine => "/attachinary"
 end

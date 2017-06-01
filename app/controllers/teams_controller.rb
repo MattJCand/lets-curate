@@ -1,6 +1,9 @@
 class TeamsController < ApplicationController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
+
+  #CRUD METHODS
+
   def index
     @teams = policy_scope(Team).order(created_at: :desc)
   end
@@ -24,7 +27,6 @@ class TeamsController < ApplicationController
     end
   end
 
-
   def edit
   end
 
@@ -36,6 +38,15 @@ class TeamsController < ApplicationController
   def destroy
     @team.destroy
     redirect_to user_path(current_user)
+  end
+
+#DASHBOARD METHODS
+
+  def dashboard
+    @member = Member.find(params[:id])
+    @team = @member.team
+    @task = Task.new(member: @member, team: @team)
+    authorize @team
   end
 
   private

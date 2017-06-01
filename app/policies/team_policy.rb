@@ -28,4 +28,8 @@ class TeamPolicy < ApplicationPolicy
   def destroy?
     record.members.where(project_owner: true).first.user == user
   end
+
+  def dashboard?
+    true
+  end
 end
