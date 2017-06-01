@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     @task.member = @project_owner
     authorize(@task)
     @task.save
-    redirect_to member_path(@project_owner)
+    redirect_to teams_path(@project_owner)
   end
 
   def edit
