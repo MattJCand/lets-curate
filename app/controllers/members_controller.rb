@@ -5,10 +5,7 @@ class MembersController < ApplicationController
   end
 
   def show
-    @member = Member.find(params[:id])
-    @team = @member.team
     @task = Task.new(member: @member, team: @team)
-    authorize @member
   end
 
   def new
@@ -18,7 +15,8 @@ class MembersController < ApplicationController
   end
 
   def create
-    @member = Member.new(member_params)
+    @team = Team.find(params[:team_id])
+    @member = Member.new(team: @team, user: current_user, project_owner: false)
     @member.team = Team.find(params[:team_id])
     @member.save
     authorize @member
