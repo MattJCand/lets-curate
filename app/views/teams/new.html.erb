@@ -1,12 +1,20 @@
-<%= simple_form_for (@team) do |f| %>
-  <%= f.input :title,  placeholder: 'Paris en Noir et Blanc' %>
-  <%= f.input :description %>
-  <%= f.input :total_members, collection: 2..10 %>
-  <%= f.input :theme %>
-  <%= f.input :art_types %>
-  <%= f.input :budget %>
-  <%= f.input :photo, as: :attachinary %>
-  <%= f.button :submit %>
- <% end %>
-
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+    <h1>Create your own team</h1>
+    <br>
+    <%= simple_form_for (@team) do |f| %>
+      <%= f.input :title,  placeholder: 'Paris en Noir et Blanc...' %>
+      <%= f.input :description %>
+      <%= f.input :total_members, collection: 2..10 %>
+      <%= f.input :theme %>
+      <%= f.input :art_types %>
+      <%= f.input :budget %>
+      <%= f.input :photo, as: :attachinary %>
+      <%= f.button :submit %>
+      <br>
+     <% end %>
+    </div>
+  </div>
+</div>
 
