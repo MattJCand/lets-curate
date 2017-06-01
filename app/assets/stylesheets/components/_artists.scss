@@ -1,0 +1,66 @@
+.userchoice {
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  width: 800px;
+  padding-top: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 20px;
+  width: 100%;
+  background: #f0f0ed;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Body design */
+.user-body {
+  flex: 1 1 auto;
+}
+.user-body h3 {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 0;
+}
+.user-body p {
+  font-weight: lighter;
+  color: #999999;
+  margin: 0px;
+}
+
+/* Upvote design */
+.user-name {
+  padding-right: 20px;
+  text-align: center;
+  transition: all 0.15s ease;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 20px;
+  margin: 2px 0 0;
+}
+
+
+.user-details {
+  flex: 0 0 10%;
+}
+
+a{
+  color: #999999;
+}
+
+
+/* Hover effects */
+.userchoice:hover {
+  cursor: pointer;
+  padding-left:20px;
+  padding-right:20px;
+}
+.user-name:hover{
+  color: #5898f1;
+  cursor: pointer;
+}
+
+#main-artist {
+  min-height: 100vh;
+}

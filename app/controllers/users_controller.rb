@@ -6,6 +6,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    unless @user.photos.empty?
+      @first_photo_path = @user.photos.first.path
+    end
     authorize @user
   end
 
