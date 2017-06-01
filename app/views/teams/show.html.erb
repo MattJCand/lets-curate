@@ -1,62 +1,111 @@
-<div class="movie-card">
+<div class="movie-card" id="bckgrnd-color">
   <div class="container" id="container-user">
     <div class="banner" id="banner-height" style="background-image:linear-gradient(rgba(0,0,0,0) 71%, rgba(0,0,0, .53)), url('<%= cl_image_path(@team.photo.path) %>');">
     </div> <!-- end banner -->
-      <div class="details">
-        <div class="title1">
-        <h1 id="user-profile-name">Name of exhibit</h1>
-          <span>CITY OF EXPO</span>
-        </div>
-        <div class="title2">SOMETHING</div>
-      </div> <!-- end details -->
-
-    <div id="edit">
-      <p>EDIT</p>
-      <%#= link_to "Edit EXPO", edit_user_path(@user) %>
-    </div>
-
-    <div id= "join">
-    <p>JOIN</p>
-      <%= link_to "Join the team", new_team_member_path(@team) %>
-    </div>
-
-    <div class="content-userprofile">
-
-      <div class="column1-marge">
-        <span class="tag">ART TYPE OF EXPO</span>
-        <span class="tag">fantasy</span>
-        <span class="tag">couleurs</span>
-      </div> <!-- end column1 -->
-
-      <div class="column2">
-        <p>EXPO DESCRIPTION</p>
-
-        <div class="avatars">
-          <a href="#" data-tooltip="GET PIC Person 1" data-placement="top">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_avatar1.png" alt="avatar1" />
-          </a>
-          <a href="#" data-tooltip="GET PIC Person 2" data-placement="top">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_avatar2.png" alt="avatar2" />
-          </a>
-          <a href="#" data-tooltip="GET PIC Person 3" data-placement="top">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_avatar3.png" alt="avatar3" />
-          </a>
-        </div>
-        <!-- end avatars -->
-
-      </div> <!-- end column2 -->
-    </div> <!-- end content-userprofile -->
-
-
+    <div class="details" id="details-show-team">
+      <div class="title1">
+      <h1 id="user-profile-name">Name of exhibit</h1>
+        <span>CITY OF EXPO</span>
+      </div>
+      <div class="title2">SOMETHING</div>
+    </div> <!-- end details -->
   </div> <!-- end container -->
-</div> <!-- end movie-card -->
 
 
-<div data-reactid="22">
-  <div class="coverImage_75zala" style="background-image:url(https://a0.muscache.com/im/pictures/3281b6cb-0ac8-4cc8-8eaa-fb98ae2ca93d.jpg?aki_policy=xx_large);" aria-hidden="true" data-reactid="23">
+  <div class="container" id="top-space-show-user">
+    <div class="row">
+      <div class="col-md-3">
+      <br>
+        <div class="row">
+          <div class="col-md-12 avatars">
+            <a href="#" data-tooltip="GET PIC Person 1" data-placement="top">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_avatar1.png" alt="avatar1" />
+            </a>
+            <a href="#" data-tooltip="GET PIC Person 2" data-placement="top">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_avatar2.png" alt="avatar2" />
+            </a>
+            <a href="#" data-tooltip="GET PIC Person 3" data-placement="top">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_avatar3.png" alt="avatar3" />
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+          <br>
+          <span class="tag">ART TYPE OF EXPO</span>
+          <span class="tag">fantasy</span>
+          <span class="tag">colors</span>
+          <span class="tag">abstract</span>
+          <span class="tag">imaginary</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <h2 id="title-description-show-team">What is it about:</h2>
+        <p id="description-show-team"> A dream is a succession of images, ideas, emotions, and sensations that usually occur involuntarily in the mind during certain stages of sleep. The content and purpose of dreams are not fully understood, though they have been a topic of scientific speculation, as well as a subject of philosophical and religious interest, throughout recorded history. Dream interpretation is the attempt at drawing meaning from dreams and searching for an underlying message. The scientific study of dreams is called oneirology.</p>
+      </div>
+
+      <div class="col-md-3">
+<br> <br>
+        <div id="side-card"><!-- div of 2 divs -->
+          <div class="row">  <!-- row-condensed space-3 -->
+            <div class="col-md-12">
+              <div class="row">
+                <div class="col-md-6" id="no-padding-right">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h5 class="date-space">Start date</h5>
+                    </div>
+                    <div class="col-md-12">
+                      <h5 id="date-box-no-right-show-team">14/07/2017</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6" id="no-padding-left">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h5 class="date-space">End date</h5>
+                    </div>
+                    <div class="col-md-12">
+                      <h5 id="date-box-no-left-show-team">23/07/2017</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- end first div -->
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h5>Address:</h5>
+                  </div>
+                  <div class="col-md-12">
+                    <h5 id="address-box">16 Villa Gaudelet</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- end of 1rst div -->
+
+        <div>
+          <div class="panel space-top-6 space-md-3">
+            <div id="join-team-show">
+              <button class="btn btn-primary"> <%= link_to "Join the team", new_team_member_path(@team) %></button>
+            </div>
+            <br>
+           <div>
+             <p>Share this event</p>
+           </div>
+          </div>
+        </div><!-- end div of 2 divs -->
+
+      </div>
+    </div>
   </div>
-</div>
-
+</div> <!-- end movie-card -->
 
 <!-- JOIN THE TEAM MODAL 6 A LAISSER A AURORE POUR VENDREDI -->
 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
