@@ -22,6 +22,7 @@ class MembersController < ApplicationController
     @member.team = Team.find(params[:team_id])
     @member.save
     authorize @member
+    redirect_to team_path(@member.team)
   end
 
   def edit

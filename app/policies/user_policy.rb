@@ -16,4 +16,8 @@ class UserPolicy < ApplicationPolicy
   def edit?
     update?
   end
+
+  def dashboards?
+    true
+  end
 end

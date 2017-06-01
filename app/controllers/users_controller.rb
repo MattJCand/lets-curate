@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @first_photo_path = @user.photos.first.path
     authorize @user
   end
 
@@ -20,6 +19,12 @@ class UsersController < ApplicationController
     @user.update(user_params)
     authorize @user
     redirect_to user_path(@user)
+  end
+
+  def dashboards
+    @user = current_user
+    @teams = @user.teams
+    authorize @user
   end
 
   def user_params

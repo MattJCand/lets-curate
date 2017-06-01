@@ -43,7 +43,7 @@
                   <li>
                   <%= link_to "Profile", user_path(current_user) %>
                   </li>
-                  <li><a href="#">Dashboard</a></li>
+                  <li><%= link_to "My Dashboards", dashboards_path %></li>
                   <li>
                   <%= link_to destroy_user_session_path, method: :delete do %>
                   <%= t(".sign_out", default: "Log Out") %>

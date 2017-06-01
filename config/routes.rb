@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :teams do
-    resources :members, only: [ :create ]
+    resources :members, only: [ :new, :create ]
   end
 
   resources :members, except: [ :new, :create ] do
@@ -27,7 +27,8 @@ Rails.application.routes.draw do
     end
   end
 
-  get "/teams/:id/dashboard", to: "teams#dashboard"
+  get "/teams/:id/dashboard", to: "teams#dashboard", as: :dashboard
+  get "/dashboards", to: "users#dashboards", as: :dashboards
 
   mount Attachinary::Engine => "/attachinary"
 end
