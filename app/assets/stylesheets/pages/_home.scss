@@ -23,16 +23,49 @@
   font-size: 35px;
 }
 
-#info{
-  height: 430px;
-  margin-top: 60px;
+.info{
+  height: 700px;
   margin-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
-h4 {
-  padding: 35px;
+.info h2 {
+  margin-top: -30px;
+  margin-bottom: 11px;
+  padding: 350px;
+  color: white;
 }
 
 .icono {
-  width: 50%;
+  width: 40%;
+}
+
+.parallax {
+  background-image: image-url("find.jpg");
+  min-height: 700px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 30px;
+}
+
+.parallax1 {
+  background-image: image-url("collaborate.jpg");
+  min-height: 700px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 30px;
+}
+
+.parallax2 {
+  background-image: image-url("fame.jpg");
+  min-height: 700px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 30px;
 }
