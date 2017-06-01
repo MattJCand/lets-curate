@@ -1,6 +1,13 @@
+// .navbar{
+//   // overflow: hidden;
+//   // position: fixed; /* Set the navbar to fixed position */
+//   top: 0; /* Position the navbar at the top of the page */
+//   width: 100%; /* Full width */
+// }
+
 .navbar-wagon {
-  box-shadow: 0 0px 35px 0 rgba(250,250,250,0.7),0 0px 0 0 rgba(250,250,250,0.7);
-  background: black;
+  box-shadow: 0 0px 35px 0 rgba(0,0,0,0.3),0 0px 0 0 rgba(0,0,0,0.3);
+  background: white;
   transition: all 0.3s ease;
   display: flex;
   height: 70px;
@@ -58,10 +65,6 @@
   color: #616668;
   font-size: 14px;
 }
-.navbar-wagon-link:hover {
-  color: #da552f;
-  text-decoration: none;
-}
 
 /* Navbar dropdown menu */
 .navbar-wagon-dropdown-menu {
@@ -101,12 +104,12 @@
 }
 
 .become_curator:hover {
-  box-shadow: inset 0px 0 white;
+  box-shadow: inset 0px 0 black;
   background-color: none;
-  border-bottom: inset 3px white;
-  border-top: inset 3px white;
+  border-bottom: inset 3px black;
+  border-top: inset 3px black;
   font-weight: bold;
-  color: white;
+  color: black;
 }
 
 .nav-pills > li > a {

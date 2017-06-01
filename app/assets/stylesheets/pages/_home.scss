@@ -1,6 +1,11 @@
 .video-container {
-  margin-top: 30px;
   position: relative;
+  bottom: 0%;
+  left: 0%;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
 }
 
 .video-container-content{
@@ -12,8 +17,22 @@
 
 .video-container-content h1 {
     font-size: 65px;
-   }
+  }
 
 .video-container-content p {
   font-size: 35px;
+}
+
+#info{
+  height: 430px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+h4 {
+  padding: 35px;
+}
+
+.icono {
+  width: 50%;
 }
