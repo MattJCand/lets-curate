@@ -26,14 +26,16 @@
 .info{
   height: 700px;
   margin-bottom: 30px;
-  background-color: rgba(0, 0, 0, 0.2);
+  background: image-url("back4.png") fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .info h2 {
   margin-top: -30px;
   margin-bottom: 11px;
   padding: 350px;
-  color: white;
+  color: black;
 }
 
 .icono {
@@ -41,7 +43,7 @@
 }
 
 .parallax {
-  background-image: image-url("find.jpg");
+  background-image: image-url("find1.jpg");
   min-height: 700px;
   background-attachment: fixed;
   background-position: center;
@@ -51,7 +53,7 @@
 }
 
 .parallax1 {
-  background-image: image-url("collaborate.jpg");
+  background-image: image-url("collaborate1.jpg");
   min-height: 700px;
   background-attachment: fixed;
   background-position: center;
@@ -61,7 +63,7 @@
 }
 
 .parallax2 {
-  background-image: image-url("fame.jpg");
+  background-image: image-url("fame1.jpg");
   min-height: 700px;
   background-attachment: fixed;
   background-position: center;
