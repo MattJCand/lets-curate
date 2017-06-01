@@ -1,0 +1,121 @@
+.teamchoice {
+  display: flex;
+  align-items: center;
+  border-radius: 3px;
+  transition: all 0.15s ease;
+  width: 800px;
+  padding-top: 20px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-bottom: 20px;
+  width: 100%;
+  background: #f0f0ed;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Body design */
+.team-body {
+  flex: 1 1 auto;
+}
+.team-body h3 {
+  font-weight: bold;
+  font-size: 23px;
+  margin-top: 0;
+}
+.team-body p {
+  font-weight: lighter;
+  color: #999999;
+  margin: 0px;
+}
+
+/* Upvote design */
+.team-name {
+  padding-right: 20px;
+  padding-left: 150px;
+  text-align: center;
+  transition: all 0.15s ease;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 20px;
+  margin: 2px 0 0;
+}
+
+
+.team-details {
+  flex: 0 0 10%;
+}
+
+a{
+  color: #999999;
+}
+
+
+/* Hover effects */
+.teamchoice:hover {
+  cursor: pointer;
+  padding-left:20px;
+  padding-right:20px;
+}
+.team-name:hover{
+  color: #5898f1;
+  cursor: pointer;
+}
+
+.team-card{
+  height: 150px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+  background-size: cover !important;
+  color: white;
+  position: relative;
+  background-position: center;
+  margin-left: -14px;
+  margin-right: 10px;
+  margin-top: -19px;
+  margin-bottom: -19px;
+  width: 225%;
+}
+
+.test{
+  border-radius: 50%;
+  width: 500px;
+  height: 500px;
+  background-color: red;
+  position: relative;
+}
+
+.test1{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  position: absolute;
+  margin: 182px 0px 0px 0px
+}
+
+.test2{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  position: absolute;
+  margin: 50px 0px 0px 335px
+}
+
+.test3{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  position: absolute;
+  margin-left: 200px;
+}
+
+.test4{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  position: absolute;
+  margin: 50px 0px 0px 65px;
+}

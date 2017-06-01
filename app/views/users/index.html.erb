@@ -10,9 +10,9 @@
       </div>
     </div>
   <div class="container text-center">
-      <% @users.each do |user| %>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
+        <% @users.each do |user| %>
           <div class="userchoice">
             <div class='user-details'>
               <% avatar_url = "http://placehold.it/201x200"%>
@@ -28,6 +28,7 @@
               <p>Following - <strong>123</strong></p>
             </div>
           </div>
+          <%= link_to "", user_path(user), class: "card-link" %>
           <% end %>
         </div>
       </div>
