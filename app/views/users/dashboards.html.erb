@@ -19,11 +19,11 @@
               <p>Types of art: <%= team.art_types %></p>
             </div>
             <div class="team-body">
-              <p>Members - <strong>4</strong></p>
-              <p>Budget - <strong>450</strong>$</p>
+              <p>Members - <strong><%= team.total_members  %></strong></p>
+              <p>Budget - <strong><%=team.budget %></strong>$</p>
             </div>
           </div>
-          <%= link_to "", dashboard_path(@team), class: "card-link" %>
+          <%= link_to "", dashboard_path(team), class: "card-link" %>
           <% end %>
         </div>
       </div>
