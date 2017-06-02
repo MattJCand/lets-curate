@@ -1,6 +1,12 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
+# Datepicker
+source "https://rails-assets.org" do
+  gem 'rails-assets-bootstrap-datepicker'
+end
+
+
 gem 'rails', '5.0.3'
 gem 'puma'
 gem 'pg'
@@ -30,6 +36,8 @@ gem "pundit"
 #Add activeAdmin
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+
+
 
 group :development, :test do
   gem 'binding_of_caller'
