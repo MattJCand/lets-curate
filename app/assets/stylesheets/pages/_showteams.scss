@@ -6,6 +6,8 @@
 
 #banner-height{
   height:342px;
+  background-size: cover;
+  background-position: center;
 }
 
 #description-show-team{
@@ -92,4 +94,17 @@
   .mainteam {
     min-height: 100vh;
     background: #f0f0ed;
+  }
+
+  #edit{
+    margin-top: 10px;
+  }
+
+  #edit > button > a{
+    color: white;
+    text-decoration: none;
+  }
+
+  #edit-button {
+    margin-top: 15px
   }

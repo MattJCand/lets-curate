@@ -43,7 +43,7 @@
           </div>
         </div>
         <div id="edit">
-          <%= link_to "Edit Team", edit_team_path(@team), class: "btn btn-primary" %>
+          <button class="btn btn-primary" id="edit-button"><%= link_to "Edit Team", edit_team_path(@team)%></button>
         </div>
       </div>
 
@@ -117,6 +117,7 @@
   <%= link_to "Edit Team", edit_team_path(@team) %>
 </div>
 <% end %>
+
 
 
 <!-- JOIN THE TEAM MODAL 6 A LAISSER A AURORE POUR VENDREDI -->
