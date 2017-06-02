@@ -42,9 +42,11 @@
           <span class="tag"><%= @team.art_types %></span>
           </div>
         </div>
+        <% if policy(Team).update? %>
         <div id="edit">
           <button class="btn btn-primary" id="edit-button"><%= link_to "Edit Team", edit_team_path(@team)%></button>
         </div>
+        <% end %>
       </div>
 
       <div class="col-md-6">
@@ -111,12 +113,7 @@
       </div>
     </div>
   </div>
-</div> <!-- end movie-card -->
-<% if policy(Team).update? %>
-<div id="edit">
-  <%= link_to "Edit Team", edit_team_path(@team) %>
-</div>
-<% end %>
+<!-- end movie-card -->
 
 
 
