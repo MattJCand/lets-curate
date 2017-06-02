@@ -4,8 +4,15 @@
     <h1>Edit your team</h1>
     <br>
     <%= simple_form_for @team do |f| %>
+      <%= f.input :title,  placeholder: 'Paris en Noir et Blanc...' %>
+      <%= f.input :description %>
+      <%= f.input :total_members, collection: 2..10 %>
+      <%= f.input :theme %>
+      <%= f.input :art_types %>
+      <%= f.input :location %>
+      <%= f.input :budget %>
       <%= f.input :date %>
-      <%= f.submit "Add a date", class: "btn btn-primary" %>
+      <%= f.submit "Modifier Team", class: "btn btn-primary" %>
       <br>
     <% end %>
     </div>
