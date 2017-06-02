@@ -32,7 +32,7 @@ class TeamsController < ApplicationController
 
   def update
     @team.update(team_params)
-    redirect_to dashboard_path(@team)
+    redirect_to team_path(@team)
   end
 
   def destroy
