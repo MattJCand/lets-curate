@@ -1,9 +1,9 @@
-<h1>The <%= @member.team.title %> Dashboard</h1>
+<h1>The <%= @team.title %> Dashboard</h1>
 <!-- Date -->
 <h2>STEP 1 - Pick a date!</h2>
 <%= link_to "Choose the date", edit_team_path(@team) %>
-<% if @member.team.date != nil %>
-  <p>Date: <%= @member.team.date.strftime("%A %d %B") %></p>
+<% if @team.date != nil %>
+  <p>Date: <%= @team.date.strftime("%A %d %B") %></p>
 <% end %>
 
 
@@ -16,7 +16,7 @@
  <%= link_to "Add a task", new_team_task_path(@team) %>
 <% end %>
 
-<% @member.tasks.each_with_index do |task, index| %>
+<% @team.tasks.each_with_index do |task, index| %>
   <p>
   <strong><%= index + 1 %>.
   <%= task.name %></strong>
