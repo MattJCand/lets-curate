@@ -3,7 +3,7 @@
 <div class="movie-card">
   <div class="container" id="container-user">
 
-    <% avatar_url = "http://placehold.it/201x200"%>
+    <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/201x200"%>
     <%= image_tag avatar_url, class: "cover avatar-square"%>
 
     <div id="banner">
@@ -21,7 +21,6 @@
           <div class="item active">
             <div class="gradient"></div>
             <%= cl_image_tag @first_photo_path,crop: :fill, width: 1600,  height: 600 %>
-            <!-- <a href="#"><img src="http://placekitten.com/1600/600" /></a> -->
           </div>
 
           <% @user.photos.each do |photo| %>

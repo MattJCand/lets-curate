@@ -22,6 +22,7 @@
 
 #top-space-show-user{
   margin-top: 20px;
+  min-height: 100vh;
 }
 
 #details-show-team{
@@ -92,7 +93,7 @@
   }
 
   .mainteam {
-    min-height: 100vh;
+    min-height: 100vh !important;
     background: #f0f0ed;
   }
 
