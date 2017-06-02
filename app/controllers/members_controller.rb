@@ -5,7 +5,6 @@ class MembersController < ApplicationController
   end
 
   def show
-    @task = Task.new(member: @member, team: @team)
   end
 
   def new

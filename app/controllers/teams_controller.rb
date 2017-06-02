@@ -43,8 +43,7 @@ class TeamsController < ApplicationController
 #DASHBOARD METHODS
 
   def dashboard
-    @member = Member.find(params[:id])
-    @team = @member.team
+    @team = Team.find(params[:id])
     @task = Task.new(member: @member, team: @team)
     authorize @team
   end
