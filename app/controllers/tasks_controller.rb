@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     @task.member = @project_owner
     authorize(@task)
     @task.save
-    redirect_to dashboard_path(@team)
+    redirect_to dashboard_team_path(@team)
   end
 
   def edit
@@ -25,14 +25,14 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     authorize(@task)
     @task.update(task_params)
-    redirect_to dashboard_path(@task.team)
+    redirect_to dashboard_team_path(@task.team)
   end
 
   def destroy
     @task = Task.find(params[:id])
     authorize(@task)
     @task.destroy
-    redirect_to dashboard_path(@task.team)
+    redirect_to dashboard_team_path(@task.team)
   end
 
   def mark_as_done
@@ -40,7 +40,7 @@ class TasksController < ApplicationController
     @task.status = true
     authorize(@task)
     @task.save
-    redirect_to dashboard_path(@task.team)
+    redirect_to dashboard_team_path(@task.team)
   end
 
   private
