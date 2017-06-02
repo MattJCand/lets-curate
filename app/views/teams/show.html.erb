@@ -15,7 +15,7 @@
 
   <div class="container" id="top-space-show-user">
     <div class="row">
-      <div class="col-md-3">
+      <div class="col-md-3 text-center">
       <br>
         <div class="row">
           <div class="col-md-12 avatars">
@@ -41,6 +41,9 @@
           <h4> Types of art: </h4>
           <span class="tag"><%= @team.art_types %></span>
           </div>
+        </div>
+        <div id="edit">
+          <%= link_to "Edit Team", edit_team_path(@team), class: "btn btn-primary" %>
         </div>
       </div>
 
@@ -109,15 +112,9 @@
     </div>
   </div>
 </div> <!-- end movie-card -->
-<<<<<<< HEAD
-</div>
-=======
-
-<div id="edit">
-  <%= link_to "Edit Team", edit_team_path(@team) %>
 </div>
 
->>>>>>> d546e63728e65007d94360b9880e11b6fe7d04d6
+
 <!-- JOIN THE TEAM MODAL 6 A LAISSER A AURORE POUR VENDREDI -->
 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
   Join the team
