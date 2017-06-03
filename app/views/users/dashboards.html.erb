@@ -23,7 +23,8 @@
               <p>Budget - <strong><%=team.budget %></strong>$</p>
             </div>
           </div>
-          <%= link_to "", dashboard_path(team), class: "card-link" %>
+          <%= link_to  team.id, dashboard_team_path(team, team_id: team.id) %>
+          <%= link_to "", dashboard_team_path(team), class: "card-link" %>
           <% end %>
         </div>
       </div>
