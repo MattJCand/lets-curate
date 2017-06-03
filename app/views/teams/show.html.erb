@@ -112,7 +112,11 @@
     </div>
   </div>
 </div> <!-- end movie-card -->
+<% if policy(Team).update? %>
+<div id="edit">
+  <%= link_to "Edit Team", edit_team_path(@team) %>
 </div>
+<% end %>
 
 
 

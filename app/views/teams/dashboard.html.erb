@@ -143,3 +143,41 @@
   </div>
 </div> <!-- end movie-card -->
 </div>
+
+<h1>The <%= @team.title %> Dashboard</h1>
+<!-- Date -->
+<h2>STEP 1 - Pick a date!</h2>
+<%= link_to "Choose the date", edit_team_path(@team) %>
+<% if @team.date != nil %>
+  <p>Date: <%= @team.date.strftime("%A %d %B") %></p>
+<% end %>
+
+
+<!-- Task Manager -->
+<h2>STEP 6 - Opening Night Checklist</h2>
+<h4>List and keep track of all the things to do before your big night!</h4>
+
+
+<% if policy(@task).create? %>
+ <%= link_to "Add a task", new_team_task_path(@team) %>
+<% end %>
+
+<% @team.tasks.each_with_index do |task, index| %>
+  <p>
+  <strong><%= index + 1 %>.
+  <%= task.name %></strong>
+  <p><%= task.description %></p>
+  <% if policy(@task).create? %>
+    <% if task.status? %>
+      Done!
+    <% else %>
+      <%= link_to "Done", done_task_path(task) %>
+    <% end %>
+    <%= link_to "Modify task", edit_task_path(task) %>
+    <%= link_to "Delete task", task_path(task),
+        method: :delete,
+        data: { confirm: "Are you sure?" } %>
+    <% end %>
+    </p>
+<% end %>
+
