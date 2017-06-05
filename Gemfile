@@ -44,6 +44,8 @@ end
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
+#Add Commontator
+gem 'commontator', '~> 4.11.1'
 
 
 group :development, :test do

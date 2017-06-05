@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_attachment  :avatar
   has_attachments :photos, :maximum => 5
+  acts_as_commontator
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)

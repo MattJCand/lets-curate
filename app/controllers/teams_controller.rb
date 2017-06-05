@@ -45,6 +45,7 @@ class TeamsController < ApplicationController
   def dashboard
     @team = Team.find(params[:id])
     @task = Task.new(member: @member, team: @team)
+    commontator_thread_show(@team)
     authorize @team
     @teams = Team.where.not(latitude: nil, longitude: nil)
     @hash = Gmaps4rails.build_markers(@teams) do |team, marker|
