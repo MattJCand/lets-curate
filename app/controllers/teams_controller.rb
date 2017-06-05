@@ -47,6 +47,11 @@ class TeamsController < ApplicationController
     @task = Task.new(member: @member, team: @team)
     commontator_thread_show(@team)
     authorize @team
+    @teams = Team.where.not(latitude: nil, longitude: nil)
+    @hash = Gmaps4rails.build_markers(@teams) do |team, marker|
+        marker.lat team.latitude
+        marker.lng team.longitude
+    end
   end
 
   private

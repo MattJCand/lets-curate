@@ -1,6 +1,5 @@
-<h1 style="text-align: center;">Dashboard</h1>
+<h1 style="text-align: center;">The <%= @team.title %> Dashboard</h1>
 
-<h2 style="text-align: center;">The <%= @team.title %></h2>
 
 <div class="container">
   <div class="row">
@@ -49,6 +48,7 @@
             <form role="form">
                 <div class="tab-content">
                     <div class="tab-pane active" role="tabpanel" id="step1">
+                    <h3>Step 1 - General Information</h3>
 
                          <!-- PICK A DATE -->
                          <% if @team.date != nil %>
@@ -79,8 +79,10 @@
                       </div>
 
                               <!-- LOCATION -->
+                              <h4>Location: </h4>
+
                               <% if @team.date != nil %>
-                                  <h4>Location: <%= @team.location %></h4>
+                                  <h5>Address: <%= @team.location %></h5>
                                 <% end %>
 
 
@@ -107,6 +109,8 @@
                                     </div>
                                   </div>
                                 </div>
+
+                                <div id="map" style="width: 80%; height: 300px;"></div>
 
                         <ul class="list-inline pull-right">
                             <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
@@ -175,5 +179,21 @@
 
 <%= content_for(:after_js) do %>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDPP-NYzVfGiWV2Gj2_mPFLxONBE1iekvY"></script>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
 <% end %>
+
 
