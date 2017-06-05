@@ -33,6 +33,13 @@ gem 'coffee-rails'
 #Add Pundit
 gem "pundit"
 
+#Add GoogleMaps
+gem "geocoder"
+gem "gmaps4rails"
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
 #Add activeAdmin
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'

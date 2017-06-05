@@ -6,4 +6,6 @@ class Team < ApplicationRecord
   validates :title, uniqueness: true, presence: true
   validates :description, :photo, :art_types, presence: true
 
+  geocoded_by :location
+  after_validation :geocode #if: :location_changed?
 end
