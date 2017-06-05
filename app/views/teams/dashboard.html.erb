@@ -2,8 +2,10 @@
 
 <h2 style="text-align: center;">The <%= @team.title %></h2>
 
-
 <div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="container">
   <div class="row">
     <section>
         <div class="wizard">
@@ -162,6 +164,13 @@
         </div>
     </section>
    </div>
+</div>
+    </div>
+      <div class="col-md-4">
+         <%= commontator_thread(@team) %>
+      </div>
+    </div>
+  </div>
 </div>
 
 <%= content_for(:after_js) do %>
