@@ -1,0 +1,24 @@
+.titledashboard{
+  font-family: 'Lobster', cursive;
+  // color: #5bc0de;
+  margin-bottom: 60px;
+}
+
+.pdashboard{
+  color: #c1c1c1;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+#step1{
+  text-align:center;
+}
+
+
+#step1 > ul > li > button{
+  margin-top: 100px;
+  transform: perspective(1px) translateZ(0);
+}
+
+
+
