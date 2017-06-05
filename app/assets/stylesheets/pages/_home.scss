@@ -1,18 +1,30 @@
+.home-content{
+  min-height: 100vh;
+}
+
 .video-container {
   position: relative;
   bottom: 0%;
   left: 0%;
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
   overflow: hidden;
-  background: #000;
+  background:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), image-url("exhibition.jpg");
+  background-size: cover;
+}
+
+.c-image {
+  width: 20%;
+  margin-top: 330px;
+  margin-left: 500px;
 }
 
 .video-container-content{
-  position:absolute;
-  top: 210px;
-  left: 830px;
+  position: absolute;
+  top: 405px;
+  left: 800px;
   color: white;
+  text-shadow: 1px 1px 1px black;
 }
 
 .video-container-content h1 {
@@ -23,8 +35,64 @@
   font-size: 35px;
 }
 
+.image-content{
+  width: 104.5%;
+}
+
+.content-text{
+  background-color: black;
+}
+
+#special-background{
+  padding-left: 0px;
+  padding-right: 0px;
+  background-color: #454545;
+}
+
+#special-background-white{
+  padding-left: 0px;
+  padding-right: 0px;
+  background-color: white;
+}
+
+
+.text-content {
+  color: white;
+  margin-top: 150px;
+  margin-left: 54px;
+}
+
+.text-content-black {
+  color: black;
+  margin-top: 150px;
+  margin-left: 54px;
+}
+
+.triangle {
+  position: absolute;
+  height: 30%;
+  margin-left: -756px;
+  margin-top: 130px;
+}
+
+.triangle2 {
+  position: absolute;
+  height: 30%;
+  margin-left: -724px;
+  margin-top: 130px;
+}
+
+.title-home{
+  text-decoration: underline;
+}
+
+.text-home {
+  padding: 0px 245px 0px 0px;
+  font-size: 20px;
+}
+
 .info{
-  height: 700px;
+  height: 400px;
   margin-bottom: 30px;
   background: image-url("back4.png") fixed;
   background-size: cover;

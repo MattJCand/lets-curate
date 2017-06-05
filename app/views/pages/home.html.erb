@@ -1,12 +1,60 @@
-<div class="video-container">
-<%= video_tag("logofinal.mp4", autoplay: :autoplay, loop: :loop)%>
-  <div class="video-container-content">
-    <h1>Let's Curate</h1>
-    <p>Put your art on the world's canvas!</p>
+<div class="home-content">
+  <div class="video-container">
+    <div>
+      <%= image_tag ("LOGOF.png"), class: "c-image" %>
+    </div>
+    <div class="video-container-content">
+      <h1>Let's Curate</h1>
+      <p>Put your art on the world's canvas!</p>
+    </div>
   </div>
+  <div id="info">
+    <div class="container-fluid" id="special-background">
+        <div class="row">
+          <div class="col-md-6">
+            <%= image_tag ("find1.jpg"), class: "image-content" %>
+          </div>
+          <div class="col-md-6">
+            <div class="text-content">
+              <h1 class="title-home">Join the dream team!</h1>
+              <h3 class="text-home"> Find or create an artist team, that suits your inner artist's needs, and create a professional exhibition together </h3>
+            </div>
+          </div>
+          <%= image_tag ("triangle.png"), class: "triangle" %>
+        </div>
+    </div>
+    <div class="container-fluid" id="special-background-white">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="text-content-black">
+              <h1 class="title-home">Collaborate through a dashboard!</h1>
+              <h3 class="text-home"> Save time by discussing all the steps on your dashboard! No more moving around for pointless meeting. Plan your exhibition at your finger tips and meet only once to set it up and lunch it.  </h3>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <%= image_tag ("collaborate1.jpg"), class: "image-content" %>
+          </div>
+          <%= image_tag ("triangleb.png"), class: "triangle2" %>
+        </div>
+    </div>
+    <div class="container-fluid" id="special-background">
+        <div class="row">
+          <div class="col-md-6">
+            <%= image_tag ("fame1.jpg"), class: "image-content" %>
+          </div>
+          <div class="col-md-6">
+            <div class="text-content">
+              <h1 class="title-home">Rise to fame!</h1>
+              <h3 class="text-home"> Enjoy your cheap and risk free exhibition! Sell your work if possible and break through the local artist scene! </h3>
+            </div>
+          </div>
+          <%= image_tag ("triangle.png"), class: "triangle" %>
+        </div>
+    </div>
 </div>
 
-<div id="info">
+
+<!-- <div id="info">
   <div class="parallax" height="500px">
     <div class="info">
       <h2 class="text-center">Join a collaboration that suits your needs.</h2>
@@ -22,4 +70,4 @@
       <h2 class="text-center">Enjoy your low-cost, risk-free exhibition and rise to fame!</h2>
     </div>
   </div>
-</div>
+</div> -->
