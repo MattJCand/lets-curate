@@ -1,223 +1,168 @@
-
-<!-- <div class="mainteam">
-<div class="movie-card" id="bckgrnd-color">
-  <div class="container" id="container-user">
-    <div class="banner" id="banner-height" style="background-image:linear-gradient(rgba(0,0,0,0) 71%, rgba(0,0,0, .53)), url('<%= cl_image_path(@team.photo.path) %>');">
-    </div> <!-- end banner -->
-    <!-- <div class="details" id="details-show-team">
-      <div class="title3">
-      <h1 id="user-profile-name"><%= @team.title %>'s Dashboard</h1>
-        <span><%= @team.location %></span>
-      </div>
-      <div class="title2"><%= @team.budget %>  €</div>
-    </div> --> <!-- end details -->
-  <!-- </div> --> <!-- end container -->
-
-
-<!-- <div class="container" id="top-space-show-user">
-    <div class="row">
-      <div class="col-md-3 text-center">
-      <br>
-        <div class="row">
-          <div class="col-md-12 avatars">
-            <h4>Team Members</h4>
-            <a href="#" data-tooltip="GET PIC Person 1" data-placement="top">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_avatar1.png" alt="avatar1" />
-            </a>
-            <a href="#" data-tooltip="GET PIC Person 2" data-placement="top">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_avatar2.png" alt="avatar2" />
-            </a>
-            <a href="#" data-tooltip="GET PIC Person 3" data-placement="top">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_avatar3.png" alt="avatar3" />
-            </a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-          <br>
-          <h4>Themes :</h4>
-          <span class="tag"><%= @team.theme %></span>
-          <span class="tag">abstract</span>
-          <span class="tag">imaginary</span>
-          <h4> Types of art: </h4>
-          <span class="tag"><%= @team.art_types %></span>
-          </div>
-        </div>
-      </div> -->
-
-<!--       <div class="col-md-6">
-        <h2 id="title-description-show-team">Collaboration details:</h2>
-        <p id="description-show-team"> <%= @team.description %></p>
-        <h2 id="title-description-show-team">STEP 1 - Pick a date!</h2>
-        <%#= link_to "Choose the date", edit_team_path(@team) %>
-        <%# if @member.team.date != nil %>
-          <p id="description-show-team">Date: <%#= @member.team.date.strftime("%A %d %B") %></p>
-        <%# end %>
-
-
-        <!-- Task Manager -->
-        <!-- <h2 id="title-description-show-team">STEP 6 - Opening Night Checklist</h2>
-        <h4 id="title-description-show-team">List and keep track of all the things to do before your big night!</h4>
-
-      </div>
- -->
-      <!-- <div class="col-md-3">
-<br> <br>
-        <div id="side-card"><!-- div of 2 divs -->
-          <!-- <div class="row">  --> <!-- row-condensed space-3 -->
-            <!-- <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-6" id="no-padding-right">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <h5 class="date-space">Start date</h5>
-                    </div>
-                    <div class="col-md-12">
-                      <h5 id="date-box-no-right-show-team">14/07/2017</h5>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6" id="no-padding-left">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <h5 class="date-space">End date</h5>
-                    </div>
-                    <div class="col-md-12">
-                      <h5 id="date-box-no-left-show-team">23/07/2017</h5>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
-            <!-- </div> --><!-- end first div -->
-
-            <!-- <div class="row">
-              <div class="col-md-12">
-                <div class="row">
-                  <div class="col-md-12">
-                    <h5>Address:</h5>
-                  </div>
-                  <div class="col-md-12">
-                    <h5 id="address-box">16 Villa Gaudelet</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
-        <!-- </div> --><!-- end of 1rst div -->
-
-        <!-- <div>
-          <div class="panel space-top-6 space-md-3 text-center">
-            <div id="join-team-show">
-              <button class="btn btn-primary"> <%#= link_to "Join the team", new_team_member_path(@team) %></button>
-            </div>
-            <br>
-           <div>
-             <p><a href="#">Share this event</a></p>
-           </div>
-          </div>
-        </div --><!-- end div of 2 divs -->
-
-      <!-- </div>
-    </div>
-  </div> -->
-<!-- </div> --> <!-- end movie-card -->
-<!-- </div>  -->
-
-<!-- Aurore -->
 <h1 style="text-align: center;">Dashboard</h1>
 
 <h2 style="text-align: center;">The <%= @team.title %></h2>
 
-<!-- Date -->
-<h2>STEP 1 - Pick a date!</h2>
 
-<% if @team.date != nil %>
-  <h4>Date: <%= @team.date.strftime("%A %d %B") %></h4>
-<% end %>
+<div class="container">
+  <div class="row">
+    <section>
+        <div class="wizard">
+            <div class="wizard-inner">
+                <div class="connecting-line"></div>
+                <ul class="nav nav-tabs" role="tablist">
+
+                    <li role="presentation" class="active">
+                        <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-folder-open"></i>
+                            </span>
+                        </a>
+                    </li>
+
+                    <li role="presentation" class="disabled">
+                        <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li role="presentation" class="disabled">
+                        <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-picture"></i>
+                            </span>
+                        </a>
+                    </li>
+
+                    <li role="presentation" class="disabled">
+                        <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-ok"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <form role="form">
+                <div class="tab-content">
+                    <div class="tab-pane active" role="tabpanel" id="step1">
+
+                         <!-- PICK A DATE -->
+                         <% if @team.date != nil %>
+                              <h4>Date: <%= @team.date.strftime("%A %d %B") %></h4>
+                         <% end %>
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
+                      Pick a date
+                    </button>
+                      <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">The perfect spot to reveal your art to the world !</h4>
+                          </div>
+                          <div class="modal-body">
+                            <%= simple_form_for(@team) do |f| %>
+                              <%= f.input :date %>
+                          </div>
+                          </div>
+                          <div class="modal-footer">
+                              <%= f.button :submit, "Save" %>
+                            <% end %>
+                            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                            <!-- <button type="button" class="btn btn-primary">Save</button> -->
+                          </div>
+                        </div>
+                      </div>
+
+                              <!-- LOCATION -->
+                              <% if @team.date != nil %>
+                                  <h4>Location: <%= @team.location %></h4>
+                                <% end %>
 
 
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">
-  Pick a date
-</button><div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">The perfect spot to reveal your art to the world !</h4>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for(@team) do |f| %>
-          <%= f.input :date %>
-      </div>
-      </div>
-      <div class="modal-footer">
-          <%= f.button :submit, "Save" %>
-        <% end %>
-        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-        <!-- <button type="button" class="btn btn-primary">Save</button> -->
-      </div>
-    </div>
-  </div>
+                                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+                                  Pick a location
+                                </button>
+                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                  <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                      <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Choose the date for your big night !</h4>
+                                      </div>
+                                      <div class="modal-body">
+                                      <%= simple_form_for(@team) do |f| %>
+                                        <%= f.input :location %>
+                                      </div>
+                                      <div class="modal-footer">
+                                        <%= f.button :submit, "Save" %>
+                                      <% end %>
+                                        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                                        <!-- <button type="button" class="btn btn-primary">Save</button> -->
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="step2">
+                        <h3>Step 2</h3>
+                        <p>This is step 2</p>
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                            <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="step3">
+                        <h3>Step 3</h3>
+                        <p>This is step 3</p>
+
+                        <!-- TASK MANAGER -->
+                        <% if policy(@task).create? %>
+                           <%= link_to "Add a task", new_team_task_path(@team) %>
+                          <% end %>
+
+                          <% @team.tasks.each_with_index do |task, index| %>
+                            <p>
+                            <strong><%= index + 1 %>.
+                            <%= task.name %></strong>
+                            <p><%= task.description %></p>
+                            <% if policy(@task).create? %>
+                              <% if task.status? %>
+                                Done!
+                              <% else %>
+                                <%= link_to "Done", done_task_path(task) %>
+                              <% end %>
+                              <%= link_to "Modify task", edit_task_path(task) %>
+                              <%= link_to "Delete task", task_path(task),
+                                  method: :delete,
+                                  data: { confirm: "Are you sure?" } %>
+                              <% end %>
+                              </p>
+                          <% end %>
+
+                        <ul class="list-inline pull-right">
+                            <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                            <li><button type="button" class="btn btn-default next-step">Skip</button></li>
+                            <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane" role="tabpanel" id="complete">
+                        <h3>Complete</h3>
+                        <p>You have successfully completed all steps.</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </form>
+        </div>
+    </section>
+   </div>
 </div>
-
-
-<!-- Location -->
-<h2>STEP 2 - Pick a location!</h2>
-
-<% if @team.date != nil %>
-  <h4>Location: <%= @team.location %></h4>
-<% end %>
-
-
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Pick a location
-</button><div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Choose the date for your big night !</h4>
-      </div>
-      <div class="modal-body">
-      <%= simple_form_for(@team) do |f| %>
-        <%= f.input :location %>
-      </div>
-      <div class="modal-footer">
-        <%= f.button :submit, "Save" %>
-      <% end %>
-        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-        <!-- <button type="button" class="btn btn-primary">Save</button> -->
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Task Manager -->
-<h2>STEP 6 - Opening Night Checklist</h2>
-<h4>List and keep track of all the things to do before your big night!</h4>
-
-  <% if policy(@task).create? %>
-   <%= link_to "Add a task", new_team_task_path(@team) %>
-  <% end %>
-
-  <% @team.tasks.each_with_index do |task, index| %>
-    <p>
-    <strong><%= index + 1 %>.
-    <%= task.name %></strong>
-    <p><%= task.description %></p>
-    <% if policy(@task).create? %>
-      <% if task.status? %>
-        Done!
-      <% else %>
-        <%= link_to "Done", done_task_path(task) %>
-      <% end %>
-      <%= link_to "Modify task", edit_task_path(task) %>
-      <%= link_to "Delete task", task_path(task),
-          method: :delete,
-          data: { confirm: "Are you sure?" } %>
-      <% end %>
-      </p>
-  <% end %>
 
 <%= content_for(:after_js) do %>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDPP-NYzVfGiWV2Gj2_mPFLxONBE1iekvY"></script>
