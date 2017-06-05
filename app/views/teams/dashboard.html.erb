@@ -2,8 +2,10 @@
 
 <h2 style="text-align: center;">The <%= @team.title %></h2>
 
-
 <div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="container">
   <div class="row">
     <section>
         <div class="wizard">
@@ -163,10 +165,13 @@
     </section>
    </div>
 </div>
-
-<%= commontator_thread(@team) %>
-
-
+    </div>
+      <div class="col-md-4">
+         <%= commontator_thread(@team) %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= content_for(:after_js) do %>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDPP-NYzVfGiWV2Gj2_mPFLxONBE1iekvY"></script>
