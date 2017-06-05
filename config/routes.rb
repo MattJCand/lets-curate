@@ -32,5 +32,4 @@ Rails.application.routes.draw do
 
 
   mount Attachinary::Engine => "/attachinary"
-  mount Commontator::Engine => '/commontator'
 end
