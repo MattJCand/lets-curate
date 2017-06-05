@@ -41,7 +41,7 @@
                 </ul>
             </div>
 
-            <form role="form">
+            <!-- <form role="form"> -->
                 <div class="tab-content">
                     <div class="tab-pane active" role="tabpanel" id="step1">
 
@@ -61,23 +61,23 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <h4 class="modal-title" id="myModalLabel">Choose the date for your big night !</h4>
                               </div>
-                              <div class="modal-body">
                                 <%= simple_form_for(@team) do |f| %>
+                              <div class="modal-body">
                                   <%= f.input :date %>
                               </div>
                               <div class="modal-footer">
                                   <%= f.button :submit, "Save" %>
-                                <% end %>
                                 <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                                 <!-- <button type="button" class="btn btn-primary">Save</button> -->
                               </div>
+                                <% end %>
                             </div>
                           </div>
                           </div>
 
                         <!-- LOCATION -->
                           <h4>Location: </h4>
-                          <% if @team.date != nil %>
+                          <% if @team.location != nil %>
                             <h5>Address: <%= @team.location %></h5>
                           <% end %>
                           <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
@@ -215,7 +215,7 @@
                     </div>
                     <div class="clearfix"></div>
                 </div>
-            </form>
+            <!-- </form> -->
         </div>
     </section>
    </div>
