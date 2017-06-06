@@ -1,8 +1,10 @@
 <div>
-<div class="navbar-wagon navbar-wagon-fixed">
+<div class="navbar-wagon navbar-wagon-fixed <%= controller_name == 'pages' && action_name == 'home' ? 'home' : '' %>">
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logoo.png" %>
+  <% unless action_name == 'home' %>
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <%= image_tag "logoo.png" %>
+    <% end %>
   <% end %>
 
   <!-- Right Navigation -->

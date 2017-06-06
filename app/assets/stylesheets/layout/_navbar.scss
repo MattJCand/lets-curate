@@ -16,6 +16,50 @@
   justify-content: space-between;
 }
 
+.navbar-wagon.home {
+  color: black !important;
+  box-shadow: none;
+  position: absolute;
+  background: transparent;
+  transition: all 0.3s ease;
+  display: flex;
+  height: 70px;
+  padding: 0px 30px;
+  align-items: center;
+  justify-content: flex-end;
+
+  .navbar-wagon-item a {
+    color: white !important;
+
+  }
+
+  .navbar-wagon-item a:hover {
+    box-shadow: inset 0px 0 #005B99;
+    background-color: none;
+    border-bottom: inset 3px #005B99;
+    border-top: inset 3px #005B99;
+    font-weight: bold;
+    color: #005B99 !important;
+  }
+
+    .navbar-wagon-dropdown-menu li > a {
+    transition: color 0.3s ease;
+    box-shadow: inset 0px 0 white !important;
+    border-bottom: inset 0px white !important;
+    border-top: inset 0px white !important;
+    font-weight: lighter !important;
+    color: #999999 !important;
+    font-size: 15px !important;
+    line-height: 22px !important;
+    padding: 10px 20px;
+  }
+  .navbar-wagon-dropdown-menu li > a:hover {
+    background: transparent !important;
+    color: black !important;
+  }
+}
+
+
 /* Optional class to fix the navbar on top */
 .navbar-wagon-fixed {
   left: 0px;
@@ -64,6 +108,7 @@
   color: #616668;
   font-size: 14px;
 }
+
 
 /* Navbar dropdown menu */
 .navbar-wagon-dropdown-menu {
