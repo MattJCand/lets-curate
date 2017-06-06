@@ -43,6 +43,10 @@ source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
 
+#Add PDF
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 #Add activeAdmin
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
