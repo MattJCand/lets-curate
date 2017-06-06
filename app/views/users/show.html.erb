@@ -69,6 +69,34 @@
 
       <div class="column2" >
         <p id="fonts"><%= @user.description %></p>
+        <h1 class="text-center">My Upcoming exhibitions</h1>
+      <div class="container text-center">
+          <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+            <% @teams.each do |team| %>
+              <div class="teamchoice">
+                <div class="team-details">
+                    <% if team.photo? %>
+                  <div class="team-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path team.photo.path, height: 300, width: 400, crop: :fill %>')"></div>
+                  <% else %>
+                  <div class="team-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path('noimage.jpg') %>')"></div>
+                  <% end %>
+                </div>
+                <div class="team-name"><%= team.title %></div> <!-- connect to profile -->
+                <div class="team-body">
+                  <p>Theme: <%= team.theme %><p>
+                  <p>Types of art: <%= team.art_types %></p>
+                </div>
+                <div class="team-body">
+                  <p>Members - <strong><%= team.total_members  %></strong></p>
+                  <p>Budget - <strong><%=team.budget %></strong>$</p>
+                </div>
+              <%= link_to "", team_path(team), class: "card-link" %>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
 
       </div> <!-- end column2 -->
     </div> <!-- end content-userprofile -->

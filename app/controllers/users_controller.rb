@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @teams = current_user.teams
     unless @user.photos.empty?
       @first_photo_path = @user.photos.first.path
     end
