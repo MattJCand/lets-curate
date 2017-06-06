@@ -154,6 +154,7 @@
                                 <div class="modal-footer">
                                     <%= f.button :submit, "Save" %>
                                   <% end %>
+
                                   <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                                   <!-- <button type="button" class="btn btn-primary">Save</button> -->
                                 </div>
@@ -168,6 +169,28 @@
                     <div class="tab-pane" role="tabpanel" id="step2">
                         <h3>Step 2</h3>
                         <p>This is step 2</p>
+
+                    <% @team.members.each do |member| %>
+                    <p><%= member.user.first_name %></p>
+                     <% if member.status == "pending" %>
+                      <p><a href="#" class="member-accepted" data-id="<%= member.id %>">
+                      <i class="fa fa-check fa-2x"></i></a>
+                      <a href="#" class="member-denied" data-id="<%= member.id %>">
+                      <i class="fa fa-times fa-2x"></i></a></p>
+                    <% end %>
+                    <% if member.status == "accepted" %>
+                      <p><a href="#" class="member-accepted" data-id="<%= member.id %>">
+                      <i class="fa fa-check fa-2x"></i></a></p>
+                    <% end %>
+                    <% if member.status == "denied" %>
+                      <p><a href="#" class="member-denied" data-id="<%= member.id %>">
+                      <i class="fa fa-times fa-2x"></i></a></p>
+                    <% end %>
+                     <% if member.status == "" %>
+                     hello wordl
+                     <% end %>
+                  <% end %>
+
                         <ul class="list-inline pull-right">
                             <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
                             <li><button type="button" class="btn btn-primary next-step">Save and continue</button></li>
