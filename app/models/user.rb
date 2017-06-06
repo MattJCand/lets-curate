@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :members
   has_many :teams, through: :members
 
-  has_attachment  :avatar
+  has_attachment  :avatar, accept: [:jpg, :png, :gif]
   has_attachments :photos, :maximum => 5
 
   def self.find_for_facebook_oauth(auth)

@@ -3,8 +3,15 @@
 <div class="movie-card">
   <div class="container" id="container-user">
 
-    <% avatar_url = "http://placehold.it/201x200"%>
-    <%= image_tag avatar_url, class: "cover avatar-square"%>
+
+ <div class="cover avatar-square">
+     <% if @user.avatar? %>
+        <%= cl_image_tag(@user.avatar.path, { size: '201x200'})%>
+     <% else %>
+        <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/201x200" %>
+        <%= image_tag avatar_url%>
+     <% end %>
+ </div>
 
     <div id="banner">
   <!--___________ CAROUSEL___________ -->
@@ -32,7 +39,6 @@
             <% end %>
           <% end %>
         </div>
-
         <a class="left carousel-control" href="#carousel-example" data-slide="prev">
           <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
@@ -76,8 +82,6 @@
           </a>
         </div>  -->
         <!-- end avatars -->
-
-
 
       </div> <!-- end column2 -->
     </div> <!-- end content-userprofile -->
