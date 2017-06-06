@@ -1,0 +1,94 @@
+.titletab{
+  font-family: 'Lobster', cursive;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#complete-dash{
+  text-align: center;
+  color: #bfbfbf;
+  font-size: 16px;
+  margin-top: 35px;
+}
+
+.dashboard-description{
+  color: #bfbfbf;
+}
+
+
+// SAVE AND CONTINUE BTN CODE______
+
+
+/* Variables */
+$color__blue: #3C474B;
+$color__white: #ffffff;
+
+$transition: 0.5s ease;
+
+/* Mixins */
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Resets */
+* {
+  box-sizing: border-box;
+}
+
+/* Button styles */
+.btndash {
+  font-size: 13px;
+  border: #3C474B;
+  background-color: white;
+  color: #3C474B;
+
+  padding: 0;
+  position: relative;
+  width: 200px;
+  height: 55px;
+  font-family: helvetica;
+  letter-spacing: 0.2em;
+  text-align: center;
+  border: none;
+  outline: none;
+  webkit-tap-highlight-color: rgba(0,0,0,0);
+  overflow: hidden;
+  cursor: pointer;
+
+}
+
+.button__outline {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid $color__blue;
+}
+
+.button__background {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: $color__blue;
+  border: 1px solid $color__blue;
+  transition: $transition;
+}
+
+.button__text {
+  @include center;
+  z-index: 2;
+}
+
+/* Hover styles */
+.btndash:hover {
+  color:white;
+
+  .button__background {
+    left: 0;
+  }
+}
