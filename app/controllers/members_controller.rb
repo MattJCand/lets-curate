@@ -15,7 +15,7 @@ class MembersController < ApplicationController
 
   def create
     @team = Team.find(params[:team_id])
-    @member = Member.new(team: @team, user: current_user, project_owner: false)
+    @member = Member.new(team: @team, user: current_user, project_owner: false, status: "pending" )
     @member.team = Team.find(params[:team_id])
     @member.save
     authorize @member
@@ -27,6 +27,8 @@ class MembersController < ApplicationController
 
   def update
     authorize @member
+    @member.status = params[:member][:status]
+    @member.save
   end
 
   def destroy

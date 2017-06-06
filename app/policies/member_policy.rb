@@ -18,7 +18,8 @@ class MemberPolicy < ApplicationPolicy
   end
 
   def update?
-    record.where(project_owner: true).first.user == user
+    # record.where(project_owner: true).user  == user
+    true
   end
 
   def edit?
@@ -26,7 +27,7 @@ class MemberPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.where(project_owner: true).first.user == user
+    record.where(project_owner: true).user == user
   end
 
 end
