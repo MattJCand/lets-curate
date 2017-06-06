@@ -33,6 +33,9 @@ gem 'coffee-rails'
 #Add Pundit
 gem "pundit"
 
+#Add Social Link
+gem 'social-share-button'
+
 #Add GoogleMaps
 gem "geocoder"
 gem "gmaps4rails"
