@@ -17,8 +17,17 @@
       <p>Date: <%= @team.date.strftime("%A %d %B") %></p>
       <p>Location: <%= @team.location %></p>
       <p>Theme: <%= @team.theme %></p>
+      <p>Types of art: <%= @team.art_types %></p>
+      <p>Description: <%= @team.description %></p>
       <p><% @team.members.each do |member| %>
-        <%= member.user.avatar %>
+        <div class="avatarpdf">
+        <% if member.user.avatar? %>
+          <%= member.user.avatar %>
+        <% else %>
+          <% avatar_url = current_user.facebook_picture_url || image_tag = "avatar-default_360.jpg" %>
+          <%= image_tag avatar_url%>
+        <% end %>
+        </div>
         <%= member.user.first_name %>
         <%= member.user.last_name %>
       <% end %></p>

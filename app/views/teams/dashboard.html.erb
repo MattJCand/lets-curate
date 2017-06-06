@@ -303,7 +303,7 @@
           <div class="tab-pane" role="tabpanel" id="complete">
               <h1 class="titletab">Complete!</h1>
               <p id="complete-dash">You're all done, you have successfully completed all steps.</p>
-              <p><%= link_to 'Create PDF document', dashboard_team_path(@team, :format => :pdf) %></p>
+              <p><%= link_to 'Create PDF document', dashboard_team_path(@team, :format => :pdf, target: :_blank) %></p>
           </div>
           <div class="clearfix"></div>
 
