@@ -42,153 +42,28 @@
           </ul>
         </div>
 
-                          <!-- STEP 1 -->
 
         <div class="tab-content">
+                          <!-- STEP 1 -->
           <div class="tab-pane active" role="tabpanel" id="step1">
 
-            <h1 class="titletab">Your exhibit infos</h1>
-              <!-- PICK A DATE -->
-
-              <div class="col-md-9 height-given">
-                <% if @team.date != nil %>
-                  <h4>Date: </h4>
-                  <%= @team.date.strftime("%A %d %B") %>
+                <% @team.members.each do |member| %>
+                  <p><%= member.user.first_name %></p>
+                   <% if member.status == "pending" %>
+                    <p><a href="#" class="member-accepted" data-id="<%= member.id %>">
+                    <i class="fa fa-check fa-2x"></i></a>
+                    <a href="#" class="member-denied" data-id="<%= member.id %>">
+                    <i class="fa fa-times fa-2x"></i></a></p>
+                  <% end %>
+                  <% if member.status == "accepted" %>
+                    <p><a href="#" class="member-accepted" data-id="<%= member.id %>">
+                    <i class="fa fa-check fa-2x"></i></a></p>
+                  <% end %>
+                  <% if member.status == "denied" %>
+                    <p><a href="#" class="member-denied" data-id="<%= member.id %>">
+                    <i class="fa fa-times fa-2x"></i></a></p>
+                  <% end %>
                 <% end %>
-                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Pick your date</h4>
-                      </div>
-                        <%= simple_form_for(@team) do |f| %>
-                      <div class="modal-body">
-                          <%= f.input :date %>
-                      </div>
-                      <div class="modal-footer">
-                          <%= f.button :submit, "Save" %>
-                        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                        <!-- <button type="button" class="btn btn-primary">Save</button> -->
-                      </div>
-                        <% end %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 height-given-btn">
-                <div class="float-right">
-                  <button type="button" class="btn-link-dash lnk1" data-toggle="modal" data-target="#myModal2">
-                    <div>Pick a date</div>
-                  </button>
-                </div>
-              </div>
-
-            <!-- LOCATION -->
-              <div class="col-md-9 height-given">
-                <h4>Location: </h4>
-                <% if @team.location != nil %>
-                  <h5>Address: <%= @team.location %></h5>
-                <% end %>
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">The perfect spot to reveal your art to the world !</h4>
-                      </div>
-                      <div class="modal-body">
-                        <%= simple_form_for(@team) do |f| %>
-                          <%= f.input :location %>
-                      </div>
-                      <div class="modal-footer">
-                          <%= f.button :submit, "Save" %>
-                          <% end %>
-                      <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                      <!-- <button type="button" class="btn btn-primary">Save</button> -->
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-3 height-given-btn">
-                <div class="float-right">
-                  <button type="button" class="btn-link-dash lnk2" data-toggle="modal" data-target="#myModal">
-                    Pick a location
-                  </button>
-                </div>
-              </div>
-
-            <!-- NAME EXHIBIT -->
-            <div class="col-md-9 height-given">
-              <h4>Exhibit Name: </h4>
-              <% if @team.title != nil %>
-                <h5><%= @team.title %></h5>
-              <% end %>
-              <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Choose the name of your exhibit</h4>
-                    </div>
-                    <div class="modal-body">
-                      <%= simple_form_for(@team) do |f| %>
-                        <%= f.input :title %>
-                    </div>
-                    <div class="modal-footer">
-                      <%= f.button :submit, "Save" %>
-                    <% end %>
-                  <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                  <!-- <button type="button" class="btn btn-primary">Save</button> -->
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 height-given-btn">
-              <div class="float-right">
-                <button type="button" class="btn-link-dash lnk3" data-toggle="modal" data-target="#myModal3">
-                  Pick a name
-                </button>
-              </div>
-            </div>
-
-            <!-- THEME EXHIBIT -->
-            <div class="col-md-9 height-given">
-              <h4>Exhibit Theme: </h4>
-              <% if @team.theme != nil %>
-                <h5><%= @team.theme %></h5>
-              <% end %>
-
-              <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="myModalLabel">Choose the theme of your exhibit</h4>
-                    </div>
-                    <div class="modal-body">
-                      <%= simple_form_for(@team) do |f| %>
-                        <%= f.input :theme %>
-                    </div>
-                    <div class="modal-footer">
-                        <%= f.button :submit, "Save" %>
-                      <% end %>
-
-                      <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                      <!-- <button type="button" class="btn btn-primary">Save</button> -->
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-3 height-given-btn">
-              <button type="button" class="btn-link-dash lnk4" data-toggle="modal" data-target="#myModal4">
-                Pick a theme
-              </button>
-            </div>
 
           <ul class="list-inline pull-right">
             <li>
@@ -207,29 +82,149 @@
                       <!-- STEP 2 -->
 
               <div class="tab-pane" role="tabpanel" id="step2">
+
                 <h1 class="titletab">Step 2</h1>
                 <p class="dashboard-description">This is step 2</p>
 
-                <% @team.members.each do |member| %>
-                  <p><%= member.user.first_name %></p>
-                   <% if member.status == "pending" %>
-                    <p><a href="#" class="member-accepted" data-id="<%= member.id %>">
-                    <i class="fa fa-check fa-2x"></i></a>
-                    <a href="#" class="member-denied" data-id="<%= member.id %>">
-                    <i class="fa fa-times fa-2x"></i></a></p>
+                <h1 class="titletab">Your exhibit infos</h1>
+                  <!-- PICK A DATE -->
+
+                  <div class="col-md-9 height-given">
+                    <% if @team.date != nil %>
+                      <h4>Date: </h4>
+                      <%= @team.date.strftime("%A %d %B") %>
+                    <% end %>
+                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Pick your date</h4>
+                          </div>
+                            <%= simple_form_for(@team) do |f| %>
+                          <div class="modal-body">
+                              <%= f.input :date %>
+                          </div>
+                          <div class="modal-footer">
+                              <%= f.button :submit, "Save" %>
+                            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                            <!-- <button type="button" class="btn btn-primary">Save</button> -->
+                          </div>
+                            <% end %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 height-given-btn">
+                    <div class="float-right">
+                      <button type="button" class="btn-link-dash lnk1" data-toggle="modal" data-target="#myModal2">
+                        <div>Pick a date</div>
+                      </button>
+                    </div>
+                  </div>
+
+                <!-- LOCATION -->
+                  <div class="col-md-9 height-given">
+                    <h4>Location: </h4>
+                    <% if @team.location != nil %>
+                      <h5>Address: <%= @team.location %></h5>
+                    <% end %>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                              <h4 class="modal-title" id="myModalLabel">The perfect spot to reveal your art to the world !</h4>
+                          </div>
+                          <div class="modal-body">
+                            <%= simple_form_for(@team) do |f| %>
+                              <%= f.input :location %>
+                          </div>
+                          <div class="modal-footer">
+                              <%= f.button :submit, "Save" %>
+                              <% end %>
+                          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                          <!-- <button type="button" class="btn btn-primary">Save</button> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-3 height-given-btn">
+                    <div class="float-right">
+                      <button type="button" class="btn-link-dash lnk2" data-toggle="modal" data-target="#myModal">
+                        Pick a location
+                      </button>
+                    </div>
+                  </div>
+
+                <!-- NAME EXHIBIT -->
+                <div class="col-md-9 height-given">
+                  <h4>Exhibit Name: </h4>
+                  <% if @team.title != nil %>
+                    <h5><%= @team.title %></h5>
                   <% end %>
-                  <% if member.status == "accepted" %>
-                    <p><a href="#" class="member-accepted" data-id="<%= member.id %>">
-                    <i class="fa fa-check fa-2x"></i></a></p>
+                  <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel">Choose the name of your exhibit</h4>
+                        </div>
+                        <div class="modal-body">
+                          <%= simple_form_for(@team) do |f| %>
+                            <%= f.input :title %>
+                        </div>
+                        <div class="modal-footer">
+                          <%= f.button :submit, "Save" %>
+                        <% end %>
+                      <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                      <!-- <button type="button" class="btn btn-primary">Save</button> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 height-given-btn">
+                  <div class="float-right">
+                    <button type="button" class="btn-link-dash lnk3" data-toggle="modal" data-target="#myModal3">
+                      Pick a name
+                    </button>
+                  </div>
+                </div>
+
+                <!-- THEME EXHIBIT -->
+                <div class="col-md-9 height-given">
+                  <h4>Exhibit Theme: </h4>
+                  <% if @team.theme != nil %>
+                    <h5><%= @team.theme %></h5>
                   <% end %>
-                  <% if member.status == "denied" %>
-                    <p><a href="#" class="member-denied" data-id="<%= member.id %>">
-                    <i class="fa fa-times fa-2x"></i></a></p>
-                  <% end %>
-                 <% if member.status == "" %>
-                 hello wordl
-                 <% end %>
-                <% end %>
+                  <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          <h4 class="modal-title" id="myModalLabel">Choose the theme of your exhibit</h4>
+                        </div>
+                        <div class="modal-body">
+                          <%= simple_form_for(@team) do |f| %>
+                            <%= f.input :theme %>
+                        </div>
+                        <div class="modal-footer">
+                            <%= f.button :submit, "Save" %>
+                          <% end %>
+                          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                          <!-- <button type="button" class="btn btn-primary">Save</button> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 height-given-btn">
+                  <button type="button" class="btn-link-dash lnk4" data-toggle="modal" data-target="#myModal4">
+                    Pick a theme
+                  </button>
+                </div>
 
                   <ul class="list-inline pull-right">
 <!--                     <li><button type="button" class="btn btn-default prev-step">Previous</button></li> -->
@@ -248,7 +243,33 @@
                       <!-- STEP 3 -->
 
               <div class="tab-pane" role="tabpanel" id="step3">
-                <h1 class="titletab">Step 3 - Checklist</h1>
+                <h1 class="titletab">Step 3</h1>
+                  <h1 class="titletab">Your task manager</h1>
+
+                              <!-- TASK MANAGER-->
+
+                    <% if policy(@task).create? %>
+                       <%= link_to "Add a task", new_team_task_path(@team) %>
+                    <% end %>
+
+                    <% @team.tasks.each_with_index do |task, index| %>
+                      <p>
+                      <strong><%= index + 1 %>.
+                      <%= task.name %></strong>
+                      <p><%= task.description %></p>
+                      <% if policy(@task).create? %>
+                        <% if task.status? %>
+                          Done!
+                        <% else %>
+                          <%= link_to "Done", done_task_path(task) %>
+                        <% end %>
+                        <%= link_to "Modify task", edit_task_path(task) %>
+                        <%= link_to "Delete task", task_path(task),
+                            method: :delete,
+                            data: { confirm: "Are you sure?" } %>
+                        <% end %>
+                        </p>
+                    <% end %>
                 <ul class="list-inline pull-right">
                     <li>
                       <div class="center">
@@ -261,42 +282,6 @@
                     </li>
                 </ul>
               </div>
-            <div class="tab-pane" role="tabpanel" id="step2">
-              <h1 class="titletab">Your poster</h1>
-              <p class="dashboard-description">What will be the best image to present your event ?</p>
-              <ul class="list-inline pull-right">
-<!--                 <li><button type="button" class="btn btn-default prev-step">Previous</button></li> -->
-              </ul>
-            </div>
-          <div class="tab-pane" role="tabpanel" id="step3">
-
-            <h1 class="titletab">Your task manager</h1>
-
-                        <!-- TASK MANAGER-->
-
-              <% if policy(@task).create? %>
-                 <%= link_to "Add a task", new_team_task_path(@team) %>
-              <% end %>
-
-              <% @team.tasks.each_with_index do |task, index| %>
-                <p>
-                <strong><%= index + 1 %>.
-                <%= task.name %></strong>
-                <p><%= task.description %></p>
-                <% if policy(@task).create? %>
-                  <% if task.status? %>
-                    Done!
-                  <% else %>
-                    <%= link_to "Done", done_task_path(task) %>
-                  <% end %>
-                  <%= link_to "Modify task", edit_task_path(task) %>
-                  <%= link_to "Delete task", task_path(task),
-                      method: :delete,
-                      data: { confirm: "Are you sure?" } %>
-                  <% end %>
-                  </p>
-              <% end %>
-          </div>
 
                           <!-- STEP 4 -->
 
