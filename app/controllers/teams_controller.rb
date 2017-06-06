@@ -20,7 +20,7 @@ class TeamsController < ApplicationController
     @team = Team.new(team_params)
     authorize @team
     if @team.save
-      Member.create!(team: @team, user: current_user, project_owner: true)
+      Member.create!(team: @team, user: current_user, project_owner: true, status: "accepted")
       redirect_to team_path(@team)
     else
       render :new
