@@ -46,6 +46,12 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     @task = Task.new(member: @member, team: @team)
     authorize @team
+    respond_to do |format|
+          format.html
+          format.pdf do
+            render pdf: "dashboard", layout: false   # Excluding ".pdf" extension.
+          end
+        end
   end
 
   private

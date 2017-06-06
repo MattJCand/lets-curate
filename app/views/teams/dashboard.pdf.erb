@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">
+    <!-- <%= wicked_pdf_javascript_include_tag "number_pages" %> -->
+  </head>
+  <body onload='number_pages'>
+    <div id="header">
+      <div id="logo">
+      <%= wicked_pdf_image_tag '' %>
+      </div>
+      <h1><%= @team.title %></h1>
+    </div>
+    <div id="content">
+      <p>Date: <%= @team.date.strftime("%A %d %B") %></p>
+      <p>Location: <%= @team.location %></p>
+      <p>Theme: <%= @team.theme %></p>
+      <p><% @team.members.each do |member| %>
+        <%= member.user.avatar %>
+        <%= member.user.first_name %>
+        <%= member.user.last_name %>
+      <% end %></p>
+    </div>
+  </body>
+</html>
