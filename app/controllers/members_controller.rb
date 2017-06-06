@@ -26,8 +26,8 @@ class MembersController < ApplicationController
   end
 
   def update
-    authorize @member
     @member.status = params[:member][:status]
+    authorize @member
     @member.save
   end
 

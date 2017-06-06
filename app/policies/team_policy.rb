@@ -18,7 +18,7 @@ class TeamPolicy < ApplicationPolicy
   end
 
   def update?
-    Member.where(project_owner: true).first.user == user
+    user.teams.include?(record) && user.members.where(team_id: record.id).first.project_owner == true
   end
 
   def edit?
@@ -26,10 +26,10 @@ class TeamPolicy < ApplicationPolicy
   end
 
   def destroy?
-    Member.where(project_owner: true).first.user == user
+    user.teams.include?(record) && user.members.where(team_id: record.id).first.project_owner == true
   end
 
   def dashboard?
-    true
+    user.teams.include?(record)
   end
 end
