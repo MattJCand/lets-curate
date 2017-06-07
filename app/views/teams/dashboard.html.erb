@@ -17,7 +17,7 @@
             <li role="presentation" class="active">
               <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
                 <span class="round-tab">
-                  <i class="glyphicon glyphicon-picture "></i>
+                  <i class="glyphicon glyphicon-user "></i>
                 </span>
               </a>
             </li>
@@ -51,7 +51,6 @@
         <div class="tab-content">
                           <!-- STEP 1 -->
           <div class="tab-pane active" role="tabpanel" id="step1">
-
             <h1 class="titletab">Step 1 <br> Manage your team</h1>
               <h4 class="subtitle">You’re the project manager, time to build the perfect team of fellow artists to make your exhibit a success! Below are the artists that have requested to join your team, click accept or refuse to pick your teammates. Once your team is ready, you can start your project...let’s curate!</h4>
                 <% @team.members.each do |member| %>
@@ -62,10 +61,10 @@
                         <%= image_tag avatar_url, class: "avatar-super-large"%>
                      <% end %>
                   </p>
-                  <p><%= member.user.first_name %> <%= member.user.last_name %></p>
-                  <p><%= member.message %></p>
-                   <% if member.status == "pending" %>
-                    <p><a href="#" class="member-accepted" data-id="<%= member.id %>">
+              <p><%= member.user.first_name %> <%= member.user.last_name %></p>
+              <p><%= member.message %></p>
+                <% if member.status == "pending" %>
+                  <p><a href="#" class="member-accepted" data-id="<%= member.id %>">
                     <i class="fa fa-check fa-2x"></i></a>
                     <a href="#" class="member-denied" data-id="<%= member.id %>">
                     <i class="fa fa-times fa-2x"></i></a></p>
@@ -80,20 +79,18 @@
                   <% end %>
                 <% end %>
 
-          <ul class="list-inline pull-right">
-            <li>
-              <div class="center">
-                <button class="next-step btndash">
-                  <div class="button__outline"></div>
-                  <div class="button__background"></div>
-                  <div class="button__text">Save and continue</div>
-                </button>
-              </div>
-            </li>
-          </ul>
-
-        </div>
-
+              <ul class="list-inline pull-right">
+                <li>
+                  <div class="center">
+                    <button class="next-step btndash">
+                      <div class="button__outline"></div>
+                      <div class="button__background"></div>
+                      <div class="button__text">Save and continue</div>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+          </div>
                       <!-- STEP 2 -->
         <div class="tab-pane" role="tabpanel" id="step2">
           <h1 class="titletab">Your exhibit infos</h1>
@@ -101,11 +98,10 @@
             <!-- PICK A DATE -->
             <div class=big-content>
             <div class="row-flex-tab">
-<!--             <div class="col-md-9 height-given"> -->
               <div class="text-tab-title">
               <% if @team.date != nil %>
                 <h4>Date: </h4>
-                <h5 class="infos-selected"><%#= @team.date.strftime("%A %d %B") %></h5>
+                <h5 class="infos-selected"><%= @team.date.strftime("%A %d %B") %></h5>
               <% end %>
               <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -126,24 +122,22 @@
                           </div>
                             <% end %>
                         </div>
+                        <% end %>
                       </div>
                     </div>
-              </div> <!-- end div of text tab title -->
-<!--             </div> -->
-<!--             <div class="col-md-3 height-given-btn"> -->
-              <div class="button-tab-link">
-              <div class="float-right">
-                <button type="button" class="btn-link-dash lnk1" data-toggle="modal" data-target="#myModal2">
-                  <div>Pick a date</div>
-                </button>
-              </div>
-              </div><!--  end button-tab-link -->
-<!--             </div> -->
+                  </div><!-- end div of text tab title -->
+
+                <div class="button-tab-link">
+                  <div class="float-right">
+                    <button type="button" class="btn-link-dash lnk1" data-toggle="modal" data-target="#myModal2">
+                      <div>Pick a date</div>
+                    </button>
+                  </div>
+                </div><!--  end button-tab-link -->
               </div><!--  end row flex date -->
 
           <!-- LOCATION -->
           <div class="row-flex-tab">
-<!--             <div class="col-md-9 height-given"> -->
             <div class="text-tab-title">
               <h4>Location: </h4>
               <% if @team.location != nil %>
@@ -169,22 +163,19 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              </div> <!-- end div title tab  -->
-<!--             </div> -->
-<!--             <div class="col-md-3 height-given-btn"> -->
-              <div class="button-tab-link">
-              <div class="float-right">
-                <button type="button" class="btn-link-dash lnk2" data-toggle="modal" data-target="#myModal">
-                  Pick a location
-                </button>
-              </div>
-              </div>
-<!--             </div> -->
+                </div>
+                </div> <!-- end div title tab  -->
+
+                <div class="button-tab-link">
+                  <div class="float-right">
+                    <button type="button" class="btn-link-dash lnk2" data-toggle="modal" data-target="#myModal">
+                    Pick a location
+                    </button>
+                  </div>
+                </div>
               </div><!--  end row flex location -->
 
           <!-- NAME EXHIBIT -->
-<!--           <div class="col-md-9 height-given"> -->
           <div class="row-flex-tab">
           <div class="text-tab-title">
             <h4>Exhibit Name: </h4>
@@ -206,27 +197,25 @@
                   <div class="modal-footer">
                     <%= f.button :submit, "Save" %>
                   <% end %>
-                <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                <!-- <button type="button" class="btn btn-primary">Save</button> -->
+
+                        </div>
+                      <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                      <!-- <button type="button" class="btn btn-primary">Save</button> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                <div class="button-tab-link">
+                  <div class="float-right">
+                    <button type="button" class="btn-link-dash lnk3" data-toggle="modal" data-target="#myModal3">
+                      Pick a name
+                    </button>
                   </div>
                 </div>
               </div>
-            </div>
-            </div>
-<!--           </div> -->
-<!--           <div class="col-md-3 height-given-btn"> -->
-          <div class="button-tab-link">
-            <div class="float-right">
-              <button type="button" class="btn-link-dash lnk3" data-toggle="modal" data-target="#myModal3">
-                Pick a name
-              </button>
-            </div>
-            </div>
-            </div>
-<!--           </div> -->
 
           <!-- THEME EXHIBIT -->
-<!--           <div class="col-md-9 height-given"> -->
           <div class="row-flex-tab">
           <div class="text-tab-title">
             <h4>Exhibit Theme: </h4>
@@ -252,22 +241,19 @@
                     <!-- <button type="button" class="btn btn-primary">Save</button> -->
                   </div>
                 </div>
+                </div>
+                </div>
+                </div>
+
+                <div class="button-tab-link">
+                  <button type="button" class="btn-link-dash lnk4" data-toggle="modal" data-target="#myModal4">
+                    Pick a theme
+                  </button>
+                </div>
               </div>
-            </div>
-            </div>
-<!--           </div>
-          <div class="col-md-3 height-given-btn"> -->
-          <div class="button-tab-link">
-            <button type="button" class="btn-link-dash lnk4" data-toggle="modal" data-target="#myModal4">
-              Pick a theme
-            </button>
-<!--           </div> -->
-            </div>
-            </div>
 
                       <!-- DESCRIPTION -->
           <div class="row-flex-tab">
-<!--             <div class="col-md-9 height-given"> -->
             <div class="text-tab-title">
               <h4>Exhibit description: </h4>
               <% if @team.description != nil %>
@@ -290,70 +276,22 @@
                         <% end %>
                     <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                     <!-- <button type="button" class="btn btn-primary">Save</button> -->
+                        </div>
+                      </div>
                     </div>
                   </div>
+                </div> <!-- end div title tab  -->
+
+                <div class="button-tab-link">
+                  <div class="float-right">
+                    <button type="button" class="btn-link-dash lnk2" data-toggle="modal" data-target="#myModal5">
+                      Description
+                    </button>
+                  </div>
                 </div>
-              </div>
-              </div> <!-- end div title tab  -->
-<!--             </div> -->
-<!--             <div class="col-md-3 height-given-btn"> -->
-              <div class="button-tab-link">
-              <div class="float-right">
-                <button type="button" class="btn-link-dash lnk2" data-toggle="modal" data-target="#myModal5">
-                  Description
-                </button>
-              </div>
-              </div>
-<!--             </div> -->
               </div><!--  end row flex location -->
 
-            <ul class="list-inline pull-right">
-<!--                     <li><button type="button" class="btn btn-default prev-step">Previous</button></li> -->
-              <li>
-                <div class="center">
-                  <button class="next-step btndash">
-                    <div class="button__outline"></div>
-                    <div class="button__background"></div>
-                    <div class="button__text">Save and continue</div>
-                  </button>
-                </div>
-              </li>
-            </ul>
-          </div> <!-- end div big content -->
-        </div> <!-- end step 2 tab content  -->
-
-
-                      <!-- STEP 3 -->
-
-
-              <div class="tab-pane" role="tabpanel" id="step3">
-                <h1 class="titletab">Step 3 <br> Your task manager</h1>
-                  <h4 class="subtitle">Now that everything has been set, time to organize your opening night! Create the checklist for you and your teammates to make sure you don’t forget a thing (materials needed, catering, invitations…).</h4>
-                          <!-- TASK MANAGER-->
-
-                <% if policy(@task).create? %>
-                   <%= link_to "Add a task", new_team_task_path(@team) %>
-                <% end %>
-
-                <% @team.tasks.each_with_index do |task, index| %>
-                  <p>
-                  <strong><%= index + 1 %>.
-                  <%= task.name %></strong>
-                  <p><%= task.description %></p>
-                  <% if policy(@task).create? %>
-                    <% if task.status? %>
-                      Done!
-                    <% else %>
-                      <%= link_to "Done", done_task_path(task) %>
-                    <% end %>
-                    <%= link_to "Modify task", edit_task_path(task) %>
-                    <%= link_to "Delete task", task_path(task),
-                        method: :delete,
-                        data: { confirm: "Are you sure?" } %>
-                    <% end %>
-                    </p>
-                <% end %>
-            <ul class="list-inline pull-right">
+              <ul class="list-inline pull-right">
                 <li>
                   <div class="center">
                     <button class="next-step btndash">
@@ -363,6 +301,65 @@
                     </button>
                   </div>
                 </li>
+              </ul>
+            </div> <!-- end div big content -->
+          </div> <!-- end step 2 tab content  -->
+
+                      <!-- STEP 3 -->
+
+          <div class="tab-pane" role="tabpanel" id="step3">
+            <h1 class="titletab">Your task manager</h1>
+            <h4 class="subtitle">Now that everything has been set, time to organize your opening night! Create the checklist for you and your teammates to make sure you don’t forget a thing (materials needed, catering, invitations…).</h4>
+
+          <!-- TASK MANAGER-->
+          <div class="flex-add-task">
+            <% if policy(@task).create? %>
+               <button><%= link_to "Add a task", new_team_task_path(@team) %></button>
+            <% end %>
+          </div>
+          <br>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-10">
+
+                <% @team.tasks.each_with_index do |task, index| %>
+                <div class="tasks-big-content">
+                  <p>
+                  <div class="task-content">
+                      <h4 class="h4tasks"><%= index + 1 %>.
+                      <%= task.name %></h4>
+                      <h5 class="task-description"><%= task.description %></h5>
+                  </div>
+                  <div >
+                    <% if policy(@task).create? %>
+                      <% if task.status? %>
+                        Done!
+                      <% else %>
+                        <%= link_to "Done", done_task_path(task), class: "tasks-features" %>
+                      <% end %>
+                      <%= link_to "Modify", edit_task_path(task), class: "tasks-features"  %>
+                      <%= link_to "Delete", task_path(task),
+                          method: :delete,
+                          data: { confirm: "Are you sure?" }, class: "tasks-features" %>
+                      <% end %>
+                    </div>
+                    </p>
+                  </div><!--  tasks-big-content -->
+                <% end %>
+                </div>
+              </div>
+            </div>
+
+            <ul class="list-inline pull-right">
+              <li>
+                <div class="center">
+                  <button class="next-step btndash">
+                    <div class="button__outline"></div>
+                    <div class="button__background"></div>
+                    <div class="button__text">Continue</div>
+                  </button>
+                </div>
+              </li>
             </ul>
           </div>
 
@@ -432,13 +429,19 @@
           <div class="clearfix"></div>
 
         </div><!-- </form> -->
-
       </div>
     </section>
   </div>
 </div>
 
-
+<!-- <script>
+$(window).on('keyup', function(e){
+  console.log(e)
+    if (e.keyCode === 13) {
+     alert('keypress triggered')
+     };
+ });
+ </script> -->
 
 <%= content_for(:after_js) do %>
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDPP-NYzVfGiWV2Gj2_mPFLxONBE1iekvY"></script>

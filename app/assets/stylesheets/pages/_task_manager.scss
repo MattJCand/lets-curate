@@ -1,0 +1,37 @@
+.task-description{
+  margin-top: 10px;
+  color: #bfbfbf;
+  margin-left: 10px;
+}
+
+
+.tasks-features{
+  font-size: 10px;
+  text-transform: uppercase;
+  font-family: Avenir, Helvetica, sans-serif;
+  font-weight: 300;
+  letter-spacing: .2em;
+}
+
+.tasks-big-content{
+  display: flex;
+  justify-content:center;
+}
+
+.task-content{
+  width:57vw;
+}
+
+.h5tasks{
+  color: #bfbfbf;
+}
+.tasks-features:hover{
+  color:black;
+  text-decoration:none;
+}
+
+.flex-add-task{
+  display: flex;
+  justify-content:center;
+}
+
