@@ -1,3 +1,7 @@
+<% content_for :meta_title, "#{@team.title} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @team.description %>
+<% content_for :meta_image, cloudinary_url(@photo_path) %>
+
 <h1 style="text-align: center;">The <%= @team.title %> Dashboard</h1>
 
 <div class="container">
@@ -294,7 +298,23 @@
 
           <div class="tab-pane" role="tabpanel" id="complete">
             <h1 class="titletab">You're done, <br> Enjoy your exhibit!</h1>
-              <p id="complete-dash">You're all done, you have successfully completed all steps.</p>
+              <p id="complete-dash">You have successfully completed all steps, see your recap below.</p>
+              <p><%= @team.title %></p>
+              <p>Date: <%= @team.date.strftime("%A %d %B") %></p>
+              <p>Location: <%= @team.location %></p>
+              <p>Theme: <%= @team.theme %></p>
+              <p>Types of art: <%= @team.art_types %></p>
+              <p>Description: <%= @team.description %></p>
+              <% @team.members.each do |member| %>
+              <p><% if member.user.avatar? %>
+                    <%= cl_image_tag member.user.avatar.path, class: "avatar-super-large" %>
+                 <% else %>
+                    <% avatar_url = current_user.facebook_picture_url || image_tag = "avatar-default_360.jpg" %>
+                    <%= image_tag avatar_url, class: "avatar-super-large"%>
+                 <% end %>
+              </p>
+              <p><%= member.user.first_name %> <%= member.user.last_name %></p>
+             <% end %>
               <p><%= link_to 'Create PDF document', dashboard_team_path(@team, :format => :pdf, target: :_blank) %></p>
           </div>
           <div class="clearfix"></div>
