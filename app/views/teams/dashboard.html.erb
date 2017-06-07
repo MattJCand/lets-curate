@@ -105,7 +105,7 @@
               <div class="text-tab-title">
               <% if @team.date != nil %>
                 <h4>Date: </h4>
-                <h5 class="infos-selected"><%= @team.date.strftime("%A %d %B") %></h5>
+                <h5 class="infos-selected"><%#= @team.date.strftime("%A %d %B") %></h5>
               <% end %>
               <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -359,7 +359,7 @@
                     <button class="next-step btndash">
                       <div class="button__outline"></div>
                       <div class="button__background"></div>
-                      <div class="button__text">Continue</div>
+                      <div class="button__text">Save and continue</div>
                     </button>
                   </div>
                 </li>
@@ -369,26 +369,66 @@
                           <!-- STEP 4 -->
 
           <div class="tab-pane" role="tabpanel" id="complete">
+
               <h1 class="titletab">Complete!</h1>
               <h4 class="subtitle">Congratulations, you are officially ready to curate! Check out your information below or download it as a PDF for a full recap of your exhibit.</h4>
-              <p><%= @team.title %></p>
-              <p>Date: <%= @team.date.strftime("%A %d %B") %></p>
-              <p>Location: <%= @team.location %></p>
-              <p>Theme: <%= @team.theme %></p>
-              <p>Types of art: <%= @team.art_types %></p>
-              <p>Description: <%= @team.description %></p>
-              <% @team.members.each do |member| %>
-              <p><% if member.user.avatar? %>
-                    <%= cl_image_tag member.user.avatar.path, class: "avatar-super-large" %>
-                 <% else %>
-                    <% avatar_url = current_user.facebook_picture_url || image_tag = "avatar-default_360.jpg" %>
-                    <%= image_tag avatar_url, class: "avatar-super-large"%>
-                 <% end %>
-              </p>
-              <p><%= member.user.first_name %> <%= member.user.last_name %></p>
-             <% end %>
-              <p><%= link_to 'Create PDF document', dashboard_team_path(@team, :format => :pdf, target: :_blank) %></p>
-          </div>
+              <div class="row">
+                <div class="col-xs-8 ">
+                  <p class="textpdfregular">Exhibition's Title</p>
+                  <hr>
+                  <p class="textpdfregular">Exhibition start date - </p>
+                  <hr>
+                  <p class="textpdfregular">Chosen location - </p>
+                  <hr>
+                  <p class="textpdfregular">Exhibition's theme - </p>
+                  <hr>
+                  <p class="textpdfregular">Types of art showcased by artists - </p>
+                  <hr>
+                </div>
+                <div class="col-xs-4">
+                  <p class="textpdfbold"><%= @team.title %></p>
+                  <hr>
+                  <p class="textpdfbold"><%= @team.date.strftime("%A %d %B") %></p>
+                  <hr>
+                  <p class="textpdfbold"><%= @team.location %></p>
+                  <hr>
+                  <p class="textpdfbold"><%= @team.theme %></p>
+                  <hr>
+                  <p class="textpdfbold"><%= @team.art_types %></p>
+                  <hr>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <p class="textpdfregular">Exhibition description -</p>
+                  <p id="textpdfbold"><%= @team.description %></p>
+                  <hr>
+                </div>
+              </div>
+              <hr>
+              <h1 class="titlepdf text-center"> Team members</h1>
+                <p class="text-center">
+                <% @team.members.each do |member| %>
+                  <% if member.user.avatar? %>
+                      <%= cl_image_tag member.user.avatar.path, class: "avatar-super-large" %>
+                   <% else %>
+                      <% avatar_url = current_user.facebook_picture_url || image_tag = "avatar-default_360.jpg" %>
+                      <%= image_tag avatar_url, class: "avatar-super-large"%>
+                   <% end %>
+                  <p class="text-center teamnamesize"><%= member.user.first_name %> <%= member.user.last_name %></p>
+                <% end %></p>
+                <ul class="list-inline pull-right">
+                <li>
+                <div class="center">
+                  <button class="next-step btndash">
+                    <div class="button__outline"></div>
+                    <div class="button__background"></div>
+                    <div class="button__text"><%= link_to 'Create PDF document', dashboard_team_path(@team, :format => :pdf, target: :_blank), class: "linkpdfstyle" %></div>
+                  </button>
+                </div>
+                </li>
+                </ul>
+
           <div class="clearfix"></div>
 
         </div><!-- </form> -->

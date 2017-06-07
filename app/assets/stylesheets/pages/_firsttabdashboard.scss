@@ -275,3 +275,48 @@ h5{
 .subtitle {
   text-align: center;
 }
+
+.titlepdf {
+  font-family: 'Lobster', cursive;
+}
+
+.writingpdf{
+  font-family: Avenir, Helvetica, sans-serif;
+}
+
+.textpdfregular{
+  font-family: Avenir, Helvetica, sans-serif;
+  letter-spacing: 0.1em;
+  font-size: 20px;
+}
+
+.textpdfbold{
+  font-family: Avenir, Helvetica, sans-serif;
+  font-weight: 200;
+  text-decoration:none;
+  text-align: right;
+  font-size: 20px;
+  color: #bfbfbf;
+}
+
+#textpdfbold{
+  font-family: Avenir, Helvetica, sans-serif;
+  font-weight: 200;
+  text-decoration:none;
+  font-size: 20px;
+  color: #bfbfbf;
+}
+
+.teamnamesize{
+  font-size: 15px;
+}
+
+.linkpdfstyle{
+  text-decoration: none;
+}
+
+.linkpdfstyle:hover{
+  color: white;
+  text-decoration: none;
+}
+
