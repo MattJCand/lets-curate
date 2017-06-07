@@ -48,8 +48,17 @@
                           <!-- STEP 1 -->
           <div class="tab-pane active" role="tabpanel" id="step1">
 
+            <h1 class="titletab">Step 1 <br> Manage your team</h1>
                 <% @team.members.each do |member| %>
-                  <p><%= member.user.first_name %></p>
+                  <p><% if member.user.avatar? %>
+                        <%= cl_image_tag member.user.avatar.path, class: "avatar-super-large" %>
+                     <% else %>
+                        <% avatar_url = current_user.facebook_picture_url || image_tag = "avatar-default_360.jpg" %>
+                        <%= image_tag avatar_url, class: "avatar-super-large"%>
+                     <% end %>
+                  </p>
+                  <p><%= member.user.first_name %> <%= member.user.last_name %></p>
+                  <p><%= member.message %></p>
                    <% if member.status == "pending" %>
                     <p><a href="#" class="member-accepted" data-id="<%= member.id %>">
                     <i class="fa fa-check fa-2x"></i></a>
@@ -82,6 +91,7 @@
 
                       <!-- STEP 2 -->
 
+<<<<<<< HEAD
         <div class="tab-pane" role="tabpanel" id="step2">
           <h1 class="titletab">Your exhibit infos</h1>
             <!-- PICK A DATE -->
@@ -99,20 +109,20 @@
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                       <h4 class="modal-title" id="myModalLabel">A date for the big day</h4>
+                          </div>
+                            <%= simple_form_for @team do |f| %>
+                          <div class="modal-body">
+                              <%= f.input :date %>
+                          </div>
+                          <div class="modal-footer">
+                              <%= f.button :submit, "Save" %>
+                            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                            <!-- <button type="button" class="btn btn-primary">Save</button> -->
+                          </div>
+                            <% end %>
+                        </div>
+                      </div>
                     </div>
-                      <%= simple_form_for @team do |f| %>
-                    <div class="modal-body">
-                        <%= f.input :date %>
-                    </div>
-                    <div class="modal-footer">
-                        <%= f.button :submit, "Save" %>
-                      <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                      <!-- <button type="button" class="btn btn-primary">Save</button> -->
-                    </div>
-                      <% end %>
-                  </div>
-                </div>
-              </div>
               </div> <!-- end div of text tab title -->
 <!--             </div> -->
 <!--             <div class="col-md-3 height-given-btn"> -->
@@ -306,8 +316,9 @@
 
                       <!-- STEP 3 -->
 
-          <div class="tab-pane" role="tabpanel" id="step3">
-              <h1 class="titletab">Your very own task manager</h1>
+
+              <div class="tab-pane" role="tabpanel" id="step3">
+                <h1 class="titletab">Step 3 <br> Your task manager</h1>
 
                           <!-- TASK MANAGER-->
 
