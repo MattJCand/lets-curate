@@ -37,6 +37,8 @@ user_attributes = [
     admin: false
     }
 ]
+
+
 User.create!(user_attributes)
 puts 'Finished!'
 
