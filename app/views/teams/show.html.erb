@@ -1,3 +1,8 @@
+<% content_for :meta_title, "#{@team.title} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @team.description %>
+<% content_for :meta_image, cloudinary_url(@team.photo.path) %>
+
+
 <div class="mainteam">
 <div class="movie-card" id="bckgrnd-color">
   <div class="container" id="container-user">
