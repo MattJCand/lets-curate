@@ -11,8 +11,11 @@
  <div class="cover avatar-square">
      <% if @user.avatar? %>
         <%= cl_image_tag(@user.avatar.path, { size: '201x200'})%>
+     <% elsif current_user.provider == 'facebook' %>
+        <% avatar_url = current_user.facebook_picture_url%>
+        <%= image_tag avatar_url%>
      <% else %>
-        <% avatar_url = current_user.facebook_picture_url || "https://res.cloudinary.com/dmnigpnke/image/upload/v1496829995/avatar-default_360_qyxmo6.jpg" %>
+        <% avatar_url = "https://res.cloudinary.com/dmnigpnke/image/upload/v1496829995/avatar-default_360_qyxmo6.jpg" %>
         <%= image_tag avatar_url%>
      <% end %>
  </div>
