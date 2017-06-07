@@ -53,6 +53,7 @@
           <div class="tab-pane active" role="tabpanel" id="step1">
 
             <h1 class="titletab">Step 1 <br> Manage your team</h1>
+              <h4 class="subtitle">You’re the project manager, time to build the perfect team of fellow artists to make your exhibit a success! Below are the artists that have requested to join your team, click accept or refuse to pick your teammates. Once your team is ready, you can start your project...let’s curate!</h4>
                 <% @team.members.each do |member| %>
                   <p><% if member.user.avatar? %>
                         <%= cl_image_tag member.user.avatar.path, class: "avatar-super-large" %>
@@ -96,6 +97,7 @@
                       <!-- STEP 2 -->
         <div class="tab-pane" role="tabpanel" id="step2">
           <h1 class="titletab">Your exhibit infos</h1>
+            <h4 class="subtitle">This is your starting point! Basic yet essential information that will determine the success of your exhibit. Take time to think through each decision with your team.</h4>
             <!-- PICK A DATE -->
             <div class=big-content>
             <div class="row-flex-tab">
@@ -114,6 +116,7 @@
                           </div>
                             <%= simple_form_for @team do |f| %>
                           <div class="modal-body">
+                          <p><strong>Pro-tip: </strong>Set the perfect opening date that suits all members of your team and don't forget to make sure it maximizes the potential number of visitors!</p>
                               <%= f.input :date %>
                           </div>
                           <div class="modal-footer">
@@ -155,6 +158,7 @@
                     </div>
                     <div class="modal-body">
                       <%= simple_form_for(@team) do |f| %>
+                      <p><strong>Pro-tip: </strong>Found the perfect spot to showcase your art? Enter the exact location so the rest of the team can see!</p>
                         <%= f.input :location %>
                     </div>
                     <div class="modal-footer">
@@ -196,6 +200,7 @@
                   </div>
                   <div class="modal-body">
                     <%= simple_form_for(@team) do |f| %>
+                    <p><strong>Pro-tip: </strong>Welcome to the titling dilemma! Probably one of the most grueling tasks in setting up your exhibit, finding the right title generally involves curators, directors and publicists with a process that can take months, even years! But this is also one of your most important decisions as a curator: getting the title right can determine how others perceive and remember an exhibition and how many people will attend. So think it through. <br> A few tips, ask friends and family for name suggestions, keywords, or the feeling one gets from viewing your art and then run ideas through them to get feedback. You want to make sure you’ve captured the core ideas of the exhibit and the art in a respectful but catchy way. </p>
                       <%= f.input :title %>
                   </div>
                   <div class="modal-footer">
@@ -237,6 +242,7 @@
                   </div>
                   <div class="modal-body">
                     <%= simple_form_for(@team) do |f| %>
+                    <p><strong>Pro-tip: </strong>Your theme should be the idea that links all the pieces of your exhibit together, it should be obvious and simple to understand.</p>
                       <%= f.input :theme %>
                   </div>
                   <div class="modal-footer">
@@ -276,6 +282,7 @@
                     </div>
                     <div class="modal-body">
                       <%= simple_form_for(@team) do |f| %>
+                      <p><strong>Pro-tip: </strong>Write a few lines to summarize your vision. The description will complement the name and the theme of your exhibit and should help potential visitors understand what to expect if they were to attend your show.</p>
                         <%= f.input :description %>
                     </div>
                     <div class="modal-footer">
@@ -321,7 +328,7 @@
 
               <div class="tab-pane" role="tabpanel" id="step3">
                 <h1 class="titletab">Step 3 <br> Your task manager</h1>
-
+                  <h4 class="subtitle">Now that everything has been set, time to organize your opening night! Create the checklist for you and your teammates to make sure you don’t forget a thing (materials needed, catering, invitations…).</h4>
                           <!-- TASK MANAGER-->
 
                 <% if policy(@task).create? %>
@@ -363,7 +370,7 @@
 
           <div class="tab-pane" role="tabpanel" id="complete">
               <h1 class="titletab">Complete!</h1>
-              <p id="complete-dash">You're all done, you have successfully completed all steps. Don't forget to download your pdf.</p>
+              <h4 class="subtitle">Congratulations, you are officially ready to curate! Check out your information below or download it as a PDF for a full recap of your exhibit.</h4>
               <p><%= @team.title %></p>
               <p>Date: <%= @team.date.strftime("%A %d %B") %></p>
               <p>Location: <%= @team.location %></p>
