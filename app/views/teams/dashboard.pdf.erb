@@ -5,32 +5,63 @@
     <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Raleway" rel="stylesheet">
     <!-- <%= wicked_pdf_javascript_include_tag "number_pages" %> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
   </head>
   <body onload='number_pages'>
     <div id="header">
-      <div id="logo">
-      <%= wicked_pdf_image_tag '' %>
+      <div>
+      <%= wicked_pdf_image_tag 'LOGOB.png', class: "logob" %>
       </div>
-      <h1><%= @team.title %></h1>
+      <h1 .writingpdf> Let's Curate </h1>
+      <hr>
+      <h1 class="titlepdf"><%= @team.title %></h1>
+      <hr>
     </div>
     <div id="content">
-      <p>Date: <%= @team.date.strftime("%A %d %B") %></p>
-      <p>Location: <%= @team.location %></p>
-      <p>Theme: <%= @team.theme %></p>
-      <p>Types of art: <%= @team.art_types %></p>
-      <p>Description: <%= @team.description %></p>
-      <p><% @team.members.each do |member| %>
-        <div class="avatarpdf">
-        <% if member.user.avatar? %>
-          <%= member.user.avatar %>
-        <% else %>
-          <% avatar_url = current_user.facebook_picture_url || image_tag = "avatar-default_360.jpg" %>
-          <%= image_tag avatar_url%>
-        <% end %>
+    <div class="row">
+      <div class="col-xs-8">
+        <p class="writingpdf">Exhibition start date - </p>
+        <hr>
+        <p class="writingpdf">Chosen location - </p>
+        <hr>
+        <p class="writingpdf">Exhibition's theme - </p>
+        <hr>
+        <p class="writingpdf">Types of art showcased by artists - </p>
+        <hr>
+      </div>
+      <div class="col-xs-4">
+        <p class="textpdf"><strong><%= @team.date.strftime("%A %d %B") %></strong></p>
+        <hr>
+        <p class="textpdf"><strong><%= @team.location %></strong></p>
+        <hr>
+        <p class="textpdf"><strong><%= @team.theme %></strong></p>
+        <hr>
+        <p class="textpdf"><strong><%= @team.art_types %></strong></p>
+        <hr>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-11">
+          <p class="writingpdf">Exhibition description -</p>
+          <p class="textpdfspecial"><%= @team.description %></p>
+          <hr>
         </div>
-        <%= member.user.first_name %>
-        <%= member.user.last_name %>
+      </div>
+      <div class="row">
+    <h1 class="titlepdf"> Team members</h1>
+      <p class="text-center">
+      <% @team.members.each do |member| %>
+        <% if member.user.avatar? %>
+            <%= cl_image_tag member.user.avatar.path, class: "avatar-super-large" %>
+         <% else %>
+            <% avatar_url = current_user.facebook_picture_url || image_tag = "avatar-default_360.jpg" %>
+            <%= image_tag avatar_url, class: "avatar-super-large"%>
+         <% end %>
+        <p class="text-center"><%= member.user.first_name %> <%= member.user.last_name %></p>
       <% end %></p>
     </div>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>

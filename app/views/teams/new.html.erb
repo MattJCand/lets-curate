@@ -8,8 +8,9 @@
       <%= f.input :description %>
       <%= f.input :total_members, collection: 2..10 %>
       <%= f.input :theme %>
-      <%= f.input :art_types %>
+      <%= f.input :art_types, collection: ['photography', 'illustration', 'video', 'painting', 'sculpture', 'drawing', 'space installation', 'performance', 'design']%>
       <%= f.input :location %>
+      <%= f.input :date %>
       <%= f.input :budget %>
       <%= f.input :photo, as: :attachinary %>
       <div class="center btndash" id="diff-size">

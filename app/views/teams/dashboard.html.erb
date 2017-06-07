@@ -1,3 +1,7 @@
+<% content_for :meta_title, "#{@team.title} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @team.description %>
+<% content_for :meta_image, cloudinary_url(@photo_path) %>
+
 <h1 style="text-align: center;">The <%= @team.title %> Dashboard</h1>
 <!-- <h1 style="text-align: center;" class="titletab">Your Dashboard</h1> -->
 
@@ -47,14 +51,15 @@
         <div class="tab-content">
                           <!-- STEP 1 -->
           <div class="tab-pane active" role="tabpanel" id="step1">
-            <h1 class="titletab">Manage your team</h1>
-              <% @team.members.each do |member| %>
-                <p><% if member.user.avatar? %>
-                  <%= cl_image_tag member.user.avatar.path, class: "avatar-super-large" %>
-                <% else %>
-                  <% avatar_url = current_user.facebook_picture_url || image_tag = "avatar-default_360.jpg" %>
-                  <%= image_tag avatar_url, class: "avatar-super-large"%>
-              <% end %>
+            <h1 class="titletab">Step 1 <br> Manage your team</h1>
+              <h4 class="subtitle">You’re the project manager, time to build the perfect team of fellow artists to make your exhibit a success! Below are the artists that have requested to join your team, click accept or refuse to pick your teammates. Once your team is ready, you can start your project...let’s curate!</h4>
+                <% @team.members.each do |member| %>
+                  <p><% if member.user.avatar? %>
+                        <%= cl_image_tag member.user.avatar.path, class: "avatar-super-large" %>
+                     <% else %>
+                        <% avatar_url = current_user.facebook_picture_url || image_tag = "avatar-default_360.jpg" %>
+                        <%= image_tag avatar_url, class: "avatar-super-large"%>
+                     <% end %>
                   </p>
               <p><%= member.user.first_name %> <%= member.user.last_name %></p>
               <p><%= member.message %></p>
@@ -87,37 +92,40 @@
               </ul>
           </div>
                       <!-- STEP 2 -->
-          <div class="tab-pane" role="tabpanel" id="step2">
-            <h1 class="titletab">Your exhibit infos</h1>
+        <div class="tab-pane" role="tabpanel" id="step2">
+          <h1 class="titletab">Your exhibit infos</h1>
+            <h4 class="subtitle">This is your starting point! Basic yet essential information that will determine the success of your exhibit. Take time to think through each decision with your team.</h4>
             <!-- PICK A DATE -->
             <div class=big-content>
-              <div class="row-flex-tab">
-                <div class="text-tab-title">
-                  <% if @team.date != nil %>
-                    <h4>Date: </h4>
-                    <h5 class="infos-selected"><%= @team.date.strftime("%A %d %B") %></h5>
-                  <% end %>
-                  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">A date for the big day</h4>
-                        </div>
-                        <%= simple_form_for @team do |f| %>
-                        <div class="modal-body">
-                            <%= f.input :date %>
-                        </div>
-                        <div class="modal-footer">
-                            <%= f.button :submit, "Save" %>
-                          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                          <!-- <button type="button" class="btn btn-primary">Save</button> -->
+            <div class="row-flex-tab">
+              <div class="text-tab-title">
+              <% if @team.date != nil %>
+                <h4>Date: </h4>
+                <h5 class="infos-selected"><%= @team.date.strftime("%A %d %B") %></h5>
+              <% end %>
+              <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">A date for the big day</h4>
+                          </div>
+                            <%= simple_form_for @team do |f| %>
+                          <div class="modal-body">
+                          <p><strong>Pro-tip: </strong>Set the perfect opening date that suits all members of your team and don't forget to make sure it maximizes the potential number of visitors!</p>
+                              <%= f.input :date %>
+                          </div>
+                          <div class="modal-footer">
+                              <%= f.button :submit, "Save" %>
+                            <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                            <!-- <button type="button" class="btn btn-primary">Save</button> -->
+                          </div>
+                            <% end %>
                         </div>
                         <% end %>
                       </div>
                     </div>
-                  </div>
-                </div> <!-- end div of text tab title -->
+                  </div><!-- end div of text tab title -->
 
                 <div class="button-tab-link">
                   <div class="float-right">
@@ -129,32 +137,33 @@
               </div><!--  end row flex date -->
 
           <!-- LOCATION -->
-              <div class="row-flex-tab">
-                <div class="text-tab-title">
-                  <h4>Location: </h4>
-                  <% if @team.location != nil %>
-                    <h5 class="infos-selected">Address: <%= @team.location %></h5>
-                  <% end %>
-                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">The perfect spot to reveal your art to the world !</h4>
-                        </div>
-                        <div class="modal-body">
-                          <%= simple_form_for(@team) do |f| %>
-                            <%= f.input :location %>
-                        </div>
-                        <div class="modal-footer">
-                            <%= f.button :submit, "Save" %>
-                            <% end %>
-                        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                        <!-- <button type="button" class="btn btn-primary">Save</button> -->
-                        </div>
-                      </div>
+          <div class="row-flex-tab">
+            <div class="text-tab-title">
+              <h4>Location: </h4>
+              <% if @team.location != nil %>
+                <h5 class="infos-selected">Address: <%= @team.location %></h5>
+              <% end %>
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">The perfect spot to reveal your art to the world !</h4>
+                    </div>
+                    <div class="modal-body">
+                      <%= simple_form_for(@team) do |f| %>
+                      <p><strong>Pro-tip: </strong>Found the perfect spot to showcase your art? Enter the exact location so the rest of the team can see!</p>
+                        <%= f.input :location %>
+                    </div>
+                    <div class="modal-footer">
+                        <%= f.button :submit, "Save" %>
+                        <% end %>
+                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                    <!-- <button type="button" class="btn btn-primary">Save</button> -->
                     </div>
                   </div>
+                </div>
+                </div>
                 </div> <!-- end div title tab  -->
 
                 <div class="button-tab-link">
@@ -167,33 +176,35 @@
               </div><!--  end row flex location -->
 
           <!-- NAME EXHIBIT -->
-              <div class="row-flex-tab">
-                <div class="text-tab-title">
-                  <h4>Exhibit Name: </h4>
-                  <% if @team.title != nil %>
-                    <h5 class="infos-selected"><%= @team.title %></h5>
+          <div class="row-flex-tab">
+          <div class="text-tab-title">
+            <h4>Exhibit Name: </h4>
+            <% if @team.title != nil %>
+              <h5 class="infos-selected"><%= @team.title %></h5>
+            <% end %>
+            <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Relevant name for a creative project</h4>
+                  </div>
+                  <div class="modal-body">
+                    <%= simple_form_for(@team) do |f| %>
+                    <p><strong>Pro-tip: </strong>Welcome to the titling dilemma! Probably one of the most grueling tasks in setting up your exhibit, finding the right title generally involves curators, directors and publicists with a process that can take months, even years! But this is also one of your most important decisions as a curator: getting the title right can determine how others perceive and remember an exhibition and how many people will attend. So think it through. <br> A few tips, ask friends and family for name suggestions, keywords, or the feeling one gets from viewing your art and then run ideas through them to get feedback. You want to make sure you’ve captured the core ideas of the exhibit and the art in a respectful but catchy way. </p>
+                      <%= f.input :title %>
+                  </div>
+                  <div class="modal-footer">
+                    <%= f.button :submit, "Save" %>
                   <% end %>
-                  <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">Relevant name for a creative project</h4>
+
                         </div>
-                        <div class="modal-body">
-                          <%= simple_form_for(@team) do |f| %>
-                            <%= f.input :title %>
-                        </div>
-                        <div class="modal-footer">
-                          <%= f.button :submit, "Save" %>
-                        <% end %>
                       <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                       <!-- <button type="button" class="btn btn-primary">Save</button> -->
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
                 <div class="button-tab-link">
                   <div class="float-right">
@@ -205,32 +216,33 @@
               </div>
 
           <!-- THEME EXHIBIT -->
-              <div class="row-flex-tab">
-                <div class="text-tab-title">
-                  <h4>Exhibit Theme: </h4>
-                  <% if @team.theme != nil %>
-                    <h5 class="infos-selected"><%= @team.theme %></h5>
-                  <% end %>
-                  <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">What it's all about...</h4>
-                        </div>
-                        <div class="modal-body">
-                          <%= simple_form_for(@team) do |f| %>
-                            <%= f.input :theme %>
-                        </div>
-                        <div class="modal-footer">
-                            <%= f.button :submit, "Save" %>
-                          <% end %>
-                          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-                          <!-- <button type="button" class="btn btn-primary">Save</button> -->
-                        </div>
-                      </div>
-                    </div>
+          <div class="row-flex-tab">
+          <div class="text-tab-title">
+            <h4>Exhibit Theme: </h4>
+            <% if @team.theme != nil %>
+              <h5 class="infos-selected"><%= @team.theme %></h5>
+            <% end %>
+            <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">What it's all about...</h4>
                   </div>
+                  <div class="modal-body">
+                    <%= simple_form_for(@team) do |f| %>
+                    <p><strong>Pro-tip: </strong>Your theme should be the idea that links all the pieces of your exhibit together, it should be obvious and simple to understand.</p>
+                      <%= f.input :theme %>
+                  </div>
+                  <div class="modal-footer">
+                      <%= f.button :submit, "Save" %>
+                    <% end %>
+                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                    <!-- <button type="button" class="btn btn-primary">Save</button> -->
+                  </div>
+                </div>
+                </div>
+                </div>
                 </div>
 
                 <div class="button-tab-link">
@@ -240,27 +252,28 @@
                 </div>
               </div>
 
-          <!-- DESCRIPTION -->
-              <div class="row-flex-tab">
-                <div class="text-tab-title">
-                  <h4>Exhibit description: </h4>
-                  <% if @team.description != nil %>
-                    <h5 class="infos-selected"><%= @team.description %></h5>
-                  <% end %>
-                  <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">A little bit of description...</h4>
-                        </div>
-                        <div class="modal-body">
-                          <%= simple_form_for(@team) do |f| %>
-                            <%= f.input :description %>
-                        </div>
-                        <div class="modal-footer">
-                            <%= f.button :submit, "Save" %>
-                            <% end %>
+                      <!-- DESCRIPTION -->
+          <div class="row-flex-tab">
+            <div class="text-tab-title">
+              <h4>Exhibit description: </h4>
+              <% if @team.description != nil %>
+                <h5 class="infos-selected"><%= @team.description %></h5>
+              <% end %>
+              <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">A little bit of description...</h4>
+                    </div>
+                    <div class="modal-body">
+                      <%= simple_form_for(@team) do |f| %>
+                      <p><strong>Pro-tip: </strong>Write a few lines to summarize your vision. The description will complement the name and the theme of your exhibit and should help potential visitors understand what to expect if they were to attend your show.</p>
+                        <%= f.input :description %>
+                    </div>
+                    <div class="modal-footer">
+                        <%= f.button :submit, "Save" %>
+                        <% end %>
                     <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
                     <!-- <button type="button" class="btn btn-primary">Save</button> -->
                         </div>
@@ -296,6 +309,7 @@
 
           <div class="tab-pane" role="tabpanel" id="step3">
             <h1 class="titletab">Your task manager</h1>
+            <h4 class="subtitle">Now that everything has been set, time to organize your opening night! Create the checklist for you and your teammates to make sure you don’t forget a thing (materials needed, catering, invitations…).</h4>
 
           <!-- TASK MANAGER-->
           <div class="flex-add-task">
@@ -307,6 +321,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-10">
+
                 <% @team.tasks.each_with_index do |task, index| %>
                 <div class="tasks-big-content">
                   <p>
@@ -351,10 +366,66 @@
                           <!-- STEP 4 -->
 
           <div class="tab-pane" role="tabpanel" id="complete">
+
               <h1 class="titletab">Complete!</h1>
-              <p id="complete-dash">You're all done, you have successfully completed all steps. Don't forget to download your pdf.</p>
-              <p><%= link_to 'Create PDF document', dashboard_team_path(@team, :format => :pdf, target: :_blank) %></p>
-          </div>
+              <h4 class="subtitle">Congratulations, you are officially ready to curate! Check out your information below or download it as a PDF for a full recap of your exhibit.</h4>
+              <div class="row">
+                <div class="col-xs-8 ">
+                  <p class="textpdfregular">Exhibition's Title</p>
+                  <hr>
+                  <p class="textpdfregular">Exhibition start date - </p>
+                  <hr>
+                  <p class="textpdfregular">Chosen location - </p>
+                  <hr>
+                  <p class="textpdfregular">Exhibition's theme - </p>
+                  <hr>
+                  <p class="textpdfregular">Types of art showcased by artists - </p>
+                  <hr>
+                </div>
+                <div class="col-xs-4">
+                  <p class="textpdfbold"><%= @team.title %></p>
+                  <hr>
+                  <p class="textpdfbold"><%= @team.date.strftime("%A %d %B") %></p>
+                  <hr>
+                  <p class="textpdfbold"><%= @team.location %></p>
+                  <hr>
+                  <p class="textpdfbold"><%= @team.theme %></p>
+                  <hr>
+                  <p class="textpdfbold"><%= @team.art_types %></p>
+                  <hr>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12">
+                  <p class="textpdfregular">Exhibition description -</p>
+                  <p id="textpdfbold"><%= @team.description %></p>
+                  <hr>
+                </div>
+              </div>
+              <hr>
+              <h1 class="titlepdf text-center"> Team members</h1>
+                <p class="text-center">
+                <% @team.members.each do |member| %>
+                  <% if member.user.avatar? %>
+                      <%= cl_image_tag member.user.avatar.path, class: "avatar-super-large" %>
+                   <% else %>
+                      <% avatar_url = current_user.facebook_picture_url || image_tag = "avatar-default_360.jpg" %>
+                      <%= image_tag avatar_url, class: "avatar-super-large"%>
+                   <% end %>
+                  <p class="text-center teamnamesize"><%= member.user.first_name %> <%= member.user.last_name %></p>
+                <% end %></p>
+                <ul class="list-inline pull-right">
+                <li>
+                <div class="center">
+                  <button class="next-step btndash">
+                    <div class="button__outline"></div>
+                    <div class="button__background"></div>
+                    <div class="button__text"><%= link_to 'Create PDF document', dashboard_team_path(@team, :format => :pdf, target: :_blank), class: "linkpdfstyle" %></div>
+                  </button>
+                </div>
+                </li>
+                </ul>
+
           <div class="clearfix"></div>
 
         </div><!-- </form> -->
