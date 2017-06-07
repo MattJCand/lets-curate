@@ -1,0 +1,26 @@
+#login{
+  text-decoration: none;
+  font-size: 50px;
+  letter-spacing: 3.3px;
+}
+
+
+#new_user > div:nth-child(5) > div{
+  margin-bottom: 12px;
+}
+
+
+#new_user > div:nth-child(7) > div > a:hover{
+  text-decoration:none;
+  color: #3C474B;
+  font-family: Avenir, Helvetica, sans-serif;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+
+#new_user > div:nth-child(7) > div > a{
+  text-decoration:none;
+  font-family: Avenir, Helvetica, sans-serif;
+  letter-spacing: 0.2em;
+  text-align: center;
+}

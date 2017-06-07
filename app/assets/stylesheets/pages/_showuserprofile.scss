@@ -2,7 +2,24 @@
 
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
+// button nice hover for the edit page
 
+#edit_user_1 > div.center.btndash > input{
+  border: none;
+  background: none;
+  box-shadow: none;
+  font-family: Avenir, Helvetica, sans-serif;
+  letter-spacing: 0.2em;
+  text-align: center;
+  font-size: 13px;
+}
+
+#diff-size{
+  width: 120px;
+  height: 50px;
+}
+
+// end button nice hover for the edit page
 
 #edit > a{
   color:#8abcd7;

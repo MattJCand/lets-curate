@@ -12,7 +12,11 @@
       <%= f.input :location %>
       <%= f.input :budget %>
       <%= f.input :photo, as: :attachinary %>
-      <%= f.button :submit %>
+      <div class="center btndash" id="diff-size">
+        <div class="button__outline"></div>
+        <div class="button__background"></div>
+        <%= f.button :submit, class: "button__text" %>
+      </div>
       <br>
      <% end %>
     </div>
