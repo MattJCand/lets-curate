@@ -19,17 +19,15 @@
       <p>Theme: <%= @team.theme %></p>
       <p>Types of art: <%= @team.art_types %></p>
       <p>Description: <%= @team.description %></p>
-      <p><% @team.members.each do |member| %>
-        <div class="avatarpdf">
+      <p>
+      <% @team.members.each do |member| %>
         <% if member.user.avatar? %>
-          <%= member.user.avatar %>
-        <% else %>
-          <% avatar_url = current_user.facebook_picture_url || image_tag = "avatar-default_360.jpg" %>
-          <%= image_tag avatar_url%>
-        <% end %>
-        </div>
-        <%= member.user.first_name %>
-        <%= member.user.last_name %>
+            <%= cl_image_tag member.user.avatar.path, class: "avatar-super-large" %>
+         <% else %>
+            <% avatar_url = current_user.facebook_picture_url || image_tag = "avatar-default_360.jpg" %>
+            <%= image_tag avatar_url, class: "avatar-super-large"%>
+         <% end %>
+        <p><%= member.user.first_name %> <%= member.user.last_name %></p>
       <% end %></p>
     </div>
   </body>
