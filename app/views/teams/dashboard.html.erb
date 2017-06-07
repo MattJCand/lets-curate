@@ -47,8 +47,17 @@
                           <!-- STEP 1 -->
           <div class="tab-pane active" role="tabpanel" id="step1">
 
+            <h1 class="titletab">Step 1 <br> Manage your team</h1>
                 <% @team.members.each do |member| %>
-                  <p><%= member.user.first_name %></p>
+                  <p><% if member.user.avatar? %>
+                        <%= cl_image_tag member.user.avatar.path, class: "avatar-super-large" %>
+                     <% else %>
+                        <% avatar_url = current_user.facebook_picture_url || image_tag = "avatar-default_360.jpg" %>
+                        <%= image_tag avatar_url, class: "avatar-super-large"%>
+                     <% end %>
+                  </p>
+                  <p><%= member.user.first_name %> <%= member.user.last_name %></p>
+                  <p><%= member.message %></p>
                    <% if member.status == "pending" %>
                     <p><a href="#" class="member-accepted" data-id="<%= member.id %>">
                     <i class="fa fa-check fa-2x"></i></a>
@@ -83,10 +92,8 @@
 
               <div class="tab-pane" role="tabpanel" id="step2">
 
-                <h1 class="titletab">Step 2</h1>
-                <p class="dashboard-description">This is step 2</p>
+                <h1 class="titletab">Step 2 <br> Your exhibit infos</h1>
 
-                <h1 class="titletab">Your exhibit infos</h1>
                   <!-- PICK A DATE -->
 
                   <div class="col-md-9 height-given">
@@ -243,8 +250,8 @@
                       <!-- STEP 3 -->
 
               <div class="tab-pane" role="tabpanel" id="step3">
-                <h1 class="titletab">Step 3</h1>
-                  <h1 class="titletab">Your task manager</h1>
+                <h1 class="titletab">Step 3 <br> Your task manager</h1>
+
 
                               <!-- TASK MANAGER-->
 
@@ -286,7 +293,7 @@
                           <!-- STEP 4 -->
 
           <div class="tab-pane" role="tabpanel" id="complete">
-              <h1 class="titletab">Complete!</h1>
+            <h1 class="titletab">You're done, <br> Enjoy your exhibit!</h1>
               <p id="complete-dash">You're all done, you have successfully completed all steps.</p>
               <p><%= link_to 'Create PDF document', dashboard_team_path(@team, :format => :pdf, target: :_blank) %></p>
           </div>

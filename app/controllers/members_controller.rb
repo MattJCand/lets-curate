@@ -17,6 +17,7 @@ class MembersController < ApplicationController
     @team = Team.find(params[:team_id])
     @member = Member.new(team: @team, user: current_user, project_owner: false, status: "pending" )
     @member.team = Team.find(params[:team_id])
+    @member.message = params[:member][:message]
     @member.save
     authorize @member
     redirect_to team_path(@member.team)
