@@ -1,6 +1,6 @@
  .main{
    margin: -50px;
-   background: image-url("backgroundcards.JPG") fixed;
+   background: linear-gradient(rgba(0,0,0,0.3)),image-url("backgroundcards.JPG") fixed;
    background-size: cover;
    background-repeat: no-repeat;
    min-height: 100vh;
@@ -46,6 +46,7 @@
   margin-bottom: 5px;
   margin-right: 95px;
   color: white;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .main h3 {
@@ -53,9 +54,15 @@
   margin-bottom: 35px;
   margin-right: 115px;
   color: white;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
 .own {
-  color: #005b99;
+  color: white;
+  text-decoration: underline;
+}
+
+.own:hover {
+  color: black;
   text-decoration: underline;
 }
