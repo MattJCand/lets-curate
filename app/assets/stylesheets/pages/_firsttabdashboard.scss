@@ -112,6 +112,7 @@ $transition: 0.5s ease;
   text-transform: uppercase;
   letter-spacing: .2em;
   font-weight: 300;
+  position: relative;
   &:before{
     content:'';
     position: absolute;
@@ -136,6 +137,7 @@ $transition: 0.5s ease;
   text-transform: uppercase;
   letter-spacing: .2em;
   font-weight: 300;
+  position: relative;
   &:before{
     content:'';
     position: absolute;
@@ -160,6 +162,7 @@ $transition: 0.5s ease;
   text-transform: uppercase;
   letter-spacing: .2em;
   font-weight: 300;
+  position: relative;
   &:before{
     content:'';
     position: absolute;
@@ -184,6 +187,7 @@ $transition: 0.5s ease;
   text-transform: uppercase;
   letter-spacing: .2em;
   font-weight: 300;
+  position: relative;
   &:before{
     content:'';
     position: absolute;
@@ -199,29 +203,6 @@ $transition: 0.5s ease;
   }
 }
 
-.lnk1{
-  text-decoration: none;
-  color: black;
-  font-family: Avenir, Helvetica, sans-serif;
-  // padding-bottom: 5px;
-  border-bottom: 2px solid rgba(255,255,255,.1);
-  text-transform: uppercase;
-  letter-spacing: .2em;
-  font-weight: 300;
-  &:before{
-    content:'';
-    position: absolute;
-    left: 0;
-    bottom: 4px;
-    height: 2px;
-    width: 0%;
-    background: #bfbfbf;
-    transition: all .3s ease;
-    }
-  &:hover:before{
-    width: 100%;
-  }
-}
 
 .float-right {
   height: 40px;
@@ -241,5 +222,46 @@ $transition: 0.5s ease;
     align-items: center;
 }
 
+.height-given{
+  margin-bottom: 20px;
+}
 
 
+// FLEX ROW
+
+.row-flex-tab{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 21px;
+}
+
+.tab-content{
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.infos-selected{
+  color: #bfbfbf;
+  margin-left: 10px;
+}
+
+.infos-selected{
+  text-align: justify;
+}
+
+.text-tab-title{
+  width: 50vw;
+}
+
+h4{
+  font-family: Avenir, Helvetica, sans-serif;
+  letter-spacing: 0.1em;
+}
+
+h5{
+  font-family: Avenir, Helvetica, sans-serif;
+  font-weight: 200;
+  text-decoration:none;
+  font-size:14px;
+}
