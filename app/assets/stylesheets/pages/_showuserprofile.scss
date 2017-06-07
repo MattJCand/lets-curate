@@ -109,6 +109,7 @@ a:hover {
   position: absolute;
   top: 225px;
   left: 256px;
+  min-height: 100vh;
 
   .title1 {
     display: flex;
@@ -180,9 +181,32 @@ a:hover {
 }
 
 #fonts {
+  font-family: 'Avenir', Helvetica, sans-serif;
   font-size: 16px;
   line-height: 26px;
   color: #B1B0AC;
+  width: 74%;
+  padding-left: 26vh;
+}
+
+#fonts2 {
+  font-family: 'Lobster', cursive;
+  font-size: 32px;
+  line-height: 26px;
+  color: #B1B0AC;
+  width: 74%;
+  padding-left: 52vh;
+  margin-bottom: 30px;
+}
+
+#fonts3 {
+  font-family: 'Lobster', cursive;
+  font-size: 32px;
+  line-height: 26px;
+  color: #B1B0AC;
+  width: 74%;
+  padding-left: 26vh;
+  margin-bottom: 30px;
 }
 
 .avatars {
