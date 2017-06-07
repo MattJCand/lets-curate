@@ -1,5 +1,15 @@
  .main{
-   margin: -50px;
+   margin-top: -50px;
+   margin-bottom: -50px;
+   background: linear-gradient(rgba(0,0,0,0.3)),image-url("backgroundcards.JPG") fixed;
+   background-size: cover;
+   background-repeat: no-repeat;
+   min-height: 100vh;
+ }
+
+
+.mainartist{
+   margin: 0px;
    background: linear-gradient(rgba(0,0,0,0.3)),image-url("backgroundcards.JPG") fixed;
    background-size: cover;
    background-repeat: no-repeat;
