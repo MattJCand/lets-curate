@@ -6,6 +6,8 @@
     <%= simple_form_for [@team, @task] do |f| %>
       <%= f.input :name %>
       <%= f.input :description %>
+
+      <%= f.input :member, collection: @team.members, label_method: lambda { |member| "#{member.user.first_name} #{member.user.last_name}" } %>
       <%= f.submit "Create a task", class: "btn btn-primary" %>
     <% end %>
     </div>

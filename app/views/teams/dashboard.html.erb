@@ -348,6 +348,7 @@
                       <h4 class="h4tasks"><%= index + 1 %>.
                       <%= task.name %></h4>
                       <h5 class="task-description"><%= task.description %></h5>
+                      <%= image_tag task.member.user.avatar_local, class: "avatar-super-large" %>
                   </div>
                   <div >
                     <% if policy(@task).create? %>
