@@ -10,7 +10,8 @@ class TasksController < ApplicationController
     @team = Team.find(params[:team_id])
     @task.team = @team
     @project_owner = @team.members.where(project_owner: 'true').first
-    @task.member = @project_owner
+    # @task.member = @project_owner
+    @task.member = Member.find(params[:task][:member])
     authorize(@task)
     @task.save
     redirect_to dashboard_team_path(@team)
