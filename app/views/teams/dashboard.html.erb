@@ -344,7 +344,7 @@
                     <h4 class="modal-title" id="myModalLabel">Create a task and assign it to your teammate</h4>
                   </div>
                   <div class="modal-body">
-                    <%= simple_form_for [@team, @task] do |f| %>
+                    <%= simple_form_for [@team, @task], remote: true do |f| %>
                     <p><strong>Pro-tip: </strong>Your theme should be the idea that links all the pieces of your exhibit together, it should be obvious and simple to understand.</p>
                       <%= f.input :name %>
                       <%= f.input :description %>
@@ -367,36 +367,9 @@
           <br>
           <div class="container">
             <div class="row">
-              <div class="col-md-10">
-
+              <div class="col-md-10" id="task-list">
                 <% @team.tasks.each_with_index do |task, index| %>
-                <div class="tasks-big-content">
-                  <p>
-                  <div class="task-content">
-                      <h4 class="h4tasks"><%= index + 1 %>.
-                      <%= task.name %></h4>
-                      <h5 class="task-description"><%= task.description %></h5>
-                      <% if task.member.user.avatar_local? %>
-                          <%= image_tag task.member.user.avatar_local, class: "avatar-super-large" %>
-                      <% else %>
-                          <% image_tag "avatar-default_360.jpg" %>
-                      <% end %>
-                  </div>
-                  <div >
-                    <% if policy(@task).create? %>
-                      <% if task.status? %>
-                        <i class="fa fa-check"></i>
-                      <% else %>
-                        <%= link_to "Done", done_task_path(task), class: "tasks-features" %>
-                      <% end %>
-                      <%= link_to "Modify", edit_task_path(task), class: "tasks-features"  %>
-                      <%= link_to "Delete", task_path(task),
-                          method: :delete,
-                          data: { confirm: "Are you sure?" }, class: "tasks-features" %>
-                      <% end %>
-                    </div>
-                    </p>
-                  </div><!--  tasks-big-content -->
+                  <%= render "tasks/show", task: task, index: index %>
                 <% end %>
                 </div>
               </div>
@@ -519,7 +492,7 @@
     var Height = $(".tab-content").offset().top;
     var Img = "<%= cl_image_path(@team.photo.path) %>";
     console.log(Img);
-    $('section').prepend("<div class='dashboard-banner' style='height: " + (Height - 70) + "px; background-image: url(" + Img +")'></div>");
+    $('section').prepend("<div class='dashboard-banner' style='height: " + (Height - 70) + "px; background-image: url(" + Img +"); background-position: center'></div>");
   });
   </script>
 <% end %>
