@@ -6,10 +6,17 @@
         <% @users.each do |user| %>
           <div class="userchoice">
             <div class='user-details'>
-              <% avatar_url = "http://placehold.it/201x200"%>
-              <%= image_tag avatar_url, class: "avatar"%>
+            <% if user.avatar?  %>
+              <%= cl_image_tag(user.avatar.path, { size: '201x200'})%>
+            <% elsif user.avatar_local?%>
+            <% avatar_url = user.avatar_local%>
+              <%= image_tag avatar_url, class: "avatar-large"%>
+            <% else %>
+              <% avatar_url = "https://res.cloudinary.com/dmnigpnke/image/upload/v1496829995/avatar-default_360_qyxmo6.jpg" %>
+              <%= image_tag avatar_url, class: "avatar-large"%>
+            <% end %>
             </div>
-            <div class='user-name'><%= user.first_name %><%= user.last_name %></div> <!-- connect to profile -->
+            <div class='user-name'><%= user.first_name %> <%= user.last_name %></div> <!-- connect to profile -->
             <div class='user-body'>
               <p><%= user.city%><p>
               <p>Past collaborations - <strong>56</strong></p>
