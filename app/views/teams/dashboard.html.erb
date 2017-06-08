@@ -120,8 +120,8 @@
             <div class="row-flex-tab">
               <div class="text-tab-title">
               <% if @team.date != nil %>
-                <h4>Date: </h4>
-                <h5 class="infos-selected info-date"><%= @team.date.strftime("%A %d %B") %></h5>
+                <h5 class="diff-color-title-tab">Date: </h5>
+                <h4 class="infos-selected info-date"><%= @team.date.strftime("%A %d %B") %></h4>
               <% end %>
               <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -132,7 +132,8 @@
                           </div>
                             <%= simple_form_for @team, remote: true do |f| %>
                           <div class="modal-body">
-                          <p><strong>Pro-tip: </strong>Set the perfect opening date that suits all members of your team and don't forget to make sure it maximizes the potential number of visitors!</p>
+                          <p class="pro-tip-title">Pro-tip: </p>
+                          <p class="pro-tip-description">Set the perfect opening date that suits all members of your team and don't forget to make sure it maximizes the potential number of visitors!</p>
                               <%= f.input :date %>
                           </div>
                           <div class="modal-footer">
@@ -158,9 +159,9 @@
           <!-- LOCATION -->
           <div class="row-flex-tab">
             <div class="text-tab-title">
-              <h4>Location: </h4>
+              <h5 class="diff-color-title-tab">Location: </h5>
               <% if @team.location != nil %>
-                <h5 class="infos-selected info-address">Address: <%= @team.location %></h5>
+                <h4 class="infos-selected info-address">Address: <%= @team.location %></h4>
               <% end %>
               <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -171,7 +172,8 @@
                     </div>
                     <div class="modal-body">
                       <%= simple_form_for(@team, remote: true) do |f| %>
-                      <p><strong>Pro-tip: </strong>Found the perfect spot to showcase your art? Enter the exact location so the rest of the team can see!</p>
+                      <p class="pro-tip-title">Pro-tip:</p>
+                      <p class="pro-tip-description">Found the perfect spot to showcase your art? Enter the exact location so the rest of the team can see!</p>
                         <%= f.input :location %>
                     </div>
                     <div class="modal-footer">
@@ -197,9 +199,9 @@
           <!-- NAME EXHIBIT -->
           <div class="row-flex-tab">
           <div class="text-tab-title">
-            <h4>Exhibit Name: </h4>
+            <h5 class="diff-color-title-tab">Exhibit Name: </h5>
             <% if @team.title != nil %>
-              <h5 class="infos-selected info-title"><%= @team.title %></h5>
+              <h4 class="infos-selected info-title"><%= @team.title %></h4>
             <% end %>
             <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
@@ -210,7 +212,8 @@
                   </div>
                   <div class="modal-body">
                     <%= simple_form_for(@team, remote: true) do |f| %>
-                    <p><strong>Pro-tip: </strong>Welcome to the titling dilemma! Probably one of the most grueling tasks in setting up your exhibit, finding the right title generally involves curators, directors and publicists with a process that can take months, even years! But this is also one of your most important decisions as a curator: getting the title right can determine how others perceive and remember an exhibition and how many people will attend. So think it through. <br> A few tips, ask friends and family for name suggestions, keywords, or the feeling one gets from viewing your art and then run ideas through them to get feedback. You want to make sure you’ve captured the core ideas of the exhibit and the art in a respectful but catchy way. </p>
+                    <p class="pro-tip-title">Pro-tip:</p>
+                    <p class="pro-tip-description">Welcome to the titling dilemma! Probably one of the most grueling tasks in setting up your exhibit, finding the right title generally involves curators, directors and publicists with a process that can take months, even years! But this is also one of your most important decisions as a curator: getting the title right can determine how others perceive and remember an exhibition and how many people will attend. So think it through. <br> A few tips, ask friends and family for name suggestions, keywords, or the feeling one gets from viewing your art and then run ideas through them to get feedback. You want to make sure you’ve captured the core ideas of the exhibit and the art in a respectful but catchy way. </p>
                       <%= f.input :title %>
                   </div>
                   <div class="modal-footer">
@@ -237,9 +240,9 @@
           <!-- THEME EXHIBIT -->
           <div class="row-flex-tab">
           <div class="text-tab-title">
-            <h4>Exhibit Theme: </h4>
+            <h5 class="diff-color-title-tab">Exhibit Theme: </h5>
             <% if @team.theme != nil %>
-              <h5 class="infos-selected info-theme"><%= @team.theme %></h5>
+              <h4 class="infos-selected info-theme"><%= @team.theme %></h4>
             <% end %>
             <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
@@ -250,7 +253,8 @@
                   </div>
                   <div class="modal-body">
                     <%= simple_form_for(@team, remote: true) do |f| %>
-                    <p><strong>Pro-tip: </strong>Your theme should be the idea that links all the pieces of your exhibit together, it should be obvious and simple to understand.</p>
+                    <p class="pro-tip-title">Pro-tip:</p>
+                    <p class="pro-tip-description">Your theme should be the idea that links all the pieces of your exhibit together, it should be obvious and simple to understand.</p>
                       <%= f.input :theme %>
                   </div>
                   <div class="modal-footer">
@@ -274,9 +278,9 @@
                       <!-- DESCRIPTION -->
           <div class="row-flex-tab">
             <div class="text-tab-title">
-              <h4>Exhibit description: </h4>
+              <h5 class="diff-color-title-tab">Exhibit description: </h5>
               <% if @team.description != nil %>
-                <h5 class="infos-selected info-desc"><%= @team.description %></h5>
+                <h4 class="infos-selected info-desc"><%= @team.description %></h4>
               <% end %>
               <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -287,7 +291,8 @@
                     </div>
                     <div class="modal-body">
                       <%= simple_form_for(@team, remote: true) do |f| %>
-                      <p><strong>Pro-tip: </strong>Write a few lines to summarize your vision. The description will complement the name and the theme of your exhibit and should help potential visitors understand what to expect if they were to attend your show.</p>
+                      <p class="pro-tip-title">Pro-tip:</p>
+                      <p class="pro-tip-description">Write a few lines to summarize your vision. The description will complement the name and the theme of your exhibit and should help potential visitors understand what to expect if they were to attend your show.</p>
                         <%= f.input :description %>
                     </div>
                     <div class="modal-footer">
