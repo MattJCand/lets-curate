@@ -1,0 +1,3 @@
+$('#task-list').append("<%= j render 'tasks/show', task: @task, index: @task.team.tasks.count - 1 %>");
+$(".modal").modal("hide");
+$('body').animate( { scrollTop: $('#task-<%= @task.id %>').offset().top }, 300 );
