@@ -10,35 +10,11 @@ puts 'Cleaning database...'
 Member.destroy_all
 User.destroy_all
 
-user_attributes = [
-  {
-    email: "mathieu@gmail.com",
-    password: "123456",
-    admin: true
-  },
-  {
-    email: "aurore@gmail.com",
-    password: "123456",
-    admin: true
-    },
-     {
-    email: "maurice@gmail.com",
-    password: "123456",
-    admin: false
-    },
-     {
-    email: "clara@gmail.com",
-    password: "testuseraccount",
-    admin: false
-    },
-     {
-    email: "serge@gmail.com",
-    password: "testuseraccount",
-    admin: false
-    }
-]
+5.times do
+  User.create!(email:Faker::Internet.email, password: "123456", admin: false, first_name:Faker::Name.first_name, last_name:Faker::Name.last_name, user.avatar: Faker::Avatar.image)
+end
 
 
-User.create!(user_attributes)
+
 puts 'Finished!'
 
