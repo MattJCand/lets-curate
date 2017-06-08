@@ -1,13 +1,13 @@
 .wizard {
     margin: 20px auto;
-    background: #fff;
+    background: transparent;
 }
 
     .wizard .nav-tabs {
         position: relative;
         margin: 40px auto;
         margin-bottom: 0;
-        border-bottom-color: #e0e0e0;
+        border-bottom-color: #5bc0de;
     }
 
     .wizard > div.wizard-inner {
@@ -24,6 +24,7 @@
     right: 0;
     top: 50%;
     z-index: 1;
+    border: 2px solid #e0e0e0;
 }
 
 .wizard .nav-tabs > li.active > a, .wizard .nav-tabs > li.active > a:hover, .wizard .nav-tabs > li.active > a:focus {
@@ -83,11 +84,11 @@ span.round-tab:hover {
 .wizard li.active:after {
     content: " ";
     position: absolute;
-    left: 46%;
+    left: 44%;
     opacity: 1;
     margin: 0 auto;
     bottom: 0px;
-    border: 10px solid transparent;
+    border: 16px solid transparent;
     border-bottom-color: #5bc0de;
 }
 
@@ -137,4 +138,8 @@ span.round-tab:hover {
         position: absolute;
         left: 35%;
     }
+}
+
+.nav-tabs{
+  border-bottom: 3px solid #5bc0de;
 }

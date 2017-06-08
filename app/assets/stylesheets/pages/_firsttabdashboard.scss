@@ -20,6 +20,26 @@
   background: none;
 }
 
+.dashboard-banner {
+  background-image: url(https://unsplash.it/300/300);
+  position: absolute;
+  top: 70px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  z-index: -1;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.h1-dashboard {
+  font-family: Lobster, cursive;
+  color: white;
+  text-align: center;
+  font-size: 120px;
+  margin-top: 30px;
+}
+
 // SAVE AND CONTINUE BTN CODE______
 
 

@@ -2,7 +2,7 @@
 <% content_for :meta_description, @team.description %>
 <% content_for :meta_image, cloudinary_url(@photo_path) %>
 
-<h1 style="text-align: center;">The <%= @team.title %> Dashboard</h1>
+<h1 class="h1-dashboard"><%= @team.title %></h1>
 <!-- <h1 style="text-align: center;" class="titletab">Your Dashboard</h1> -->
 
 <div class="container">
@@ -479,8 +479,19 @@
 
 
 <%= content_for(:after_js) do %>
-  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDPP-NYzVfGiWV2Gj2_mPFLxONBE1iekvY"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDPP-NYzVfGiWV2Gj2_mPFLxONBE1iekvY">
+  </script>
+  <script>
+  $(document).ready(function() {
+    var Height = $(".tab-content").offset().top;
+    var Img = "<%= cl_image_path(@team.photo.path) %>";
+    console.log(Img);
+    $('section').prepend("<div class='dashboard-banner' style='height: " + (Height - 70) + "px; background-image: url(" + Img +")'></div>");
+  });
+  </script>
 <% end %>
+
+
 
 
 
