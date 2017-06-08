@@ -274,6 +274,11 @@ h5{
 
 .subtitle {
   text-align: center;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 2.4px;
+  margin-bottom: 35px;
 }
 
 .titlepdf {
@@ -297,14 +302,18 @@ h5{
   text-align: right;
   font-size: 20px;
   color: #bfbfbf;
+  margin-right: 20px;
 }
 
 #textpdfbold{
   font-family: Avenir, Helvetica, sans-serif;
   font-weight: 200;
   text-decoration:none;
-  font-size: 20px;
+  font-size: 15px;
   color: #bfbfbf;
+  margin-left: 10px;
+  text-align: justify;
+  margin-right: 20px;
 }
 
 .teamnamesize{
@@ -318,5 +327,13 @@ h5{
 .linkpdfstyle:hover{
   color: white;
   text-decoration: none;
+}
+
+.team-row{
+
+}
+
+.team-container{
+
 }
 

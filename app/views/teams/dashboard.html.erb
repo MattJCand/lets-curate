@@ -51,7 +51,7 @@
         <div class="tab-content">
                           <!-- STEP 1 -->
           <div class="tab-pane active" role="tabpanel" id="step1">
-            <h1 class="titletab">Step 1 <br> Manage your team</h1>
+            <h1 class="titletab">Manage your team</h1>
               <h4 class="subtitle">You’re the project manager, time to build the perfect team of fellow artists to make your exhibit a success! Below are the artists that have requested to join your team, click accept or refuse to pick your teammates. Once your team is ready, you can start your project...let’s curate!</h4>
                 <% @team.members.each do |member| %>
                   <p><% if member.user.avatar? %>
@@ -366,42 +366,61 @@
 
           <div class="tab-pane" role="tabpanel" id="complete">
 
-              <h1 class="titletab">Complete!</h1>
+              <h1 class="titletab">Completed!</h1>
               <h4 class="subtitle">Congratulations, you are officially ready to curate! Check out your information below or download it as a PDF for a full recap of your exhibit.</h4>
-              <div class="row">
-                <div class="col-xs-8 ">
-                  <p class="textpdfregular">Exhibition's Title</p>
-                  <hr>
-                  <p class="textpdfregular">Exhibition start date - </p>
-                  <hr>
-                  <p class="textpdfregular">Chosen location - </p>
-                  <hr>
-                  <p class="textpdfregular">Exhibition's theme - </p>
-                  <hr>
-                  <p class="textpdfregular">Types of art showcased by artists - </p>
-                  <hr>
+
+                <div class="row team-row">
+                  <div class="col-xs-8 ">
+                    <p class="textpdfregular">Exhibition's Title</p>
+                  </div>
+                  <div class="col-xs-4">
+                    <p class="textpdfbold"><%= @team.title %></p>
+                  </div>
                 </div>
-                <div class="col-xs-4">
-                  <p class="textpdfbold"><%= @team.title %></p>
-                  <hr>
-                  <p class="textpdfbold"><%= @team.date.strftime("%A %d %B") %></p>
-                  <hr>
-                  <p class="textpdfbold"><%= @team.location %></p>
-                  <hr>
-                  <p class="textpdfbold"><%= @team.theme %></p>
-                  <hr>
-                  <p class="textpdfbold"><%= @team.art_types %></p>
-                  <hr>
+
+                <div class="row team-row">
+                  <div class="col-xs-8 ">
+                    <p class="textpdfregular">Exhibition start date</p>
+                  </div>
+                  <div class="col-xs-4">
+                    <p class="textpdfbold"><%= @team.date.strftime("%A %d %B") %></p>
+                  </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-xs-12">
-                  <p class="textpdfregular">Exhibition description -</p>
-                  <p id="textpdfbold"><%= @team.description %></p>
-                  <hr>
+
+                <div class="row team-row">
+                  <div class="col-xs-8 ">
+                    <p class="textpdfregular">Chosen location</p>
+                  </div>
+                  <div class="col-xs-4">
+                    <p class="textpdfbold"><%= @team.location %></p>
+                  </div>
                 </div>
-              </div>
-              <hr>
+
+                <div class="row team-row">
+                  <div class="col-xs-8 ">
+                    <p class="textpdfregular">Exhibition's theme</p>
+                  </div>
+                  <div class="col-xs-4">
+                    <p class="textpdfbold"><%= @team.theme %></p>
+                  </div>
+                </div>
+
+                <div class="row team-row">
+                  <div class="col-xs-8 ">
+                    <p class="textpdfregular">Types of art showcased by artists</p>
+                  </div>
+                  <div class="col-xs-4">
+                    <p class="textpdfbold"><%= @team.art_types %></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <p class="textpdfregular">Exhibition description</p>
+                    <p id="textpdfbold"><%= @team.description %></p>
+                    <hr>
+                  </div>
+                </div>
+
               <h1 class="titlepdf text-center"> Team members</h1>
                 <p class="text-center">
                 <% @team.members.each do |member| %>
