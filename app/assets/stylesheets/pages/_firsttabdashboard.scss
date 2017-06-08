@@ -293,7 +293,6 @@ $transition: 0.5s ease;
 .infos-selected{
   text-align: justify;
   font-weight: 200;
-  margin-left: 10px;
   color:black;
 }
 .diff-color-title-tab{
@@ -378,11 +377,17 @@ h5{
   text-decoration: none;
 }
 
-.team-row{
-
+.add-task-btn-cntr{
+  margin-left: 40%;
+  margin-top: 30px;
 }
 
-.team-container{
-
+.info-desc{
+  font-size: 17px;
+  line-height: 142%;
 }
 
+.fa-check{
+  color: #3ded86;
+  font-size: 21px;
+}

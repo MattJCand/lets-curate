@@ -108,3 +108,21 @@
 .lobster-typo{
   font-family: 'Lobster', cursive;
 }
+
+.btnspec{
+  margin-top:0 !important;
+  color: white;
+}
+
+.home-btn-txt{
+  text-decoration: none;
+  color:white;
+}
+
+
+#bodyalternate > div > div.home-content > div.video-container > div.video-container-content > button > div.button__text.home-btn-txt > a:hover{
+  text-decoration: none;
+  color: white;
+}
+
+
