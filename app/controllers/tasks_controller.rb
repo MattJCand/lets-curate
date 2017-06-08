@@ -14,7 +14,7 @@ class TasksController < ApplicationController
     @task.member = Member.find(params[:task][:member])
     authorize(@task)
     @task.save
-    redirect_to dashboard_team_path(@team)
+    redirect_to dashboard_team_path(@team, step: "step3")
   end
 
   def edit

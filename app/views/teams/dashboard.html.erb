@@ -121,7 +121,7 @@
               <div class="text-tab-title">
               <% if @team.date != nil %>
                 <h5 class="diff-color-title-tab">Date: </h5>
-                <h4 class="infos-selected"><%= @team.date.strftime("%A %d %B") %></h4>
+                <h4 class="infos-selected info-date"><%= @team.date.strftime("%A %d %B") %></h4>
               <% end %>
               <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -130,7 +130,7 @@
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                       <h4 class="modal-title" id="myModalLabel">A date for the big day</h4>
                           </div>
-                            <%= simple_form_for @team do |f| %>
+                            <%= simple_form_for @team, remote: true do |f| %>
                           <div class="modal-body">
                           <p class="pro-tip-title">Pro-tip: </p>
                           <p class="pro-tip-description">Set the perfect opening date that suits all members of your team and don't forget to make sure it maximizes the potential number of visitors!</p>
@@ -161,7 +161,7 @@
             <div class="text-tab-title">
               <h5 class="diff-color-title-tab">Location: </h5>
               <% if @team.location != nil %>
-                <h4 class="infos-selected">Address: <%= @team.location %></h4>
+                <h4 class="infos-selected info-address">Address: <%= @team.location %></h4>
               <% end %>
               <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -171,7 +171,7 @@
                         <h4 class="modal-title" id="myModalLabel">The perfect spot to reveal your art to the world !</h4>
                     </div>
                     <div class="modal-body">
-                      <%= simple_form_for(@team) do |f| %>
+                      <%= simple_form_for(@team, remote: true) do |f| %>
                       <p class="pro-tip-title">Pro-tip:</p>
                       <p class="pro-tip-description">Found the perfect spot to showcase your art? Enter the exact location so the rest of the team can see!</p>
                         <%= f.input :location %>
@@ -201,7 +201,7 @@
           <div class="text-tab-title">
             <h5 class="diff-color-title-tab">Exhibit Name: </h5>
             <% if @team.title != nil %>
-              <h4 class="infos-selected"><%= @team.title %></h4>
+              <h4 class="infos-selected info-title"><%= @team.title %></h4>
             <% end %>
             <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
@@ -211,7 +211,7 @@
                     <h4 class="modal-title" id="myModalLabel">Relevant name for a creative project</h4>
                   </div>
                   <div class="modal-body">
-                    <%= simple_form_for(@team) do |f| %>
+                    <%= simple_form_for(@team, remote: true) do |f| %>
                     <p class="pro-tip-title">Pro-tip:</p>
                     <p class="pro-tip-description">Welcome to the titling dilemma! Probably one of the most grueling tasks in setting up your exhibit, finding the right title generally involves curators, directors and publicists with a process that can take months, even years! But this is also one of your most important decisions as a curator: getting the title right can determine how others perceive and remember an exhibition and how many people will attend. So think it through. <br> A few tips, ask friends and family for name suggestions, keywords, or the feeling one gets from viewing your art and then run ideas through them to get feedback. You want to make sure you’ve captured the core ideas of the exhibit and the art in a respectful but catchy way. </p>
                       <%= f.input :title %>
@@ -242,7 +242,7 @@
           <div class="text-tab-title">
             <h5 class="diff-color-title-tab">Exhibit Theme: </h5>
             <% if @team.theme != nil %>
-              <h4 class="infos-selected"><%= @team.theme %></h4>
+              <h4 class="infos-selected info-theme"><%= @team.theme %></h4>
             <% end %>
             <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
               <div class="modal-dialog" role="document">
@@ -252,7 +252,7 @@
                     <h4 class="modal-title" id="myModalLabel">What it's all about...</h4>
                   </div>
                   <div class="modal-body">
-                    <%= simple_form_for(@team) do |f| %>
+                    <%= simple_form_for(@team, remote: true) do |f| %>
                     <p class="pro-tip-title">Pro-tip:</p>
                     <p class="pro-tip-description">Your theme should be the idea that links all the pieces of your exhibit together, it should be obvious and simple to understand.</p>
                       <%= f.input :theme %>
@@ -280,7 +280,7 @@
             <div class="text-tab-title">
               <h5 class="diff-color-title-tab">Exhibit description: </h5>
               <% if @team.description != nil %>
-                <h4 class="infos-selected"><%= @team.description %></h4>
+                <h4 class="infos-selected info-desc"><%= @team.description %></h4>
               <% end %>
               <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
@@ -290,7 +290,7 @@
                         <h4 class="modal-title" id="myModalLabel">A little bit of description...</h4>
                     </div>
                     <div class="modal-body">
-                      <%= simple_form_for(@team) do |f| %>
+                      <%= simple_form_for(@team, remote: true) do |f| %>
                       <p class="pro-tip-title">Pro-tip:</p>
                       <p class="pro-tip-description">Write a few lines to summarize your vision. The description will complement the name and the theme of your exhibit and should help potential visitors understand what to expect if they were to attend your show.</p>
                         <%= f.input :description %>
@@ -336,11 +336,34 @@
             <h4 class="subtitle">Now that everything has been set, time to organize your opening night! Create the checklist for you and your teammates to make sure you don’t forget a thing (materials needed, catering, invitations…).</h4>
 
           <!-- TASK MANAGER-->
-          <div class="flex-add-task">
-            <% if policy(@task).create? %>
-               <button><%= link_to "Add a task", new_team_task_path(@team) %></button>
-            <% end %>
-          </div>
+          <div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Create a task and assign it to your teammate</h4>
+                  </div>
+                  <div class="modal-body">
+                    <%= simple_form_for [@team, @task] do |f| %>
+                    <p><strong>Pro-tip: </strong>Your theme should be the idea that links all the pieces of your exhibit together, it should be obvious and simple to understand.</p>
+                      <%= f.input :name %>
+                      <%= f.input :description %>
+                      <%= f.input :member, collection: @team.members, label_method: lambda { |member| "#{member.user.first_name} #{member.user.last_name}" } %>
+                  </div>
+                  <div class="modal-footer">
+                      <%= f.button :submit, "Create a task" %>
+                    <% end %>
+                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                    <!-- <button type="button" class="btn btn-primary">Save</button> -->
+                  </div>
+                </div>
+                </div>
+                </div>
+                <div class="button-tab-link">
+                  <button type="button" class="btn-link-dash lnk4" data-toggle="modal" data-target="#myModal6">
+                    Add a task
+                  </button>
+                </div>
           <br>
           <div class="container">
             <div class="row">
@@ -356,7 +379,7 @@
                       <% if task.member.user.avatar_local? %>
                           <%= image_tag task.member.user.avatar_local, class: "avatar-super-large" %>
                       <% else %>
-                          <% image_tag = "avatar-default_360.jpg" %>
+                          <% image_tag "avatar-default_360.jpg" %>
                       <% end %>
                   </div>
                   <div >
