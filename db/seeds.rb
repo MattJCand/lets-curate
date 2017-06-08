@@ -14,75 +14,50 @@ user_attributes = [
   {
     email: "mathieu@gmail.com",
     password: "123456",
-    password_confirmation: "123456",
-    reset_password_token: nil,
-    reset_password_sent_at: nil,
-    remember_created_at: nil,
-    sign_in_count: 1,
-    current_sign_in_at: "2015-02-06 14:02:10",
-    last_sign_in_at: "2015-02-06 14:02:10",
-    current_sign_in_ip: "127.0.0.1",
-    last_sign_in_ip: "127.0.0.1",
     admin: true,
-    avatar_local: "avatar.jpg"
+    first_name: "Matt",
+    last_name: "Lewis",
+    city: "Paris",
+    art_types: "photography",
+    avatar_local: "matt.jpg",
+    bio: "After five years in the army and an honest career in athletics (middle-distance running), Lewis became a coach. He used his other passion, photography, in his work as a trainer. He used his photos of the athletes to correct a stance, or analyse a stride. He took his destiny into his own hands a bit later on and decided that what had been a means would become an end. He set himself up as a photographer, sticking with his favourite subject matter and published his first photo in 1957 at the age of 28."
   },
   {
-    email: "aurore@gmail.com",
+    email: "ora@gmail.com",
     password: "123456",
-    password_confirmation: "123456",
-    reset_password_token: nil,
-    reset_password_sent_at: nil,
-    remember_created_at: nil,
-    sign_in_count: 1,
-    current_sign_in_at: "2015-02-06 14:03:01",
-    last_sign_in_at: "2015-02-06 14:03:01",
-    current_sign_in_ip: "127.0.0.1",
-    last_sign_in_ip: "127.0.0.1",
-    admin: true
-    },
-     {
-    email: "maurice@gmail.com",
-    password: "123456",
-    password_confirmation: "123456",
-    reset_password_token: nil,
-    reset_password_sent_at: nil,
-    remember_created_at: nil,
-    sign_in_count: 1,
-    current_sign_in_at: "2015-02-06 14:03:01",
-    last_sign_in_at: "2015-02-06 14:03:01",
-    current_sign_in_ip: "127.0.0.1",
-    last_sign_in_ip: "127.0.0.1",
-    admin: false
-    },
-     {
+    admin: true,
+    first_name: "Ora",
+    last_name: "Akerman",
+    city: "Paris",
+    avatar_local: "ora.jpg",
+    art_types: "photography",
+    bio: "Ora was born in Wroclaw, Poland and lives and works in Brussels, Belgium. She studied painting at the Arts Academy of Wroclaw and printmaking at the Royale Academy of Fine Arts in Brussels.
+"
+  },
+  {
     email: "clara@gmail.com",
-    password: "testuseraccount",
-    password_confirmation: "testuseraccount",
-    reset_password_token: nil,
-    reset_password_sent_at: nil,
-    remember_created_at: nil,
-    sign_in_count: 1,
-    current_sign_in_at: "2015-02-06 14:03:01",
-    last_sign_in_at: "2015-02-06 14:03:01",
-    current_sign_in_ip: "127.0.0.1",
-    last_sign_in_ip: "127.0.0.1",
-    admin: false
-    },
-     {
-    email: "serge@gmail.com",
-    password: "testuseraccount",
-    password_confirmation: "testuseraccount",
-    reset_password_token: nil,
-    reset_password_sent_at: nil,
-    remember_created_at: nil,
-    sign_in_count: 1,
-    current_sign_in_at: "2015-02-06 14:03:01",
-    last_sign_in_at: "2015-02-06 14:03:01",
-    current_sign_in_ip: "127.0.0.1",
-    last_sign_in_ip: "127.0.0.1",
-    admin: false
-    }
+    password: "123456",
+    admin: true,
+    first_name: "Clara",
+    last_name: "Elbaz",
+    city: "Paris",
+    avatar_local: "clara.jpg",
+    art_types: "space installation",
+  },
+  {
+    email: "will@gmail.com",
+    password: "123456",
+    admin: true,
+    first_name: "will",
+    last_name: "Jackson",
+    city: "Paris",
+    avatar_local: "will.jpg",
+    art_types: "drawing",
+    bio:"When Chinese contemporary art makes us lose control, it is due to Will Jackson. Born in 1970 in China, in the Hu Bei province, he grew up and still lives in Beijing.
+        A committed artist, Will jackson goes out of his way to realize confusing and vertiginous shots. A mix of performance and photography, his art challenges the laws of gravity. One sees the artist in preposterous positions, an unusual holler to our imagination. A loud cry, a cry for freedom. He also makes videos and installations.  "
+  }
 ]
+
 User.create!(user_attributes)
 puts 'Finished!'
 
