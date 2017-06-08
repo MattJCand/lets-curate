@@ -11,6 +11,9 @@
  <div class="cover avatar-square">
      <% if @user.avatar?  %>
         <%= cl_image_tag(@user.avatar.path, { size: '201x200'})%>
+     <% elsif @user.avatar_local?%>
+        <% avatar_url = @user.avatar_local%>
+        <%= image_tag avatar_url%>
      <% elsif user_signed_in? && current_user.provider == 'facebook' %>
         <% avatar_url = current_user.facebook_picture_url%>
         <%= image_tag avatar_url%>
