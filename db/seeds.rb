@@ -23,7 +23,8 @@ user_attributes = [
     last_sign_in_at: "2015-02-06 14:02:10",
     current_sign_in_ip: "127.0.0.1",
     last_sign_in_ip: "127.0.0.1",
-    admin: true
+    admin: true,
+    avatar_local: "avatar.jpg"
   },
   {
     email: "aurore@gmail.com",
