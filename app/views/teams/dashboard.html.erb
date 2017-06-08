@@ -55,7 +55,7 @@
             <h1 class="titletab">Manage your team</h1>
               <h4 class="subtitle">You’re the project manager, time to build the perfect team of fellow artists to make your exhibit a success! Below are the artists that have requested to join your team, click accept or refuse to pick your teammates. Once your team is ready, you can start your project...let’s curate!</h4>
               </div>
-              <div class="row">
+              <div class="row team-acceptance">
                 <% @team.members.each do |member| %>
                 <div class="row">
                 <div class="col-xs-12">
@@ -74,8 +74,8 @@
                  <!--  END AVATAR MEMBER -->
                   </div>
                   <div class="col-md-8">
-              <p><strong><%= member.user.first_name %> <%= member.user.last_name %></strong></p>
-              <p><%= member.message %></p>
+              <p class="dash-acceptance-name"><strong><%= member.user.first_name %> <%= member.user.last_name %></strong></p>
+              <p class="dash-acceptance-mssg"><%= member.message %></p>
                   </div>
                   <div class="col-md-2">
                 <% if member.status == "pending" %>
@@ -348,12 +348,16 @@
                       <h4 class="h4tasks"><%= index + 1 %>.
                       <%= task.name %></h4>
                       <h5 class="task-description"><%= task.description %></h5>
-                      <%= image_tag task.member.user.avatar_local, class: "avatar-super-large" %>
+                      <% if task.member.user.avatar_local? %>
+                          <%= image_tag task.member.user.avatar_local, class: "avatar-super-large" %>
+                      <% else %>
+                          <% image_tag = "avatar-default_360.jpg" %>
+                      <% end %>
                   </div>
                   <div >
                     <% if policy(@task).create? %>
                       <% if task.status? %>
-                        Done!
+                        <i class="fa fa-check"></i>
                       <% else %>
                         <%= link_to "Done", done_task_path(task), class: "tasks-features" %>
                       <% end %>
