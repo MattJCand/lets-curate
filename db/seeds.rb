@@ -10,15 +10,6 @@ puts 'Cleaning database...'
 Member.destroy_all
 User.destroy_all
 
-puts 'Cleaning database...'
-Member.destroy_all
-User.destroy_all
-
-
-puts 'Cleaning database...'
-Member.destroy_all
-User.destroy_all
-
 user_attributes = [
   {
     email: "mathieu@gmail.com",
@@ -66,17 +57,6 @@ user_attributes = [
         A committed artist, Will jackson goes out of his way to realize confusing and vertiginous shots. A mix of performance and photography, his art challenges the laws of gravity. One sees the artist in preposterous positions, an unusual holler to our imagination. A loud cry, a cry for freedom. He also makes videos and installations.  "
   }
 ]
-
-
-User.create!(user_attributes)
-puts 'Finished!'
-
-
-User.create!(user_attributes)
-puts 'Finished!'
-
-
-
 
 User.create!(user_attributes)
 puts 'Finished!'
