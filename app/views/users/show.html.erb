@@ -1,3 +1,7 @@
+<% content_for :meta_title, "#{@user.first_name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @user.description %>
+<% content_for :meta_image, cloudinary_url(@photo_path) %>
+
 
 <!--___________ PROFILE___________ -->
 <div class="movie-card">
@@ -8,7 +12,7 @@
      <% if @user.avatar? %>
         <%= cl_image_tag(@user.avatar.path, { size: '201x200'})%>
      <% else %>
-        <% avatar_url = current_user.facebook_picture_url || image_tag = "avatar-default_360.jpg" %>
+        <% avatar_url = "https://res.cloudinary.com/dmnigpnke/image/upload/v1496829995/avatar-default_360_qyxmo6.jpg" || current_user.facebook_picture_url  %>
         <%= image_tag avatar_url%>
      <% end %>
  </div>
@@ -78,7 +82,6 @@
           <h1 class="text-center" id="fonts3">My Upcoming exhibitions</h1>
         </div>
 
-      </div> <!-- end column2 -->
     </div> <!-- end content-userprofile -->
 
 
