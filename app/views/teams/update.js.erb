@@ -1,0 +1,7 @@
+
+$(".info-date").html('<%= @team.date.strftime("%A %d %B") %>')
+
+$(".info-address").html('Address: <%= @team.location %>');
+
+
+$(".modal").modal("hide")

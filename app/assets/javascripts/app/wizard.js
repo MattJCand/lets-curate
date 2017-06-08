@@ -12,11 +12,21 @@ $(document).ready(function () {
         }
     });
 
-    $(".next-step").click(function (e) {
+    var currentStep = window.location.search.replace("?step=", "");
+    if (currentStep && currentStep != "") {
+      $(".tab-pane").removeClass("active");
+      $(".tab-pane#" + currentStep).addClass("active");
+      $('.wizard .nav-tabs li.active').removeClass("active");
+      $('.wizard .nav-tabs li.disabled').removeClass("disabled");
+      $('.wizard .nav-tabs a[href="#' + currentStep + '"]').parent("li").addClass("active");
+    }
 
+    $(".next-step").click(function (e) {
         var $active = $('.wizard .nav-tabs li.active');
-        $active.next().removeClass('disabled');
+         $active.next().removeClass('disabled');
         nextTab($active);
+        var id = $(".tab-pane.active").attr("id");
+        window.history.pushState("", "", '?step=' + id);
 
     });
     $(".prev-step").click(function (e) {
