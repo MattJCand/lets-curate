@@ -3,26 +3,30 @@
 }
 
 .video-container {
-  position: relative;
-  bottom: 0%;
-  left: 0%;
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
   background:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), image-url("exhibition.jpg");
   background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .c-image {
   width: 20%;
-  margin-top: 330px;
-  margin-left: 500px;
+}
+
+.video-container-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img {
+    margin-right: 20px;
+  }
 }
 
 .video-container-content{
-  position: absolute;
-  top: 405px;
-  left: 800px;
   color: white;
   text-shadow: 1px 1px 1px black;
 }
@@ -91,14 +95,9 @@
   font-size: 20px;
 }
 
-.info{
-  height: 400px;
-  margin-bottom: 30px;
-  background: image-url("back4.png") fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
+#info img {
+  width: 100%;
 }
-
 
 .avenir-typo{
   font-family: Avenir, Helvetica, sans-serif;

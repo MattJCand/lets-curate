@@ -1,38 +1,21 @@
 <div class="home-content">
   <div class="video-container">
-    <div>
+    <div class="video-container-flex">
       <%= image_tag ("LOGOB.png"), class: "c-image" %>
-    </div>
-    <div class="video-container-content">
-      <h1 class="avenir-typo">Let's Curate</h1>
-      <p class="avenir-typo">Collaborate together & exhibit together</p>
-      <% if user_signed_in? %>
-        <%= link_to "Manage my exhibits", dashboards_path, class: "button-home" %>
-      <% else %>
-        <p><%= link_to "Find a team", teams_path %></p>
-      <% end %>
+      <div class="video-container-content">
+        <h1 class="avenir-typo">Let's Curate</h1>
+        <p class="avenir-typo">Collaborate together & exhibit together</p>
+        <% if user_signed_in? %>
+          <%= link_to "Manage my exhibits", dashboards_path, class: "button-home" %>
+        <% else %>
+          <p><%= link_to "Find a team", teams_path %></p>
+        <% end %>
+      </div>
     </div>
   </div>
   <div id="info">
-    <div class="container-fluid" id="special-background">
-        <div class="row">
-          <div class="col-md-12">
-            <%= image_tag ("homepage1.png"), class: "img-responsive" %>
-          </div>
-        </div>
-    </div>
-    <div class="container-fluid" id="special-background">
-        <div class="row">
-          <div class="col-md-12">
-            <%= image_tag ("homepage2.png"), class: "img-responsive" %>
-          </div>
-        </div>
-    </div>
-    <div class="container-fluid" id="special-background">
-        <div class="row">
-          <div class="col-md-12">
-            <%= image_tag ("homepage3.png"), class: "img-responsive" %>
-          </div>
-        </div>
-    </div>
+    <%= image_tag ("homepage1.png")%>
+    <%= image_tag ("homepage2.png")%>
+    <%= image_tag ("homepage3.png")%>
+  </div>
 </div>
