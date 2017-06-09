@@ -67,7 +67,34 @@
   margin-bottom: 12px;
 }
 
+.fa-pencil{
+  color:white;
+  font-size: 30px;
+}
 
+.btn-pencil-edit-name{
+  background-color:transparent;
+  border:none;
+  text-decoration:none;
+}
+
+.float-right-pencil-flex{
+  position: absolute;
+  top: 17%;
+  right: 16%;
+}
+
+.flex-box-name{
+  display: flex;
+  justify-content: center;
+  h1 {
+    margin-right: 15px;
+  }
+}
+
+button{
+  outline: none;
+}
 
 // SAVE AND CONTINUE BTN CODE______
 
