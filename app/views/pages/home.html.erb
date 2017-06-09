@@ -1,20 +1,14 @@
 <div class="home-content">
   <div class="video-container">
-    <div>
-      <%= image_tag ("LOGOB.png"), class: "c-image" %>
-    </div>
     <div class="video-container-content">
       <h1 class="avenir-typo">Let's Curate</h1>
-      <p class="avenir-typo">Collaborate to create your first exhibits!</p>
-      <% if user_signed_in? %>
-          <button class="next-step btndash btnspec">
-            <div class="button__outline"></div>
-            <div class="button__background"></div>
-            <div class="button__text home-btn-txt"><%= link_to "Manage my teams", dashboards_path %></div>
-          </button>
-      <% else %>
-        <p><%= link_to "Find a team", teams_path %></p>
-      <% end %>
+    </div>
+    <div class="thebuttonbox">
+    <% if user_signed_in? %>
+         <%= link_to "Manage my exhibition", dashboards_path, class: "theredbutton"  %>
+    <% else %>
+        <p><%= link_to "Find an exhibition", teams_path, class: "theredbutton" %></p>
+    <% end %>
     </div>
   </div>
   <div id="info">

@@ -29,7 +29,7 @@
   justify-content: flex-end;
 
   .navbar-wagon-item a {
-    color: white !important;
+    color: black !important;
 
   }
 
@@ -44,11 +44,11 @@
 
     .navbar-wagon-dropdown-menu li > a {
     transition: color 0.3s ease;
-    box-shadow: inset 0px 0 white !important;
-    border-bottom: inset 0px white !important;
-    border-top: inset 0px white !important;
+    box-shadow: inset 0px 0 black !important;
+    border-bottom: inset 0px black !important;
+    border-top: inset 0px black !important;
     font-weight: lighter !important;
-    color: #999999 !important;
+    color: black !important;
     font-size: 15px !important;
     line-height: 22px !important;
     padding: 10px 20px;

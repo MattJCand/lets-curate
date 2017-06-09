@@ -9,8 +9,10 @@
   min-height: 100vh;
   width: 100%;
   overflow: hidden;
-  background:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), image-url("exhibition.jpg");
+  background: image-url("finallyyy.png");
   background-size: cover;
+  background-position-y: -137px;
+  margin-bottom: -138px;
 }
 
 .c-image {
@@ -28,8 +30,10 @@
 }
 
 .video-container-content h1 {
-    font-size: 65px;
-  }
+  font-size: 65px;
+  margin-left: -569px;
+  margin-top: 100px;
+}
 
 .video-container-content p {
   font-size: 35px;
@@ -123,4 +127,38 @@
 #bodyalternate > div > div.home-content > div.video-container > div.video-container-content > button > div.button__text.home-btn-txt > a:hover{
   text-decoration: none;
   color: white;
+}
+
+.theredbutton{
+  border: 8px solid white;
+  padding: 20px 50px 20px 50px;
+  font-size: 25px;
+  color: white;
+  background: none;
+  font-weight: bold;
+  text-shadow: none;
+}
+
+.theredbutton{
+  border: 1px solid white;
+  padding: 20px 50px 20px 50px;
+  font-size: 25px;
+  color: white;
+  background: none;
+  font-family: Avenir, Helvetica, sans-serif;
+  font-weight: 300;
+  text-shadow: none;
+  transition: 1s ease;
+  border-radius: 5px;
+}
+
+.theredbutton:hover {
+  background: rgba(250, 250, 250, 0.3);
+  text-decoration: none;
+  color: white;
+}
+
+.thebuttonbox{
+  margin-top: 620px;
+  margin-left: 970px;
 }
