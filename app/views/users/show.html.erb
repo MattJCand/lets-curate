@@ -11,6 +11,9 @@
  <div class="cover avatar-square">
      <% if @user.avatar?  %>
         <%= cl_image_tag(@user.avatar.path, { size: '201x200'})%>
+     <% elsif @user.avatar_local?%>
+        <% avatar_url = @user.avatar_local%>
+        <%= image_tag avatar_url%>
      <% elsif user_signed_in? && current_user.provider == 'facebook' %>
         <% avatar_url = current_user.facebook_picture_url%>
         <%= image_tag avatar_url%>
@@ -78,7 +81,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <h1 id="fonts2"> Biography </h1>
-            <p id="fonts"><%= @user.description %></p>
+            <p id="fonts"><%= @user.bio %></p>
           </div>
         </div>
         <div class="row">

@@ -33,6 +33,9 @@ gem 'coffee-rails'
 #Add Pundit
 gem "pundit"
 
+#Add Faker
+gem "faker"
+
 #Add Social Link
 gem 'social-share-button'
 
