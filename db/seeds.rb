@@ -12,20 +12,20 @@ User.destroy_all
 
 user_attributes = [
   {
-    email: "mathieu@gmail.com",
+    email: "maurice@gmail.com",
     password: "123456",
     admin: true,
-    first_name: "Matt",
-    last_name: "Lewis",
-    city: "Paris",
+    first_name: "Maurice",
+    last_name: "Matar Wehbe",
+    city: "Lebanon",
     art_types: "photography",
-    avatar_local: "matt.jpg",
+    avatar_local: "maurice.jpg",
     bio: "After five years in the army and an honest career in athletics (middle-distance running), Lewis became a coach. He used his other passion, photography, in his work as a trainer. He used his photos of the athletes to correct a stance, or analyse a stride. He took his destiny into his own hands a bit later on and decided that what had been a means would become an end. He set himself up as a photographer, sticking with his favourite subject matter and published his first photo in 1957 at the age of 28."
   },
   {
     email: "ora@gmail.com",
     password: "123456",
-    admin: true,
+    admin: false,
     first_name: "Ora",
     last_name: "Akerman",
     city: "Paris",
@@ -37,7 +37,7 @@ user_attributes = [
   {
     email: "clara@gmail.com",
     password: "123456",
-    admin: true,
+    admin: false,
     first_name: "Clara",
     last_name: "Elbaz",
     city: "Paris",
@@ -47,7 +47,7 @@ user_attributes = [
   {
     email: "will@gmail.com",
     password: "123456",
-    admin: true,
+    admin: false,
     first_name: "will",
     last_name: "Jackson",
     city: "Paris",
