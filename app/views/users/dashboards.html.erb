@@ -1,28 +1,56 @@
 <div class="artistlist">
   <div class="main">
-  <h1 class="text-center">My dashboards</h1>
-  <div class="container text-center">
+  <h1 class="text-center dashboard-title">My upcoming exhibitions</h1>
+    <div class="container">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-        <% @teams.each do |team| %>
-          <div class="teamchoice">
-            <div class="team-details">
-                <% if team.photo? %>
-              <div class="team-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path team.photo.path, height: 300, width: 400, crop: :fill %>')"></div>
+          <% @teams.each do |team| %>
+          <div class= "horizontal-card"> <!-- display-flex -->
+            <div class="hc-image">
+              <% if team.photo? %>
+              <div class="hc-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path team.photo.path, height: 300, width: 400, crop: :fill %>')"></div>
               <% else %>
-              <div class="team-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path('noimage.jpg') %>')"></div>
+              <div class="hc-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path('noimage.jpg') %>')"></div>
               <% end %>
             </div>
-            <div class="team-name"><%= team.title %></div> <!-- connect to profile -->
-            <div class="team-body">
-              <p>Theme: <%= team.theme %><p>
-              <p>Types of art: <%= team.art_types %></p>
+            <div class="hc-title-content">
+              <div class="row">
+                <div class="col-md-8 hc-content-row-content">
+                  <div class="hc-title">
+                    <h1> <%= team.title %> </h1>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <!-- insert members here -->
+                  <div class="hc-avatar-position">
+                    <% team.members.each do |member| %>
+                      <% if member.user.avatar_local? %>
+                        <%= image_tag member.user.avatar_local, class: "avatar-special-hc"  %>
+                      <% else %>
+                        <%= image_tag "avatar-default_360.jpg", class: "avatar-special-hc" %>
+                      <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="hc-content"> <!-- display flex -->
+                <div class="hc-content-1">
+                  <!-- insert date and location -->
+                  <p><%= team.date.strftime("%A %d %B") %></p>
+                  <p><%= team.location %></p>
+                </div>
+                <div class="hc-content-2">
+                  <!-- insert theme and types of art -->
+                  <p>Theme: <%= team.theme %><p>
+                  <p>Types of art: <%= team.art_types %></p>
+                </div>
+                <div class="hc-content-3">
+                  <!-- insert price -->
+                  <p><strong><%=team.budget %></strong>$</p>
+                </div>
+              </div>
             </div>
-            <div class="team-body">
-              <p>Members - <strong><%= team.total_members  %></strong></p>
-              <p>Budget - <strong><%=team.budget %></strong>$</p>
-            </div>
-          <%= link_to "", dashboard_team_path(team), class: "card-link" %>
+            <%= link_to "", dashboard_team_path(team), class: "card-link" %>
           </div>
           <% end %>
         </div>
@@ -30,4 +58,6 @@
     </div>
   </div>
 </div>
+
+
 
