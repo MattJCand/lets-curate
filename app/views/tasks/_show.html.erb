@@ -1,4 +1,4 @@
-<div class="tasks-big-content" id="task-<%= task.id %>">
+<!-- <div class="tasks-big-content" id="task-<%= task.id %>">
   <div class="task-content">
       <h4 class="h4tasks"><%= index + 1 %>.
       <%= task.name %></h4>
@@ -22,4 +22,39 @@
         data: { confirm: "Are you sure?" }, class: "tasks-features" %>
     <% end %>
   </div>
+</div> --><!--  tasks-big-content -->
+
+<div class="tasks-big-content" id="task-<%= task.id %>">
+  <div class="task-content">
+    <div class="row spacing-margin">
+      <div class="col-md-2">
+        <% if task.member.user.avatar_local? %>
+              <%= image_tag task.member.user.avatar_local, class: "avatar-large" %>
+          <% else %>
+              <% image_tag "avatar-default_360.jpg" %>
+          <% end %>
+          <% if policy(@task).create? %>
+            <% if task.status? %>
+              <i class="fa fa-check"></i>
+            <% else %>
+              <%= link_to "To do", done_task_path(task), class: "tasks-features" %>
+            <% end %>
+          <% end %>
+      </div>
+      <div class="col-md-8">
+        <h4 class="h4tasks"><%= index + 1 %>.
+        <%= task.name %></h4>
+        <h5 class="task-description"><%= task.description %></h5>
+      </div>
+      <div class="col-md-2">
+        <% if policy(@task).create? %>
+          <%= link_to "Modify", edit_task_path(task), class: "tasks-features", remote: true  %>
+          <%= link_to "Delete", task_path(task),
+              method: :delete,
+              data: { confirm: "Are you sure?" }, class: "tasks-features" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div><!--  tasks-big-content -->
+
