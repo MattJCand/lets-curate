@@ -19,48 +19,65 @@
       <hr>
     </div>
     <div id="content">
-    <div class="row">
-      <div class="col-xs-8">
-        <p class="writingpdf">Exhibition start date - </p>
-        <hr>
-        <p class="writingpdf">Chosen location - </p>
-        <hr>
-        <p class="writingpdf">Exhibition's theme - </p>
-        <hr>
-        <p class="writingpdf">Types of art showcased by artists - </p>
-        <hr>
-      </div>
-      <div class="col-xs-4">
-        <p class="textpdf"><strong><%= @team.date.strftime("%A %d %B") %></strong></p>
-        <hr>
-        <p class="textpdf"><strong><%= @team.location %></strong></p>
-        <hr>
-        <p class="textpdf"><strong><%= @team.theme %></strong></p>
-        <hr>
-        <p class="textpdf"><strong><%= @team.art_types %></strong></p>
-        <hr>
-      </div>
-      </div>
       <div class="row">
-        <div class="col-xs-11">
+        <div class="col-xs-6">
+          <p class="writingpdf">Exhibition start date - </p>
+        </div>
+        <div class="col-xs-6">
+          <p class="textpdf"><strong><%= @team.date.strftime("%A %d %B") %></strong></p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-xs-4">
+          <p class="writingpdf">Chosen location - </p>
+        </div>
+        <div class="col-xs-8">
+          <p class="textpdf"><strong><%= @team.location %></strong></p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-xs-6">
+          <p class="writingpdf">Exhibition's theme - </p>
+        </div>
+        <div class="col-xs-6">
+          <p class="textpdf"><strong><%= @team.theme %></strong></p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-xs-6">
+          <p class="writingpdf">Types of art showcased by artists - </p>
+        </div>
+        <div class="col-xs-6">
+          <p class="textpdf"><strong><%= @team.art_types %></strong></p>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-xs-12">
           <p class="writingpdf">Exhibition description -</p>
           <p class="textpdfspecial"><%= @team.description %></p>
           <hr>
         </div>
       </div>
       <div class="row">
-    <h1 class="titlepdf"> Team members</h1>
-      <p class="text-center">
-      <% @team.members.each do |member| %>
-        <% if member.user.avatar? %>
-            <%= cl_image_tag member.user.avatar.path, class: "avatar-super-large" %>
-         <% else %>
-            <% avatar_url = current_user.facebook_picture_url || image_tag = "avatar-default_360.jpg" %>
-            <%= image_tag avatar_url, class: "avatar-super-large"%>
-         <% end %>
-        <p class="text-center"><%= member.user.first_name %> <%= member.user.last_name %></p>
-      <% end %></p>
-    </div>
+        <h1 class="titlepdf"> Team members</h1>
+        <div class="row margin-side-pdf">
+          <% @team.members.each do |member| %>
+            <div class="col-xs-3">
+              <% if member.user.avatar? %>
+                  <%= cl_image_tag member.user.avatar.path, class: "avatar-super-large" %>
+               <% else %>
+                  <% avatar_url = current_user.facebook_picture_url || image_tag = "avatar-default_360.jpg" %>
+                  <%= image_tag avatar_url, class: "avatar-super-large"%>
+               <% end %>
+              <p><%= member.user.first_name %> <%= member.user.last_name %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
