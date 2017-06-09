@@ -5,13 +5,9 @@
     </div>
     <div class="video-container-content">
       <h1 class="avenir-typo">Let's Curate</h1>
-      <p class="avenir-typo">Collaborate to create your first exhibits!</p>
+      <p class="avenir-typo">Collaborate together & exhibit together</p>
       <% if user_signed_in? %>
-          <button class="next-step btndash btnspec">
-            <div class="button__outline"></div>
-            <div class="button__background"></div>
-            <div class="button__text home-btn-txt"><%= link_to "Manage my teams", dashboards_path %></div>
-          </button>
+        <%= link_to "Manage my exhibits", dashboards_path, class: "button-home" %>
       <% else %>
         <p><%= link_to "Find a team", teams_path %></p>
       <% end %>
