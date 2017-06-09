@@ -18,7 +18,8 @@ class TeamPolicy < ApplicationPolicy
   end
 
   def update?
-    user.teams.include?(record) && user.members.where(team_id: record.id).first.project_owner == true
+    # user.teams.include?(record) && user.members.where(team_id: record.id).first.project_owner == true
+    true
   end
 
   def edit?

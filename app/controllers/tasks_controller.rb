@@ -41,7 +41,10 @@ class TasksController < ApplicationController
     @task.status = true
     authorize(@task)
     @task.save
-    redirect_to dashboard_team_path(@task.team)
+    respond_to do |format|
+      format.html { redirect_to dashboard_team_path(@task.team) }
+      format.js
+    end
   end
 
   private

@@ -1,13 +1,11 @@
+$(".info-date").html('<%= @team.date.strftime("%A %d %B") %>');
 
-$(".info-date").html('<%= @team.date.strftime("%A %d %B") %>')
+$(".info-address").html('<%= j @team.location %>');
 
-$(".info-address").html('<%= @team.location %>');
+$(".info-title").html('<%= j @team.title %>');
 
-$(".info-title").html('<%= @team.title %>')
+$(".info-theme").html('<%= j @team.theme %>');
 
-$(".info-theme").html('<%= @team.theme %>')
+$(".info-desc").html('<%= j @team.description %>');
 
-$(".info-desc").html('<%= @team.description %>')
-
-$(".modal").modal("hide")
-
+$(".modal").modal("hide");
