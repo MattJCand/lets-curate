@@ -1,48 +1,49 @@
 <div class="artistlist">
-  <div class="main">
+  <div class="maindash">
   <h1 class="text-center dashboard-title">My upcoming exhibitions</h1>
     <div class="container">
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <% @teams.each do |team| %>
-          <div class="new-test">
-            <div class="new-test-img">
-              <% if team.photo? %>
-              <div class="hc-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path team.photo.path, height: 300, width: 400, crop: :fill %>')"></div>
-              <% else %>
-              <div class="hc-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path('noimage.jpg') %>')"></div>
-              <% end %>
-            </div>
-            <div class="new-test-content">
-              <h1 class="testytest"> <%= team.title %> </h1>
-              <div class="row cowcow">
-                <div class="col-md-6">
-                  <p class="testytest2"><%= team.date.strftime("%A %d %B") %></p>
-                  <p class="testytest2"><%= team.location %></p>
+            <%= link_to dashboard_team_path(team), class: "hc-link" do %>
+              <div class="new-test">
+                <div class="new-test-img">
+                  <% if team.photo? %>
+                  <div class="hc-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path team.photo.path, height: 300, width: 400, crop: :fill %>')"></div>
+                  <% else %>
+                  <div class="hc-card-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path('noimage.jpg') %>')"></div>
+                  <% end %>
                 </div>
-                <div class="col-md-6">
-                  <p class="testytest2">Theme: <%= team.theme %></p>
-                  <p class="testytest2">Types of art: <%= team.art_types %></p>
+                <div class="new-test-content">
+                  <h1 class="testytest"> <%= team.title %> </h1>
+                  <div class="row cowcow">
+                    <div class="col-md-6">
+                      <p class="testytest2"><%= team.date.strftime("%A %d %B") %></p>
+                      <p class="testytest2"><%= team.location %></p>
+                    </div>
+                    <div class="col-md-6">
+                      <p class="testytest2">Theme: <%= team.theme %></p>
+                      <p class="testytest2">Types of art: <%= team.art_types %></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="new-test-member">
+                  <% team.members.each do |member| %>
+                    <% if member.user.avatar_local? %>
+                      <%= image_tag member.user.avatar_local, class: "avatar-special-hc"  %>
+                    <% else %>
+                      <%= image_tag "avatar-default_360.jpg", class: "avatar-special-hc" %>
+                    <% end %>
+                  <% end %>
+                  <p><strong><%=team.budget %></strong>$</p>
+                  <%= image_tag ("triangle.png"), class: "triangle" %>
                 </div>
               </div>
-            </div>
-            <div class="new-test-member">
-              <% team.members.each do |member| %>
-                <% if member.user.avatar_local? %>
-                  <%= image_tag member.user.avatar_local, class: "avatar-special-hc"  %>
-                <% else %>
-                  <%= image_tag "avatar-default_360.jpg", class: "avatar-special-hc" %>
-                <% end %>
-              <% end %>
-              <p><strong><%=team.budget %></strong>$</p>
-              <%= image_tag ("triangle.png"), class: "triangle" %>
-            </div>
-            <%= link_to "", dashboard_team_path(team), class: "card-link" %>
-          </div>
+            <% end %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-
+</div>
 
